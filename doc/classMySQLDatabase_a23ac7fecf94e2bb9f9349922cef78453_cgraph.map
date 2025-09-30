@@ -1,0 +1,5 @@
+<map id="MySQLDatabase::useDatabase" name="MySQLDatabase::useDatabase">
+<area shape="rect" id="Node000001" title="Выбор БД. Метод отвечает за выбор базы данных." alt="" coords="5,5,228,31"/>
+<area shape="rect" id="Node000002" href="$classMySQLDatabase.html#ac3b99b7c8e54e8cba1b6ff98d5cc4ddb" title="Простой запрос Метод отвечает за реализацию простых запросов к БД." alt="" coords="276,5,464,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="228,15,262,15,262,21,228,21"/>
+</map>

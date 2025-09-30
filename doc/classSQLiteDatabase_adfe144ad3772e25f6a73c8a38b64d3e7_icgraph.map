@@ -1,0 +1,9 @@
+<map id="SQLiteDatabase::close" name="SQLiteDatabase::close">
+<area shape="rect" id="Node000001" title="Закрытие базы данных Метод отвечает за корректное отключение от базы данных и последующее её закрытие..." alt="" coords="555,31,723,56"/>
+<area shape="rect" id="Node000002" href="$classSQLiteDatabase.html#a289e270265ee15d95a567b23d1e6f444" title="Отключение от БД. Метод отвечает за корректное завершение соединения с БД." alt="" coords="303,31,507,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="541,46,507,46,507,41,541,41"/>
+<area shape="rect" id="Node000003" href="$classSQLiteDatabase.html#a4da9c6d477ce48726b2da407effb2b4c" title="Удаление БД. Метод отвечает за удаление базы данных." alt="" coords="17,5,243,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="289,35,243,31,243,26,289,30"/>
+<area shape="rect" id="Node000004" href="$classSQLiteDatabase.html#a74d672abce489b8db3f6627c8cfc5c99" title="Деструктор класса. Деструктор класса, отвечает за корректное уничтожение обьекта." alt="" coords="5,55,255,80"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="289,56,255,59,255,54,289,51"/>
+</map>

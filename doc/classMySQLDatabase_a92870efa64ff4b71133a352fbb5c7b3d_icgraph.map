@@ -1,0 +1,5 @@
+<map id="MySQLDatabase::update" name="MySQLDatabase::update">
+<area shape="rect" id="Node000001" title="Изменение обьекта по условию Метод отвечает за изменение обьекта, который соответсвует определенному ..." alt="" coords="273,5,456,31"/>
+<area shape="rect" id="Node000002" href="$classMySQLDatabase.html#a6a6bf70bf157f56c2f78b1ad499bd4df" title="Обмен запсей в таблице между собой. Метод отвечает за обмен записей в таблице." alt="" coords="5,5,225,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="260,21,225,21,225,15,260,15"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="Database" name="Database">
+<area shape="rect" id="Node000001" title="class Database Представляет собой интерфейс для работы с базой данных." alt="" coords="107,5,240,271"/>
+<area shape="rect" id="Node000002" href="$classMySQLDatabase.html" title="class MySQLDatabase Представляет реализацию интерфейса Database для реализации ORM подхода при взаимо..." alt="" coords="5,329,163,594"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="136,284,123,329,118,328,131,283"/>
+<area shape="rect" id="Node000003" href="$classSQLiteDatabase.html" title="class SQLiteDatabase Представляет реализацию интерфейса Database для реализации ORM подхода при взаим..." alt="" coords="187,319,341,604"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="217,283,227,318,221,319,212,284"/>
+</map>

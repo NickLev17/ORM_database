@@ -1,0 +1,7 @@
+<map id="SQLiteDatabase::dropDatabase" name="SQLiteDatabase::dropDatabase">
+<area shape="rect" id="Node000001" title="Удаление БД. Метод отвечает за удаление базы данных." alt="" coords="5,5,231,31"/>
+<area shape="rect" id="Node000002" href="$classSQLiteDatabase.html#a289e270265ee15d95a567b23d1e6f444" title="Отключение от БД. Метод отвечает за корректное завершение соединения с БД." alt="" coords="279,5,483,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="231,15,265,15,265,21,231,21"/>
+<area shape="rect" id="Node000003" href="$classSQLiteDatabase.html#adfe144ad3772e25f6a73c8a38b64d3e7" title="Закрытие базы данных Метод отвечает за корректное отключение от базы данных и последующее её закрытие..." alt="" coords="531,5,699,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="483,15,517,15,517,21,483,21"/>
+</map>

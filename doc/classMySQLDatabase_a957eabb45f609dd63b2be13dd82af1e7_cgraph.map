@@ -1,0 +1,5 @@
+<map id="MySQLDatabase::removeObject" name="MySQLDatabase::removeObject">
+<area shape="rect" id="Node000001" title="Удаление обьектов по условию Метод отвечает за удаление обьектов соответствующих определенному услови..." alt="" coords="5,5,235,31"/>
+<area shape="rect" id="Node000002" href="$classMySQLDatabase.html#ac3b99b7c8e54e8cba1b6ff98d5cc4ddb" title="Простой запрос Метод отвечает за реализацию простых запросов к БД." alt="" coords="283,5,471,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="235,15,269,15,269,21,235,21"/>
+</map>

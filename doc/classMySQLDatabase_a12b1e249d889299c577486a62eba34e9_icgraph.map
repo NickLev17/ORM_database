@@ -1,0 +1,5 @@
+<map id="MySQLDatabase::connect" name="MySQLDatabase::connect">
+<area shape="rect" id="Node000001" title="Установление соединения с БД. Метод отвечает за покдлючение к БД." alt="" coords="297,5,485,31"/>
+<area shape="rect" id="Node000002" href="$classMySQLDatabase.html#a8e8f5b13849d9204f647964a14b6e81b" title="Конструктор класса. Конструктор класса отвечает за корректное создание обьекта." alt="" coords="5,5,249,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="284,21,250,21,250,15,284,15"/>
+</map>

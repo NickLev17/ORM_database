@@ -1,0 +1,5 @@
+<map id="MySQLDatabase::insert" name="MySQLDatabase::insert">
+<area shape="rect" id="Node000001" title="Вставка обьектов в таблицу. Метод отвечает вставку обьектов в таблицу базы данных." alt="" coords="5,5,180,31"/>
+<area shape="rect" id="Node000002" href="$classMySQLDatabase.html#ac3b99b7c8e54e8cba1b6ff98d5cc4ddb" title="Простой запрос Метод отвечает за реализацию простых запросов к БД." alt="" coords="228,5,416,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="180,15,214,15,214,21,180,21"/>
+</map>

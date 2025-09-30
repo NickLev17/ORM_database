@@ -1,0 +1,5 @@
+<map id="SQLiteDatabase::renameTable" name="SQLiteDatabase::renameTable">
+<area shape="rect" id="Node000001" title="Переименование таблицы Метод отвечает за переименование таблцы из базе даных." alt="" coords="5,5,224,31"/>
+<area shape="rect" id="Node000002" href="$classSQLiteDatabase.html#a6fa5bc48354eada1a4171f8de10fd5bf" title="Простой запрос Метод отвечает за реализацию простых запросов к БД." alt="" coords="272,5,457,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="224,15,258,15,258,21,224,21"/>
+</map>

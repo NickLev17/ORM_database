@@ -1,0 +1,5 @@
+<map id="MySQLDatabase::dropTable" name="MySQLDatabase::dropTable">
+<area shape="rect" id="Node000001" title="Удаление таблицы Метод отвечает за удаление таблцы из базе даных." alt="" coords="5,5,205,31"/>
+<area shape="rect" id="Node000002" href="$classMySQLDatabase.html#ac3b99b7c8e54e8cba1b6ff98d5cc4ddb" title="Простой запрос Метод отвечает за реализацию простых запросов к БД." alt="" coords="253,5,441,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="205,15,240,15,240,21,205,21"/>
+</map>

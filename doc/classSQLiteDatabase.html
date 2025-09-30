@@ -1,0 +1,1796 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Реализация ORM клиента с поддержкой баз данных SQLite и MySQL: Класс SQLiteDatabase</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Реализация ORM клиента с поддержкой баз данных SQLite и MySQL<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+   <div id="projectbrief">Упрощаем взаимодействие между объектно-ориентированным программным кодом и реляционными базами данных.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pub-attribs">Открытые атрибуты</a> &#124;
+<a href="classSQLiteDatabase-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс SQLiteDatabase</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>class <a class="el" href="classSQLiteDatabase.html" title="class SQLiteDatabase Представляет реализацию интерфейса Database для реализации ORM подхода при взаим...">SQLiteDatabase</a> Представляет реализацию интерфейса <a class="el" href="classDatabase.html" title="class Database Представляет собой интерфейс для работы с базой данных.">Database</a> для реализации ORM подхода при взаимодействии с базой данных SQLite.  
+ <a href="classSQLiteDatabase.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="SQLiteDatabase_8h_source.html">SQLiteDatabase.h</a>&gt;</code></p>
+<div class="dynheader">
+Граф наследования:SQLiteDatabase:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSQLiteDatabase__inherit__graph.png" border="0" usemap="#aSQLiteDatabase_inherit__map" alt="Inheritance graph"/></div>
+<map name="aSQLiteDatabase_inherit__map" id="aSQLiteDatabase_inherit__map">
+<area shape="rect" title="class SQLiteDatabase Представляет реализацию интерфейса Database для реализации ORM подхода при взаим..." alt="" coords="5,319,159,604"/>
+<area shape="rect" href="classDatabase.html" title="class Database Представляет собой интерфейс для работы с базой данных." alt="" coords="15,5,149,271"/>
+<area shape="poly" title=" " alt="" coords="85,284,85,318,79,318,79,284"/>
+</map>
+</div>
+<div class="dynheader">
+Граф связей класса SQLiteDatabase:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSQLiteDatabase__coll__graph.png" border="0" usemap="#aSQLiteDatabase_coll__map" alt="Collaboration graph"/></div>
+<map name="aSQLiteDatabase_coll__map" id="aSQLiteDatabase_coll__map">
+<area shape="rect" title="class SQLiteDatabase Представляет реализацию интерфейса Database для реализации ORM подхода при взаим..." alt="" coords="5,319,159,604"/>
+<area shape="rect" href="classDatabase.html" title="class Database Представляет собой интерфейс для работы с базой данных." alt="" coords="15,5,149,271"/>
+<area shape="poly" title=" " alt="" coords="85,284,85,318,79,318,79,284"/>
+</map>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a82d8932bb4f4efe8a22943a57d7d9885" id="r_a82d8932bb4f4efe8a22943a57d7d9885"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLiteDatabase.html#a82d8932bb4f4efe8a22943a57d7d9885">SQLiteDatabase</a> ()</td></tr>
+<tr class="memdesc:a82d8932bb4f4efe8a22943a57d7d9885"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор класса. Конструктор класса отвечает за корректное создание обьекта.  <br /></td></tr>
+<tr class="separator:a82d8932bb4f4efe8a22943a57d7d9885"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74d672abce489b8db3f6627c8cfc5c99" id="r_a74d672abce489b8db3f6627c8cfc5c99"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLiteDatabase.html#a74d672abce489b8db3f6627c8cfc5c99">~SQLiteDatabase</a> ()</td></tr>
+<tr class="memdesc:a74d672abce489b8db3f6627c8cfc5c99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Деструктор класса. Деструктор класса, отвечает за корректное уничтожение обьекта.  <br /></td></tr>
+<tr class="separator:a74d672abce489b8db3f6627c8cfc5c99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a630960f0d1006dfa68472cb196f24eb1" id="r_a630960f0d1006dfa68472cb196f24eb1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLiteDatabase.html#a630960f0d1006dfa68472cb196f24eb1">isConnected</a> () const override</td></tr>
+<tr class="memdesc:a630960f0d1006dfa68472cb196f24eb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Состояние соединения. Метод отвечает за возврат состояния текущего соединения.  <br /></td></tr>
+<tr class="separator:a630960f0d1006dfa68472cb196f24eb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a289e270265ee15d95a567b23d1e6f444" id="r_a289e270265ee15d95a567b23d1e6f444"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLiteDatabase.html#a289e270265ee15d95a567b23d1e6f444">disconnect</a> () override</td></tr>
+<tr class="memdesc:a289e270265ee15d95a567b23d1e6f444"><td class="mdescLeft">&#160;</td><td class="mdescRight">Отключение от БД. Метод отвечает за корректное завершение соединения с БД.  <br /></td></tr>
+<tr class="separator:a289e270265ee15d95a567b23d1e6f444"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac95ffa9e7854b29da448e63504e23d59" id="r_ac95ffa9e7854b29da448e63504e23d59"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLiteDatabase.html#ac95ffa9e7854b29da448e63504e23d59">connect</a> (const string &amp;, const string &amp;) override</td></tr>
+<tr class="memdesc:ac95ffa9e7854b29da448e63504e23d59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установление соединения с БД. Метод отвечает за покдлючение к БД.  <br /></td></tr>
+<tr class="separator:ac95ffa9e7854b29da448e63504e23d59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a2fdad1ef6952d4d2f8236e4aca9c02" id="r_a4a2fdad1ef6952d4d2f8236e4aca9c02"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLiteDatabase.html#a4a2fdad1ef6952d4d2f8236e4aca9c02">openDatabase</a> (const string &amp;db_file) override</td></tr>
+<tr class="memdesc:a4a2fdad1ef6952d4d2f8236e4aca9c02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Открытие БД. Метод отвечает за открытие выбранной базы данных.  <br /></td></tr>
+<tr class="separator:a4a2fdad1ef6952d4d2f8236e4aca9c02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0a9bff407357122a02038282d039409" id="r_ab0a9bff407357122a02038282d039409"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLiteDatabase.html#ab0a9bff407357122a02038282d039409">createDatabase</a> (const string &amp;db_file) override</td></tr>
+<tr class="memdesc:ab0a9bff407357122a02038282d039409"><td class="mdescLeft">&#160;</td><td class="mdescRight">Создание БД. Метод отвечает за создание базы данных.  <br /></td></tr>
+<tr class="separator:ab0a9bff407357122a02038282d039409"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a302bb12321649b0e2e5cbd48dc2dc003" id="r_a302bb12321649b0e2e5cbd48dc2dc003"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLiteDatabase.html#a302bb12321649b0e2e5cbd48dc2dc003">useDatabase</a> (const string &amp;db_file) override</td></tr>
+<tr class="memdesc:a302bb12321649b0e2e5cbd48dc2dc003"><td class="mdescLeft">&#160;</td><td class="mdescRight">Выбор БД. Метод отвечает за выбор базы данных.  <br /></td></tr>
+<tr class="separator:a302bb12321649b0e2e5cbd48dc2dc003"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4da9c6d477ce48726b2da407effb2b4c" id="r_a4da9c6d477ce48726b2da407effb2b4c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLiteDatabase.html#a4da9c6d477ce48726b2da407effb2b4c">dropDatabase</a> (const string &amp;db_file) override</td></tr>
+<tr class="memdesc:a4da9c6d477ce48726b2da407effb2b4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Удаление БД. Метод отвечает за удаление базы данных.  <br /></td></tr>
+<tr class="separator:a4da9c6d477ce48726b2da407effb2b4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a820b9e3dd8c2e6d60bfe8ccc516d0b7e" id="r_a820b9e3dd8c2e6d60bfe8ccc516d0b7e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLiteDatabase.html#a820b9e3dd8c2e6d60bfe8ccc516d0b7e">tableExists</a> (const string &amp;tableName) const override</td></tr>
+<tr class="memdesc:a820b9e3dd8c2e6d60bfe8ccc516d0b7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверка наличия таблицы в БД. Метод отвечает за проверку наличия таблицы в базе данных.  <br /></td></tr>
+<tr class="separator:a820b9e3dd8c2e6d60bfe8ccc516d0b7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3164127b2cd61a7548d7a7af1f8e905" id="r_ac3164127b2cd61a7548d7a7af1f8e905"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLiteDatabase.html#ac3164127b2cd61a7548d7a7af1f8e905">dropTable</a> (const string &amp;tableName) override</td></tr>
+<tr class="memdesc:ac3164127b2cd61a7548d7a7af1f8e905"><td class="mdescLeft">&#160;</td><td class="mdescRight">Удаление таблицы Метод отвечает за удаление таблцы из базе даных.  <br /></td></tr>
+<tr class="separator:ac3164127b2cd61a7548d7a7af1f8e905"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c923ebf6bc72d3cc15d474794fa76b8" id="r_a1c923ebf6bc72d3cc15d474794fa76b8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLiteDatabase.html#a1c923ebf6bc72d3cc15d474794fa76b8">createTable</a> (const string &amp;tableName) override</td></tr>
+<tr class="memdesc:a1c923ebf6bc72d3cc15d474794fa76b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Создание таблицы Метод отвечает за создание таблцы в базе даных.  <br /></td></tr>
+<tr class="separator:a1c923ebf6bc72d3cc15d474794fa76b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a000c64a480a0552262af9f928dfc96f5" id="r_a000c64a480a0552262af9f928dfc96f5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLiteDatabase.html#a000c64a480a0552262af9f928dfc96f5">renameTable</a> (const string &amp;tableName, const string &amp;newName) override</td></tr>
+<tr class="memdesc:a000c64a480a0552262af9f928dfc96f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Переименование таблицы Метод отвечает за переименование таблцы из базе даных.  <br /></td></tr>
+<tr class="separator:a000c64a480a0552262af9f928dfc96f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a013d712fb5f1183ed15638e51495b360" id="r_a013d712fb5f1183ed15638e51495b360"><td class="memItemLeft" align="right" valign="top">vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLiteDatabase.html#a013d712fb5f1183ed15638e51495b360">getTables</a> () const override</td></tr>
+<tr class="memdesc:a013d712fb5f1183ed15638e51495b360"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получаение вектора имен таблиц. Метод возвращает вектор с названиями таблиц из текущей базы данных.  <br /></td></tr>
+<tr class="separator:a013d712fb5f1183ed15638e51495b360"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a379f54a85c887cfce8092e4524b2a9e1" id="r_a379f54a85c887cfce8092e4524b2a9e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLiteDatabase.html#a379f54a85c887cfce8092e4524b2a9e1">insert</a> (const std::string &amp;tableName, const <a class="el" href="structUser.html">User</a> &amp;obj) override</td></tr>
+<tr class="memdesc:a379f54a85c887cfce8092e4524b2a9e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вставка обьектов в таблицу. Метод отвечает вставку обьектов в таблицу базы данных.  <br /></td></tr>
+<tr class="separator:a379f54a85c887cfce8092e4524b2a9e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee06baccdb72d104e5319a596c69d0e9" id="r_aee06baccdb72d104e5319a596c69d0e9"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structUser.html">User</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLiteDatabase.html#aee06baccdb72d104e5319a596c69d0e9">select</a> (const std::string &amp;query) override</td></tr>
+<tr class="memdesc:aee06baccdb72d104e5319a596c69d0e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Выбор элементов из таблицы по запросу. Метод отвечает возврат элементов из таблицы в соответствии с определенным запросом.  <br /></td></tr>
+<tr class="separator:aee06baccdb72d104e5319a596c69d0e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97ed81e786e22f1f1ebf870248f53335" id="r_a97ed81e786e22f1f1ebf870248f53335"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLiteDatabase.html#a97ed81e786e22f1f1ebf870248f53335">update</a> (const std::string &amp;tableName, const <a class="el" href="structUser.html">User</a> &amp;obj, const std::string &amp;condition) override</td></tr>
+<tr class="memdesc:a97ed81e786e22f1f1ebf870248f53335"><td class="mdescLeft">&#160;</td><td class="mdescRight">Изменение обьекта по условию Метод отвечает за изменение обьекта, который соответсвует определенному условию.  <br /></td></tr>
+<tr class="separator:a97ed81e786e22f1f1ebf870248f53335"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af856c5ac61f0b8255c04bf391c8217a5" id="r_af856c5ac61f0b8255c04bf391c8217a5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLiteDatabase.html#af856c5ac61f0b8255c04bf391c8217a5">removeObject</a> (const std::string &amp;tableName, const std::string &amp;condition) override</td></tr>
+<tr class="memdesc:af856c5ac61f0b8255c04bf391c8217a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Удаление обьектов по условию Метод отвечает за удаление обьектов соответствующих определенному условию.  <br /></td></tr>
+<tr class="separator:af856c5ac61f0b8255c04bf391c8217a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bf0d9ef8b2ae3ab663b9c30b3d5f1da" id="r_a8bf0d9ef8b2ae3ab663b9c30b3d5f1da"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structUser.html">User</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLiteDatabase.html#a8bf0d9ef8b2ae3ab663b9c30b3d5f1da">getAllObjects</a> (const std::string &amp;tableName) const override</td></tr>
+<tr class="memdesc:a8bf0d9ef8b2ae3ab663b9c30b3d5f1da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вовзрат всех обьектов из таблицы. Метод отвечает за возврат всех обьектов из таблицы.  <br /></td></tr>
+<tr class="separator:a8bf0d9ef8b2ae3ab663b9c30b3d5f1da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adbec45e8648ac0b174ccd3c9792ab9ea" id="r_adbec45e8648ac0b174ccd3c9792ab9ea"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structUser.html">User</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLiteDatabase.html#adbec45e8648ac0b174ccd3c9792ab9ea">getObjects</a> (const std::string &amp;tableName, const string &amp;condition) const override</td></tr>
+<tr class="memdesc:adbec45e8648ac0b174ccd3c9792ab9ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вовзрат обьектов из таблицы в соответствии с определенным условием. Метод отвечает за возврат обьектов, которые соответсвуют определенному условию.  <br /></td></tr>
+<tr class="separator:adbec45e8648ac0b174ccd3c9792ab9ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a194b4ea124fd326589cdf11f3d5ba1ef" id="r_a194b4ea124fd326589cdf11f3d5ba1ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLiteDatabase.html#a194b4ea124fd326589cdf11f3d5ba1ef">removeAllObjects</a> (const std::string &amp;tableName) override</td></tr>
+<tr class="memdesc:a194b4ea124fd326589cdf11f3d5ba1ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Удаление всех обьектов из таблицы. Метод отвечает за удаление всех обьектов из таблицы.  <br /></td></tr>
+<tr class="separator:a194b4ea124fd326589cdf11f3d5ba1ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab37ab61003762cd193f5287a7a680647" id="r_ab37ab61003762cd193f5287a7a680647"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structUser.html">User</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLiteDatabase.html#ab37ab61003762cd193f5287a7a680647">getObjectsOrderBy</a> (const std::string &amp;tableName, const string &amp;field) const override</td></tr>
+<tr class="memdesc:ab37ab61003762cd193f5287a7a680647"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получение сортированных по одному полю обьектов из таблицы Метод отвечает за сортировку данных по одному выбранному полю.  <br /></td></tr>
+<tr class="separator:ab37ab61003762cd193f5287a7a680647"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6cd56df6f3ff7469acf7ac6a5d3eae50" id="r_a6cd56df6f3ff7469acf7ac6a5d3eae50"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structUser.html">User</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLiteDatabase.html#a6cd56df6f3ff7469acf7ac6a5d3eae50">getObjectsOrderBy</a> (const std::string &amp;tableName, const string &amp;field1, const string &amp;field2) const override</td></tr>
+<tr class="memdesc:a6cd56df6f3ff7469acf7ac6a5d3eae50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получение сортированных по двум полям обьектов из таблицы Метод отвечает за сортировку данных по двум выбранному полю.  <br /></td></tr>
+<tr class="separator:a6cd56df6f3ff7469acf7ac6a5d3eae50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c7da0cc2ca027b3c7653db18b0d094a" id="r_a0c7da0cc2ca027b3c7653db18b0d094a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLiteDatabase.html#a0c7da0cc2ca027b3c7653db18b0d094a">copyAllObjectsInOtherTable</a> (const std::string &amp;tableNameFrom, const std::string &amp;tableNameTo) override</td></tr>
+<tr class="memdesc:a0c7da0cc2ca027b3c7653db18b0d094a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Копирование всех обьектоов из таблицы. Метод отвечает за копирование всех обьектов из одной базы данных в другю.  <br /></td></tr>
+<tr class="separator:a0c7da0cc2ca027b3c7653db18b0d094a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a460d99a69cc930c5e41532e8a1f1c4ad" id="r_a460d99a69cc930c5e41532e8a1f1c4ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLiteDatabase.html#a460d99a69cc930c5e41532e8a1f1c4ad">copyObjectsInOtherTable</a> (const std::string &amp;tableNameFrom, const std::string &amp;tableNameTo, const std::string &amp;condition) override</td></tr>
+<tr class="memdesc:a460d99a69cc930c5e41532e8a1f1c4ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Копирование обьектов из таблицы соответствующих условию. Метод отвечает за копирование обьектов соответствующих определенному условию, из одной таблицы в другую.  <br /></td></tr>
+<tr class="separator:a460d99a69cc930c5e41532e8a1f1c4ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fee113404bbef08d9fd4589fc39d267" id="r_a1fee113404bbef08d9fd4589fc39d267"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLiteDatabase.html#a1fee113404bbef08d9fd4589fc39d267">beginTransaction</a> () override</td></tr>
+<tr class="memdesc:a1fee113404bbef08d9fd4589fc39d267"><td class="mdescLeft">&#160;</td><td class="mdescRight">Начало транзакции. Метод устанавливает начало транзакции.  <br /></td></tr>
+<tr class="separator:a1fee113404bbef08d9fd4589fc39d267"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ba6b1c8dc073fee9e702dec2475c3a9" id="r_a5ba6b1c8dc073fee9e702dec2475c3a9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLiteDatabase.html#a5ba6b1c8dc073fee9e702dec2475c3a9">commit</a> () override</td></tr>
+<tr class="memdesc:a5ba6b1c8dc073fee9e702dec2475c3a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Коммит. Метод применяет текущие изменения в базе данных.  <br /></td></tr>
+<tr class="separator:a5ba6b1c8dc073fee9e702dec2475c3a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9404d5a304d8ac8dddbf1d9a42db425f" id="r_a9404d5a304d8ac8dddbf1d9a42db425f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLiteDatabase.html#a9404d5a304d8ac8dddbf1d9a42db425f">rollback</a> () override</td></tr>
+<tr class="memdesc:a9404d5a304d8ac8dddbf1d9a42db425f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Отмена транзакции. Метод отменяет текущие изменения в базе данных.  <br /></td></tr>
+<tr class="separator:a9404d5a304d8ac8dddbf1d9a42db425f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfe144ad3772e25f6a73c8a38b64d3e7" id="r_adfe144ad3772e25f6a73c8a38b64d3e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLiteDatabase.html#adfe144ad3772e25f6a73c8a38b64d3e7">close</a> ()</td></tr>
+<tr class="memdesc:adfe144ad3772e25f6a73c8a38b64d3e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Закрытие базы данных Метод отвечает за корректное отключение от базы данных и последующее её закрытие.  <br /></td></tr>
+<tr class="separator:adfe144ad3772e25f6a73c8a38b64d3e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fa5bc48354eada1a4171f8de10fd5bf" id="r_a6fa5bc48354eada1a4171f8de10fd5bf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLiteDatabase.html#a6fa5bc48354eada1a4171f8de10fd5bf">execute</a> (const string &amp;sql) override</td></tr>
+<tr class="memdesc:a6fa5bc48354eada1a4171f8de10fd5bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Простой запрос Метод отвечает за реализацию простых запросов к БД.  <br /></td></tr>
+<tr class="separator:a6fa5bc48354eada1a4171f8de10fd5bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d72ae16be3adf71857bbc13c7200fb7" id="r_a5d72ae16be3adf71857bbc13c7200fb7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLiteDatabase.html#a5d72ae16be3adf71857bbc13c7200fb7">getObjectsCount</a> (const std::string &amp;tableName) const override</td></tr>
+<tr class="memdesc:a5d72ae16be3adf71857bbc13c7200fb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получение количества обьектов в таблице. Метод отвечает за возврат количеств обьектов в таблице.  <br /></td></tr>
+<tr class="separator:a5d72ae16be3adf71857bbc13c7200fb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a4bf15ff8dc3101552fa455ee2bee1d" id="r_a2a4bf15ff8dc3101552fa455ee2bee1d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLiteDatabase.html#a2a4bf15ff8dc3101552fa455ee2bee1d">swapObjects</a> (const std::string &amp;tableName, const std::string &amp;id_obj, const std::string &amp;id_other_obj) override</td></tr>
+<tr class="memdesc:a2a4bf15ff8dc3101552fa455ee2bee1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Обмен запсей в таблице между собой. Метод отвечает за обмен записей в таблице.  <br /></td></tr>
+<tr class="separator:a2a4bf15ff8dc3101552fa455ee2bee1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classDatabase"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classDatabase')"><img src="closed.png" alt="-"/>&#160;Открытые члены унаследованные от <a class="el" href="classDatabase.html">Database</a></td></tr>
+<tr class="memitem:a4703c80e6969d33565ea340f768fdadf inherit pub_methods_classDatabase" id="r_a4703c80e6969d33565ea340f768fdadf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDatabase.html#a4703c80e6969d33565ea340f768fdadf">Database</a> ()</td></tr>
+<tr class="memdesc:a4703c80e6969d33565ea340f768fdadf inherit pub_methods_classDatabase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор класса. Виртуальный конструктор класса, отвечает за создание обьекта.  <br /></td></tr>
+<tr class="separator:a4703c80e6969d33565ea340f768fdadf inherit pub_methods_classDatabase"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96171c4efaa839446eaf223c8b98e4d2 inherit pub_methods_classDatabase" id="r_a96171c4efaa839446eaf223c8b98e4d2"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDatabase.html#a96171c4efaa839446eaf223c8b98e4d2">~Database</a> ()=default</td></tr>
+<tr class="memdesc:a96171c4efaa839446eaf223c8b98e4d2 inherit pub_methods_classDatabase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Деструктор класса. Виртуальный деструктор класса, отвечает за корректное уничтожение обьекта.  <br /></td></tr>
+<tr class="separator:a96171c4efaa839446eaf223c8b98e4d2 inherit pub_methods_classDatabase"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83f8b6d2941a4aee50f225e08e97291c inherit pub_methods_classDatabase" id="r_a83f8b6d2941a4aee50f225e08e97291c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDatabase.html#a83f8b6d2941a4aee50f225e08e97291c">Database</a> (const <a class="el" href="classDatabase.html">Database</a> &amp;)=delete</td></tr>
+<tr class="memdesc:a83f8b6d2941a4aee50f225e08e97291c inherit pub_methods_classDatabase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор копирования класса. Конструктор копирования класса -отсутствует.  <br /></td></tr>
+<tr class="separator:a83f8b6d2941a4aee50f225e08e97291c inherit pub_methods_classDatabase"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46b93a4878076c7cfddd5b4058297f14 inherit pub_methods_classDatabase" id="r_a46b93a4878076c7cfddd5b4058297f14"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDatabase.html">Database</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDatabase.html#a46b93a4878076c7cfddd5b4058297f14">operator=</a> (const <a class="el" href="classDatabase.html">Database</a> &amp;)=delete</td></tr>
+<tr class="memdesc:a46b93a4878076c7cfddd5b4058297f14 inherit pub_methods_classDatabase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Оператор присваивания. Оператор присваивния класса -отсутствует.  <br /></td></tr>
+<tr class="separator:a46b93a4878076c7cfddd5b4058297f14 inherit pub_methods_classDatabase"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Открытые атрибуты</h2></td></tr>
+<tr class="memitem:a6dbaa2f892d6fb5b9a9f51254e1a7f11" id="r_a6dbaa2f892d6fb5b9a9f51254e1a7f11"><td class="memItemLeft" align="right" valign="top">sqlite3 *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLiteDatabase.html#a6dbaa2f892d6fb5b9a9f51254e1a7f11">db</a> = nullptr</td></tr>
+<tr class="separator:a6dbaa2f892d6fb5b9a9f51254e1a7f11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4b8d1c6b88f459e25db1042c11b6e26" id="r_ab4b8d1c6b88f459e25db1042c11b6e26"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLiteDatabase.html#ab4b8d1c6b88f459e25db1042c11b6e26">connection</a> = false</td></tr>
+<tr class="separator:ab4b8d1c6b88f459e25db1042c11b6e26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>class <a class="el" href="classSQLiteDatabase.html" title="class SQLiteDatabase Представляет реализацию интерфейса Database для реализации ORM подхода при взаим...">SQLiteDatabase</a> Представляет реализацию интерфейса <a class="el" href="classDatabase.html" title="class Database Представляет собой интерфейс для работы с базой данных.">Database</a> для реализации ORM подхода при взаимодействии с базой данных SQLite. </p>
+</div><h2 class="groupheader">Конструктор(ы)</h2>
+<a id="a82d8932bb4f4efe8a22943a57d7d9885" name="a82d8932bb4f4efe8a22943a57d7d9885"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82d8932bb4f4efe8a22943a57d7d9885">&#9670;&#160;</a></span>SQLiteDatabase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SQLiteDatabase::SQLiteDatabase </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Конструктор класса. Конструктор класса отвечает за корректное создание обьекта. </p>
+
+</div>
+</div>
+<a id="a74d672abce489b8db3f6627c8cfc5c99" name="a74d672abce489b8db3f6627c8cfc5c99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74d672abce489b8db3f6627c8cfc5c99">&#9670;&#160;</a></span>~SQLiteDatabase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SQLiteDatabase::~SQLiteDatabase </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Деструктор класса. Деструктор класса, отвечает за корректное уничтожение обьекта. </p>
+<div class="dynheader">
+Граф вызовов:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSQLiteDatabase_a74d672abce489b8db3f6627c8cfc5c99_cgraph.png" border="0" usemap="#aclassSQLiteDatabase_a74d672abce489b8db3f6627c8cfc5c99_cgraph" alt=""/></div>
+<map name="aclassSQLiteDatabase_a74d672abce489b8db3f6627c8cfc5c99_cgraph" id="aclassSQLiteDatabase_a74d672abce489b8db3f6627c8cfc5c99_cgraph">
+<area shape="rect" title="Деструктор класса. Деструктор класса, отвечает за корректное уничтожение обьекта." alt="" coords="5,31,255,56"/>
+<area shape="rect" href="classSQLiteDatabase.html#a289e270265ee15d95a567b23d1e6f444" title="Отключение от БД. Метод отвечает за корректное завершение соединения с БД." alt="" coords="308,5,512,31"/>
+<area shape="poly" title=" " alt="" coords="255,29,294,26,295,31,255,35"/>
+<area shape="rect" href="classSQLiteDatabase.html#a630960f0d1006dfa68472cb196f24eb1" title="Состояние соединения. Метод отвечает за возврат состояния текущего соединения." alt="" coords="303,55,517,80"/>
+<area shape="poly" title=" " alt="" coords="255,51,289,54,289,60,255,57"/>
+<area shape="rect" href="classSQLiteDatabase.html#adfe144ad3772e25f6a73c8a38b64d3e7" title="Закрытие базы данных Метод отвечает за корректное отключение от базы данных и последующее её закрытие..." alt="" coords="565,5,733,31"/>
+<area shape="poly" title=" " alt="" coords="512,15,552,15,552,21,512,21"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a id="a1fee113404bbef08d9fd4589fc39d267" name="a1fee113404bbef08d9fd4589fc39d267"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fee113404bbef08d9fd4589fc39d267">&#9670;&#160;</a></span>beginTransaction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SQLiteDatabase::beginTransaction </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Начало транзакции. Метод устанавливает начало транзакции. </p>
+
+<p>Замещает <a class="el" href="classDatabase.html#aff3b501fd49267d686a5385a5310dd52">Database</a>.</p>
+<div class="dynheader">
+Граф вызовов:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSQLiteDatabase_a1fee113404bbef08d9fd4589fc39d267_cgraph.png" border="0" usemap="#aclassSQLiteDatabase_a1fee113404bbef08d9fd4589fc39d267_cgraph" alt=""/></div>
+<map name="aclassSQLiteDatabase_a1fee113404bbef08d9fd4589fc39d267_cgraph" id="aclassSQLiteDatabase_a1fee113404bbef08d9fd4589fc39d267_cgraph">
+<area shape="rect" title="Начало транзакции. Метод устанавливает начало транзакции." alt="" coords="5,5,249,31"/>
+<area shape="rect" href="classSQLiteDatabase.html#a6fa5bc48354eada1a4171f8de10fd5bf" title="Простой запрос Метод отвечает за реализацию простых запросов к БД." alt="" coords="297,5,483,31"/>
+<area shape="poly" title=" " alt="" coords="250,15,284,15,284,21,250,21"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="adfe144ad3772e25f6a73c8a38b64d3e7" name="adfe144ad3772e25f6a73c8a38b64d3e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfe144ad3772e25f6a73c8a38b64d3e7">&#9670;&#160;</a></span>close()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SQLiteDatabase::close </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Закрытие базы данных Метод отвечает за корректное отключение от базы данных и последующее её закрытие. </p>
+<div class="dynheader">
+Граф вызова функции:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSQLiteDatabase_adfe144ad3772e25f6a73c8a38b64d3e7_icgraph.png" border="0" usemap="#aclassSQLiteDatabase_adfe144ad3772e25f6a73c8a38b64d3e7_icgraph" alt=""/></div>
+<map name="aclassSQLiteDatabase_adfe144ad3772e25f6a73c8a38b64d3e7_icgraph" id="aclassSQLiteDatabase_adfe144ad3772e25f6a73c8a38b64d3e7_icgraph">
+<area shape="rect" title="Закрытие базы данных Метод отвечает за корректное отключение от базы данных и последующее её закрытие..." alt="" coords="555,31,723,56"/>
+<area shape="rect" href="classSQLiteDatabase.html#a289e270265ee15d95a567b23d1e6f444" title="Отключение от БД. Метод отвечает за корректное завершение соединения с БД." alt="" coords="303,31,507,56"/>
+<area shape="poly" title=" " alt="" coords="541,46,507,46,507,41,541,41"/>
+<area shape="rect" href="classSQLiteDatabase.html#a4da9c6d477ce48726b2da407effb2b4c" title="Удаление БД. Метод отвечает за удаление базы данных." alt="" coords="17,5,243,31"/>
+<area shape="poly" title=" " alt="" coords="289,35,243,31,243,26,289,30"/>
+<area shape="rect" href="classSQLiteDatabase.html#a74d672abce489b8db3f6627c8cfc5c99" title="Деструктор класса. Деструктор класса, отвечает за корректное уничтожение обьекта." alt="" coords="5,55,255,80"/>
+<area shape="poly" title=" " alt="" coords="289,56,255,59,255,54,289,51"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a5ba6b1c8dc073fee9e702dec2475c3a9" name="a5ba6b1c8dc073fee9e702dec2475c3a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ba6b1c8dc073fee9e702dec2475c3a9">&#9670;&#160;</a></span>commit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SQLiteDatabase::commit </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Коммит. Метод применяет текущие изменения в базе данных. </p>
+
+<p>Замещает <a class="el" href="classDatabase.html#aa66411639fc8aaa0b5499e044dfb244f">Database</a>.</p>
+<div class="dynheader">
+Граф вызовов:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSQLiteDatabase_a5ba6b1c8dc073fee9e702dec2475c3a9_cgraph.png" border="0" usemap="#aclassSQLiteDatabase_a5ba6b1c8dc073fee9e702dec2475c3a9_cgraph" alt=""/></div>
+<map name="aclassSQLiteDatabase_a5ba6b1c8dc073fee9e702dec2475c3a9_cgraph" id="aclassSQLiteDatabase_a5ba6b1c8dc073fee9e702dec2475c3a9_cgraph">
+<area shape="rect" title="Коммит. Метод применяет текущие изменения в базе данных." alt="" coords="5,5,189,31"/>
+<area shape="rect" href="classSQLiteDatabase.html#a6fa5bc48354eada1a4171f8de10fd5bf" title="Простой запрос Метод отвечает за реализацию простых запросов к БД." alt="" coords="237,5,423,31"/>
+<area shape="poly" title=" " alt="" coords="190,15,224,15,224,21,190,21"/>
+</map>
+</div>
+<div class="dynheader">
+Граф вызова функции:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSQLiteDatabase_a5ba6b1c8dc073fee9e702dec2475c3a9_icgraph.png" border="0" usemap="#aclassSQLiteDatabase_a5ba6b1c8dc073fee9e702dec2475c3a9_icgraph" alt=""/></div>
+<map name="aclassSQLiteDatabase_a5ba6b1c8dc073fee9e702dec2475c3a9_icgraph" id="aclassSQLiteDatabase_a5ba6b1c8dc073fee9e702dec2475c3a9_icgraph">
+<area shape="rect" title="Коммит. Метод применяет текущие изменения в базе данных." alt="" coords="284,45,468,70"/>
+<area shape="rect" href="classSQLiteDatabase.html#a0c7da0cc2ca027b3c7653db18b0d094a" title="Копирование всех обьектоов из таблицы. Метод отвечает за копирование всех обьектов из одной базы данн..." alt="" coords="5,5,236,45"/>
+<area shape="poly" title=" " alt="" coords="270,47,236,42,237,37,271,41"/>
+<area shape="rect" href="classSQLiteDatabase.html#a460d99a69cc930c5e41532e8a1f1c4ad" title="Копирование обьектов из таблицы соответствующих условию. Метод отвечает за копирование обьектов соотв..." alt="" coords="13,69,228,109"/>
+<area shape="poly" title=" " alt="" coords="270,73,229,79,228,73,270,68"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ac95ffa9e7854b29da448e63504e23d59" name="ac95ffa9e7854b29da448e63504e23d59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac95ffa9e7854b29da448e63504e23d59">&#9670;&#160;</a></span>connect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SQLiteDatabase::connect </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Установление соединения с БД. Метод отвечает за покдлючение к БД. </p>
+
+<p>Замещает <a class="el" href="classDatabase.html#ab353adbb2908716ad548be94ccda8d65">Database</a>.</p>
+
+</div>
+</div>
+<a id="a0c7da0cc2ca027b3c7653db18b0d094a" name="a0c7da0cc2ca027b3c7653db18b0d094a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c7da0cc2ca027b3c7653db18b0d094a">&#9670;&#160;</a></span>copyAllObjectsInOtherTable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SQLiteDatabase::copyAllObjectsInOtherTable </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>tableNameFrom</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>tableNameTo</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Копирование всех обьектоов из таблицы. Метод отвечает за копирование всех обьектов из одной базы данных в другю. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tableNameFrom</td><td>имя таблицы обьекты которой будут скопировны. </td></tr>
+    <tr><td class="paramname">tableNameTo</td><td>имя таблицы куда будут скопированы обьекты. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Замещает <a class="el" href="classDatabase.html#abea0ddfaf34bddf45a984e3fa19cad42">Database</a>.</p>
+<div class="dynheader">
+Граф вызовов:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSQLiteDatabase_a0c7da0cc2ca027b3c7653db18b0d094a_cgraph.png" border="0" usemap="#aclassSQLiteDatabase_a0c7da0cc2ca027b3c7653db18b0d094a_cgraph" alt=""/></div>
+<map name="aclassSQLiteDatabase_a0c7da0cc2ca027b3c7653db18b0d094a_cgraph" id="aclassSQLiteDatabase_a0c7da0cc2ca027b3c7653db18b0d094a_cgraph">
+<area shape="rect" title="Копирование всех обьектоов из таблицы. Метод отвечает за копирование всех обьектов из одной базы данн..." alt="" coords="5,49,236,89"/>
+<area shape="rect" href="classSQLiteDatabase.html#a5ba6b1c8dc073fee9e702dec2475c3a9" title="Коммит. Метод применяет текущие изменения в базе данных." alt="" coords="295,5,479,31"/>
+<area shape="poly" title=" " alt="" coords="226,46,306,31,307,36,227,51"/>
+<area shape="rect" href="classSQLiteDatabase.html#a6fa5bc48354eada1a4171f8de10fd5bf" title="Простой запрос Метод отвечает за реализацию простых запросов к БД." alt="" coords="539,31,724,56"/>
+<area shape="poly" title=" " alt="" coords="236,60,525,46,525,51,236,66"/>
+<area shape="rect" href="classSQLiteDatabase.html#a820b9e3dd8c2e6d60bfe8ccc516d0b7e" title="Проверка наличия таблицы в БД. Метод отвечает за проверку наличия таблицы в базе данных." alt="" coords="284,107,491,132"/>
+<area shape="poly" title=" " alt="" coords="227,86,307,101,306,107,226,91"/>
+<area shape="poly" title=" " alt="" coords="480,25,525,30,524,35,479,30"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a460d99a69cc930c5e41532e8a1f1c4ad" name="a460d99a69cc930c5e41532e8a1f1c4ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a460d99a69cc930c5e41532e8a1f1c4ad">&#9670;&#160;</a></span>copyObjectsInOtherTable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SQLiteDatabase::copyObjectsInOtherTable </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>tableNameFrom</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>tableNameTo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>condition</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Копирование обьектов из таблицы соответствующих условию. Метод отвечает за копирование обьектов соответствующих определенному условию, из одной таблицы в другую. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tableNameFrom</td><td>имя таблицы обьекты которой будут скопировны. </td></tr>
+    <tr><td class="paramname">tableNameTo</td><td>имя таблицы куда будут скопированы обьекты. </td></tr>
+    <tr><td class="paramname">condition</td><td>условие по которому будет осуществляться копирование обьектов. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Замещает <a class="el" href="classDatabase.html#a8168c0e90b95592e5ee6f68f0c2e9b47">Database</a>.</p>
+<div class="dynheader">
+Граф вызовов:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSQLiteDatabase_a460d99a69cc930c5e41532e8a1f1c4ad_cgraph.png" border="0" usemap="#aclassSQLiteDatabase_a460d99a69cc930c5e41532e8a1f1c4ad_cgraph" alt=""/></div>
+<map name="aclassSQLiteDatabase_a460d99a69cc930c5e41532e8a1f1c4ad_cgraph" id="aclassSQLiteDatabase_a460d99a69cc930c5e41532e8a1f1c4ad_cgraph">
+<area shape="rect" title="Копирование обьектов из таблицы соответствующих условию. Метод отвечает за копирование обьектов соотв..." alt="" coords="5,49,220,89"/>
+<area shape="rect" href="classSQLiteDatabase.html#a5ba6b1c8dc073fee9e702dec2475c3a9" title="Коммит. Метод применяет текущие изменения в базе данных." alt="" coords="279,5,463,31"/>
+<area shape="poly" title=" " alt="" coords="215,46,292,31,293,36,216,51"/>
+<area shape="rect" href="classSQLiteDatabase.html#a6fa5bc48354eada1a4171f8de10fd5bf" title="Простой запрос Метод отвечает за реализацию простых запросов к БД." alt="" coords="523,31,708,56"/>
+<area shape="poly" title=" " alt="" coords="220,61,509,46,509,51,220,66"/>
+<area shape="rect" href="classSQLiteDatabase.html#a820b9e3dd8c2e6d60bfe8ccc516d0b7e" title="Проверка наличия таблицы в БД. Метод отвечает за проверку наличия таблицы в базе данных." alt="" coords="268,107,475,132"/>
+<area shape="poly" title=" " alt="" coords="216,86,293,101,292,107,215,91"/>
+<area shape="poly" title=" " alt="" coords="464,25,509,30,508,35,463,30"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ab0a9bff407357122a02038282d039409" name="ab0a9bff407357122a02038282d039409"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0a9bff407357122a02038282d039409">&#9670;&#160;</a></span>createDatabase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SQLiteDatabase::createDatabase </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>db_file</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Создание БД. Метод отвечает за создание базы данных. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">db_file</td><td>имя базы данных, которая будет создана. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Замещает <a class="el" href="classDatabase.html#a953dd43e9a5fabfe7d3649d9154df660">Database</a>.</p>
+
+</div>
+</div>
+<a id="a1c923ebf6bc72d3cc15d474794fa76b8" name="a1c923ebf6bc72d3cc15d474794fa76b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c923ebf6bc72d3cc15d474794fa76b8">&#9670;&#160;</a></span>createTable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SQLiteDatabase::createTable </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>tableName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Создание таблицы Метод отвечает за создание таблцы в базе даных. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tableName</td><td>имя будущей таблицы в виде константной ссылки на строку. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Замещает <a class="el" href="classDatabase.html#a3db21949951dd9a7276d56d7c0a37435">Database</a>.</p>
+<div class="dynheader">
+Граф вызовов:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSQLiteDatabase_a1c923ebf6bc72d3cc15d474794fa76b8_cgraph.png" border="0" usemap="#aclassSQLiteDatabase_a1c923ebf6bc72d3cc15d474794fa76b8_cgraph" alt=""/></div>
+<map name="aclassSQLiteDatabase_a1c923ebf6bc72d3cc15d474794fa76b8_cgraph" id="aclassSQLiteDatabase_a1c923ebf6bc72d3cc15d474794fa76b8_cgraph">
+<area shape="rect" title="Создание таблицы Метод отвечает за создание таблцы в базе даных." alt="" coords="5,5,215,31"/>
+<area shape="rect" href="classSQLiteDatabase.html#a6fa5bc48354eada1a4171f8de10fd5bf" title="Простой запрос Метод отвечает за реализацию простых запросов к БД." alt="" coords="263,5,448,31"/>
+<area shape="poly" title=" " alt="" coords="215,15,249,15,249,21,215,21"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a289e270265ee15d95a567b23d1e6f444" name="a289e270265ee15d95a567b23d1e6f444"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a289e270265ee15d95a567b23d1e6f444">&#9670;&#160;</a></span>disconnect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SQLiteDatabase::disconnect </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Отключение от БД. Метод отвечает за корректное завершение соединения с БД. </p>
+
+<p>Замещает <a class="el" href="classDatabase.html#a6b2d32e31756499acceaf89ccb49b882">Database</a>.</p>
+<div class="dynheader">
+Граф вызовов:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSQLiteDatabase_a289e270265ee15d95a567b23d1e6f444_cgraph.png" border="0" usemap="#aclassSQLiteDatabase_a289e270265ee15d95a567b23d1e6f444_cgraph" alt=""/></div>
+<map name="aclassSQLiteDatabase_a289e270265ee15d95a567b23d1e6f444_cgraph" id="aclassSQLiteDatabase_a289e270265ee15d95a567b23d1e6f444_cgraph">
+<area shape="rect" title="Отключение от БД. Метод отвечает за корректное завершение соединения с БД." alt="" coords="5,5,209,31"/>
+<area shape="rect" href="classSQLiteDatabase.html#adfe144ad3772e25f6a73c8a38b64d3e7" title="Закрытие базы данных Метод отвечает за корректное отключение от базы данных и последующее её закрытие..." alt="" coords="257,5,425,31"/>
+<area shape="poly" title=" " alt="" coords="209,15,244,15,244,21,209,21"/>
+</map>
+</div>
+<div class="dynheader">
+Граф вызова функции:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSQLiteDatabase_a289e270265ee15d95a567b23d1e6f444_icgraph.png" border="0" usemap="#aclassSQLiteDatabase_a289e270265ee15d95a567b23d1e6f444_icgraph" alt=""/></div>
+<map name="aclassSQLiteDatabase_a289e270265ee15d95a567b23d1e6f444_icgraph" id="aclassSQLiteDatabase_a289e270265ee15d95a567b23d1e6f444_icgraph">
+<area shape="rect" title="Отключение от БД. Метод отвечает за корректное завершение соединения с БД." alt="" coords="303,31,507,56"/>
+<area shape="rect" href="classSQLiteDatabase.html#a4da9c6d477ce48726b2da407effb2b4c" title="Удаление БД. Метод отвечает за удаление базы данных." alt="" coords="17,5,243,31"/>
+<area shape="poly" title=" " alt="" coords="289,35,243,31,243,26,289,30"/>
+<area shape="rect" href="classSQLiteDatabase.html#a74d672abce489b8db3f6627c8cfc5c99" title="Деструктор класса. Деструктор класса, отвечает за корректное уничтожение обьекта." alt="" coords="5,55,255,80"/>
+<area shape="poly" title=" " alt="" coords="289,56,255,59,255,54,289,51"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a4da9c6d477ce48726b2da407effb2b4c" name="a4da9c6d477ce48726b2da407effb2b4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4da9c6d477ce48726b2da407effb2b4c">&#9670;&#160;</a></span>dropDatabase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SQLiteDatabase::dropDatabase </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>db_file</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Удаление БД. Метод отвечает за удаление базы данных. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">принимаети</td><td>имя базы данных, в виде константной ссылки на строку, которую требуется удалить. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Замещает <a class="el" href="classDatabase.html#a2f9485ebd74b0cc843ddca04c6abea72">Database</a>.</p>
+<div class="dynheader">
+Граф вызовов:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSQLiteDatabase_a4da9c6d477ce48726b2da407effb2b4c_cgraph.png" border="0" usemap="#aclassSQLiteDatabase_a4da9c6d477ce48726b2da407effb2b4c_cgraph" alt=""/></div>
+<map name="aclassSQLiteDatabase_a4da9c6d477ce48726b2da407effb2b4c_cgraph" id="aclassSQLiteDatabase_a4da9c6d477ce48726b2da407effb2b4c_cgraph">
+<area shape="rect" title="Удаление БД. Метод отвечает за удаление базы данных." alt="" coords="5,5,231,31"/>
+<area shape="rect" href="classSQLiteDatabase.html#a289e270265ee15d95a567b23d1e6f444" title="Отключение от БД. Метод отвечает за корректное завершение соединения с БД." alt="" coords="279,5,483,31"/>
+<area shape="poly" title=" " alt="" coords="231,15,265,15,265,21,231,21"/>
+<area shape="rect" href="classSQLiteDatabase.html#adfe144ad3772e25f6a73c8a38b64d3e7" title="Закрытие базы данных Метод отвечает за корректное отключение от базы данных и последующее её закрытие..." alt="" coords="531,5,699,31"/>
+<area shape="poly" title=" " alt="" coords="483,15,517,15,517,21,483,21"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ac3164127b2cd61a7548d7a7af1f8e905" name="ac3164127b2cd61a7548d7a7af1f8e905"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3164127b2cd61a7548d7a7af1f8e905">&#9670;&#160;</a></span>dropTable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SQLiteDatabase::dropTable </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>tableName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Удаление таблицы Метод отвечает за удаление таблцы из базе даных. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tableName</td><td>имя таблицы, в виде константной ссылки на строку, которую требуется удалить из базы данных. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Замещает <a class="el" href="classDatabase.html#a26ce7ae6e13f47231c12fb0469bfcd84">Database</a>.</p>
+<div class="dynheader">
+Граф вызовов:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSQLiteDatabase_ac3164127b2cd61a7548d7a7af1f8e905_cgraph.png" border="0" usemap="#aclassSQLiteDatabase_ac3164127b2cd61a7548d7a7af1f8e905_cgraph" alt=""/></div>
+<map name="aclassSQLiteDatabase_ac3164127b2cd61a7548d7a7af1f8e905_cgraph" id="aclassSQLiteDatabase_ac3164127b2cd61a7548d7a7af1f8e905_cgraph">
+<area shape="rect" title="Удаление таблицы Метод отвечает за удаление таблцы из базе даных." alt="" coords="5,5,203,31"/>
+<area shape="rect" href="classSQLiteDatabase.html#a6fa5bc48354eada1a4171f8de10fd5bf" title="Простой запрос Метод отвечает за реализацию простых запросов к БД." alt="" coords="251,5,436,31"/>
+<area shape="poly" title=" " alt="" coords="203,15,237,15,237,21,203,21"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a6fa5bc48354eada1a4171f8de10fd5bf" name="a6fa5bc48354eada1a4171f8de10fd5bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fa5bc48354eada1a4171f8de10fd5bf">&#9670;&#160;</a></span>execute()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SQLiteDatabase::execute </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>sql</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Простой запрос Метод отвечает за реализацию простых запросов к БД. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sql</td><td>запрос в виде константной ссылки на строку. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>при успешном проведении запроса возврщает true, в противном случае false. </dd></dl>
+
+<p>Замещает <a class="el" href="classDatabase.html#a1235bd05c9a211b897a6a7d1d3ae838e">Database</a>.</p>
+<div class="dynheader">
+Граф вызова функции:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSQLiteDatabase_a6fa5bc48354eada1a4171f8de10fd5bf_icgraph.png" border="0" usemap="#aclassSQLiteDatabase_a6fa5bc48354eada1a4171f8de10fd5bf_icgraph" alt=""/></div>
+<map name="aclassSQLiteDatabase_a6fa5bc48354eada1a4171f8de10fd5bf_icgraph" id="aclassSQLiteDatabase_a6fa5bc48354eada1a4171f8de10fd5bf_icgraph">
+<area shape="rect" title="Простой запрос Метод отвечает за реализацию простых запросов к БД." alt="" coords="576,283,761,308"/>
+<area shape="rect" href="classSQLiteDatabase.html#a1fee113404bbef08d9fd4589fc39d267" title="Начало транзакции. Метод устанавливает начало транзакции." alt="" coords="284,5,528,31"/>
+<area shape="poly" title=" " alt="" coords="657,270,641,223,614,164,576,103,553,76,526,52,489,33,492,28,530,48,557,72,580,100,619,161,646,221,663,268"/>
+<area shape="rect" href="classSQLiteDatabase.html#a5ba6b1c8dc073fee9e702dec2475c3a9" title="Коммит. Метод применяет текущие изменения в базе данных." alt="" coords="314,107,498,132"/>
+<area shape="poly" title=" " alt="" coords="649,273,598,213,564,181,527,154,480,134,482,130,529,149,568,177,602,209,653,270"/>
+<area shape="rect" href="classSQLiteDatabase.html#a0c7da0cc2ca027b3c7653db18b0d094a" title="Копирование всех обьектоов из таблицы. Метод отвечает за копирование всех обьектов из одной базы данн..." alt="" coords="5,58,236,98"/>
+<area shape="poly" title=" " alt="" coords="656,271,638,230,611,181,574,133,552,113,527,96,491,80,453,68,373,55,295,54,224,61,224,55,295,49,373,50,454,63,493,75,529,92,555,109,578,130,615,178,643,227,661,268"/>
+<area shape="rect" href="classSQLiteDatabase.html#a460d99a69cc930c5e41532e8a1f1c4ad" title="Копирование обьектов из таблицы соответствующих условию. Метод отвечает за копирование обьектов соотв..." alt="" coords="13,141,228,181"/>
+<area shape="poly" title=" " alt="" coords="643,275,592,234,561,214,527,198,451,176,373,164,297,158,228,157,228,152,297,153,374,158,453,171,529,193,563,209,596,229,646,271"/>
+<area shape="rect" href="classSQLiteDatabase.html#a1c923ebf6bc72d3cc15d474794fa76b8" title="Создание таблицы Метод отвечает за создание таблцы в базе даных." alt="" coords="301,208,511,233"/>
+<area shape="poly" title=" " alt="" coords="623,280,527,247,480,236,481,231,529,242,625,275"/>
+<area shape="rect" href="classSQLiteDatabase.html#ac3164127b2cd61a7548d7a7af1f8e905" title="Удаление таблицы Метод отвечает за удаление таблцы из базе даных." alt="" coords="307,257,505,283"/>
+<area shape="poly" title=" " alt="" coords="562,288,505,282,505,277,562,282"/>
+<area shape="rect" href="classSQLiteDatabase.html#a379f54a85c887cfce8092e4524b2a9e1" title="Вставка обьектов в таблицу. Метод отвечает вставку обьектов в таблицу базы данных." alt="" coords="321,307,491,332"/>
+<area shape="poly" title=" " alt="" coords="562,308,492,314,491,309,562,302"/>
+<area shape="rect" href="classSQLiteDatabase.html#a194b4ea124fd326589cdf11f3d5ba1ef" title="Удаление всех обьектов из таблицы. Метод отвечает за удаление всех обьектов из таблицы." alt="" coords="305,357,507,397"/>
+<area shape="poly" title=" " alt="" coords="620,315,529,346,484,359,482,354,527,341,618,310"/>
+<area shape="rect" href="classSQLiteDatabase.html#af856c5ac61f0b8255c04bf391c8217a5" title="Удаление обьектов по условию Метод отвечает за удаление обьектов соответствующих определенному услови..." alt="" coords="293,421,519,447"/>
+<area shape="poly" title=" " alt="" coords="648,320,597,367,564,391,529,411,494,424,492,419,527,406,561,386,594,363,645,316"/>
+<area shape="rect" href="classSQLiteDatabase.html#a000c64a480a0552262af9f928dfc96f5" title="Переименование таблицы Метод отвечает за переименование таблцы из базе даных." alt="" coords="297,471,515,496"/>
+<area shape="poly" title=" " alt="" coords="656,322,635,354,606,392,571,429,529,460,501,473,499,468,527,456,567,425,602,388,630,351,651,319"/>
+<area shape="rect" href="classSQLiteDatabase.html#a9404d5a304d8ac8dddbf1d9a42db425f" title="Отмена транзакции. Метод отменяет текущие изменения в базе данных." alt="" coords="313,520,499,545"/>
+<area shape="poly" title=" " alt="" coords="660,322,642,364,614,415,577,467,554,490,529,510,501,524,498,519,527,505,551,486,573,463,610,412,637,362,656,320"/>
+<area shape="rect" href="classSQLiteDatabase.html#a97ed81e786e22f1f1ebf870248f53335" title="Изменение обьекта по условию Метод отвечает за изменение обьекта, который соответсвует определенному ..." alt="" coords="317,569,495,595"/>
+<area shape="poly" title=" " alt="" coords="664,322,649,373,623,438,583,505,558,535,529,560,497,576,494,572,527,556,555,531,579,501,618,436,644,372,659,321"/>
+<area shape="poly" title=" " alt="" coords="304,107,236,97,237,92,305,102"/>
+<area shape="poly" title=" " alt="" coords="305,137,228,148,228,143,304,131"/>
+<area shape="rect" href="classSQLiteDatabase.html#a2a4bf15ff8dc3101552fa455ee2bee1d" title="Обмен запсей в таблице между собой. Метод отвечает за обмен записей в таблице." alt="" coords="12,569,229,595"/>
+<area shape="poly" title=" " alt="" coords="303,585,229,585,229,579,303,579"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a8bf0d9ef8b2ae3ab663b9c30b3d5f1da" name="a8bf0d9ef8b2ae3ab663b9c30b3d5f1da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bf0d9ef8b2ae3ab663b9c30b3d5f1da">&#9670;&#160;</a></span>getAllObjects()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="structUser.html">User</a> &gt; SQLiteDatabase::getAllObjects </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>tableName</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Вовзрат всех обьектов из таблицы. Метод отвечает за возврат всех обьектов из таблицы. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tableName</td><td>имя таблицы из которой будут возвращены обьекты. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>std::vector&lt;User&gt; вектор обьектов из таблицы. </dd></dl>
+
+<p>Замещает <a class="el" href="classDatabase.html#aa61f4c192d66f51928e7b9cc3cde2b76">Database</a>.</p>
+<div class="dynheader">
+Граф вызова функции:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSQLiteDatabase_a8bf0d9ef8b2ae3ab663b9c30b3d5f1da_icgraph.png" border="0" usemap="#aclassSQLiteDatabase_a8bf0d9ef8b2ae3ab663b9c30b3d5f1da_icgraph" alt=""/></div>
+<map name="aclassSQLiteDatabase_a8bf0d9ef8b2ae3ab663b9c30b3d5f1da_icgraph" id="aclassSQLiteDatabase_a8bf0d9ef8b2ae3ab663b9c30b3d5f1da_icgraph">
+<area shape="rect" title="Вовзрат всех обьектов из таблицы. Метод отвечает за возврат всех обьектов из таблицы." alt="" coords="257,13,479,38"/>
+<area shape="rect" href="classSQLiteDatabase.html#a5d72ae16be3adf71857bbc13c7200fb7" title="Получение количества обьектов в таблице. Метод отвечает за возврат количеств обьектов в таблице." alt="" coords="5,5,209,45"/>
+<area shape="poly" title=" " alt="" coords="244,28,210,28,210,23,244,23"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="adbec45e8648ac0b174ccd3c9792ab9ea" name="adbec45e8648ac0b174ccd3c9792ab9ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbec45e8648ac0b174ccd3c9792ab9ea">&#9670;&#160;</a></span>getObjects()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="structUser.html">User</a> &gt; SQLiteDatabase::getObjects </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>tableName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>condition</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Вовзрат обьектов из таблицы в соответствии с определенным условием. Метод отвечает за возврат обьектов, которые соответсвуют определенному условию. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tableName</td><td>имя таблицы из которой будут возвращены обьекты. </td></tr>
+    <tr><td class="paramname">condition</td><td>условие, в соответсвии с которым будет сформирован вектор возврщаемых обьектов. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>std::vector&lt;User&gt; вектор обьектов сформированных по определенному условию. </dd></dl>
+
+<p>Замещает <a class="el" href="classDatabase.html#ad53fb6cb66ac000d8bd890eefd2a7eb0">Database</a>.</p>
+<div class="dynheader">
+Граф вызова функции:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSQLiteDatabase_adbec45e8648ac0b174ccd3c9792ab9ea_icgraph.png" border="0" usemap="#aclassSQLiteDatabase_adbec45e8648ac0b174ccd3c9792ab9ea_icgraph" alt=""/></div>
+<map name="aclassSQLiteDatabase_adbec45e8648ac0b174ccd3c9792ab9ea_icgraph" id="aclassSQLiteDatabase_adbec45e8648ac0b174ccd3c9792ab9ea_icgraph">
+<area shape="rect" title="Вовзрат обьектов из таблицы в соответствии с определенным условием. Метод отвечает за возврат обьекто..." alt="" coords="271,5,475,31"/>
+<area shape="rect" href="classSQLiteDatabase.html#a2a4bf15ff8dc3101552fa455ee2bee1d" title="Обмен запсей в таблице между собой. Метод отвечает за обмен записей в таблице." alt="" coords="5,5,223,31"/>
+<area shape="poly" title=" " alt="" coords="257,21,223,21,223,15,257,15"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a5d72ae16be3adf71857bbc13c7200fb7" name="a5d72ae16be3adf71857bbc13c7200fb7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d72ae16be3adf71857bbc13c7200fb7">&#9670;&#160;</a></span>getObjectsCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int SQLiteDatabase::getObjectsCount </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>tableName</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Получение количества обьектов в таблице. Метод отвечает за возврат количеств обьектов в таблице. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tableName</td><td>имя таблицы. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>количеств пользователей в таблице. </dd></dl>
+
+<p>Замещает <a class="el" href="classDatabase.html#acb6aa856dcc300069c47ee0027134ed5">Database</a>.</p>
+<div class="dynheader">
+Граф вызовов:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSQLiteDatabase_a5d72ae16be3adf71857bbc13c7200fb7_cgraph.png" border="0" usemap="#aclassSQLiteDatabase_a5d72ae16be3adf71857bbc13c7200fb7_cgraph" alt=""/></div>
+<map name="aclassSQLiteDatabase_a5d72ae16be3adf71857bbc13c7200fb7_cgraph" id="aclassSQLiteDatabase_a5d72ae16be3adf71857bbc13c7200fb7_cgraph">
+<area shape="rect" title="Получение количества обьектов в таблице. Метод отвечает за возврат количеств обьектов в таблице." alt="" coords="5,5,209,45"/>
+<area shape="rect" href="classSQLiteDatabase.html#a8bf0d9ef8b2ae3ab663b9c30b3d5f1da" title="Вовзрат всех обьектов из таблицы. Метод отвечает за возврат всех обьектов из таблицы." alt="" coords="257,13,479,38"/>
+<area shape="poly" title=" " alt="" coords="210,23,244,23,244,28,210,28"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ab37ab61003762cd193f5287a7a680647" name="ab37ab61003762cd193f5287a7a680647"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab37ab61003762cd193f5287a7a680647">&#9670;&#160;</a></span>getObjectsOrderBy() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="structUser.html">User</a> &gt; SQLiteDatabase::getObjectsOrderBy </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>tableName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>field</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Получение сортированных по одному полю обьектов из таблицы Метод отвечает за сортировку данных по одному выбранному полю. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tableName</td><td>имя таблицы. </td></tr>
+    <tr><td class="paramname">field</td><td>имя поля обьекта, по которому будет производится сортировка. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Замещает <a class="el" href="classDatabase.html#a6ef4e05931e97c6c34be80fe71e021b0">Database</a>.</p>
+
+</div>
+</div>
+<a id="a6cd56df6f3ff7469acf7ac6a5d3eae50" name="a6cd56df6f3ff7469acf7ac6a5d3eae50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6cd56df6f3ff7469acf7ac6a5d3eae50">&#9670;&#160;</a></span>getObjectsOrderBy() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="structUser.html">User</a> &gt; SQLiteDatabase::getObjectsOrderBy </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>tableName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>field1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>field2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Получение сортированных по двум полям обьектов из таблицы Метод отвечает за сортировку данных по двум выбранному полю. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tableName</td><td>имя таблицы. </td></tr>
+    <tr><td class="paramname">field1</td><td>имя поля обьекта, по которому первым будет производится сортировка. </td></tr>
+    <tr><td class="paramname">field2</td><td>имя поля обьекта, по которому во вторую очередь будет производится сортировка. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Замещает <a class="el" href="classDatabase.html#a9e2f5d1baf324f135415638e4eed3697">Database</a>.</p>
+
+</div>
+</div>
+<a id="a013d712fb5f1183ed15638e51495b360" name="a013d712fb5f1183ed15638e51495b360"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a013d712fb5f1183ed15638e51495b360">&#9670;&#160;</a></span>getTables()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::string &gt; SQLiteDatabase::getTables </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Получаение вектора имен таблиц. Метод возвращает вектор с названиями таблиц из текущей базы данных. </p>
+<dl class="section return"><dt>Возвращает</dt><dd>возвращает вектор vector&lt;std::string&gt; с именами таблицы. </dd></dl>
+
+<p>Замещает <a class="el" href="classDatabase.html#af3403843abe22e1dc2c9fa5ec0d9e475">Database</a>.</p>
+
+</div>
+</div>
+<a id="a379f54a85c887cfce8092e4524b2a9e1" name="a379f54a85c887cfce8092e4524b2a9e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a379f54a85c887cfce8092e4524b2a9e1">&#9670;&#160;</a></span>insert()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SQLiteDatabase::insert </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>tableName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structUser.html">User</a> &amp;&#160;</td>
+          <td class="paramname"><em>obj</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Вставка обьектов в таблицу. Метод отвечает вставку обьектов в таблицу базы данных. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tableName</td><td>имя таблицы. </td></tr>
+    <tr><td class="paramname">obj</td><td>обьект ожидающий вставки в таблицу. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Замещает <a class="el" href="classDatabase.html#a4e7a6dbfc8898d839237e416b47f2e58">Database</a>.</p>
+<div class="dynheader">
+Граф вызовов:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSQLiteDatabase_a379f54a85c887cfce8092e4524b2a9e1_cgraph.png" border="0" usemap="#aclassSQLiteDatabase_a379f54a85c887cfce8092e4524b2a9e1_cgraph" alt=""/></div>
+<map name="aclassSQLiteDatabase_a379f54a85c887cfce8092e4524b2a9e1_cgraph" id="aclassSQLiteDatabase_a379f54a85c887cfce8092e4524b2a9e1_cgraph">
+<area shape="rect" title="Вставка обьектов в таблицу. Метод отвечает вставку обьектов в таблицу базы данных." alt="" coords="5,5,176,31"/>
+<area shape="rect" href="classSQLiteDatabase.html#a6fa5bc48354eada1a4171f8de10fd5bf" title="Простой запрос Метод отвечает за реализацию простых запросов к БД." alt="" coords="224,5,409,31"/>
+<area shape="poly" title=" " alt="" coords="176,15,210,15,210,21,176,21"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a630960f0d1006dfa68472cb196f24eb1" name="a630960f0d1006dfa68472cb196f24eb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a630960f0d1006dfa68472cb196f24eb1">&#9670;&#160;</a></span>isConnected()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SQLiteDatabase::isConnected </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Состояние соединения. Метод отвечает за возврат состояния текущего соединения. </p>
+<dl class="section return"><dt>Возвращает</dt><dd>при наличии текущего соединения с БД возврщает true, в противном случае false. </dd></dl>
+
+<p>Замещает <a class="el" href="classDatabase.html#ac5f3098c79d55b47a0cce44bcf5e349e">Database</a>.</p>
+<div class="dynheader">
+Граф вызова функции:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSQLiteDatabase_a630960f0d1006dfa68472cb196f24eb1_icgraph.png" border="0" usemap="#aclassSQLiteDatabase_a630960f0d1006dfa68472cb196f24eb1_icgraph" alt=""/></div>
+<map name="aclassSQLiteDatabase_a630960f0d1006dfa68472cb196f24eb1_icgraph" id="aclassSQLiteDatabase_a630960f0d1006dfa68472cb196f24eb1_icgraph">
+<area shape="rect" title="Состояние соединения. Метод отвечает за возврат состояния текущего соединения." alt="" coords="303,5,517,31"/>
+<area shape="rect" href="classSQLiteDatabase.html#a74d672abce489b8db3f6627c8cfc5c99" title="Деструктор класса. Деструктор класса, отвечает за корректное уничтожение обьекта." alt="" coords="5,5,255,31"/>
+<area shape="poly" title=" " alt="" coords="289,21,255,21,255,15,289,15"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a4a2fdad1ef6952d4d2f8236e4aca9c02" name="a4a2fdad1ef6952d4d2f8236e4aca9c02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a2fdad1ef6952d4d2f8236e4aca9c02">&#9670;&#160;</a></span>openDatabase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SQLiteDatabase::openDatabase </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>db_file</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Открытие БД. Метод отвечает за открытие выбранной базы данных. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">db_file</td><td>имя базы данных, виде константной ссылки на строку, с которой требуется взаимодействовать. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Замещает <a class="el" href="classDatabase.html#ae3c921b64b41d49fae60c4ee439e0b92">Database</a>.</p>
+
+</div>
+</div>
+<a id="a194b4ea124fd326589cdf11f3d5ba1ef" name="a194b4ea124fd326589cdf11f3d5ba1ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a194b4ea124fd326589cdf11f3d5ba1ef">&#9670;&#160;</a></span>removeAllObjects()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SQLiteDatabase::removeAllObjects </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>tableName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Удаление всех обьектов из таблицы. Метод отвечает за удаление всех обьектов из таблицы. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tableName</td><td>имя таблицы из которой будут удалены все обьекты. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Замещает <a class="el" href="classDatabase.html#a4730e02bbf1fc65c8788fec89d788946">Database</a>.</p>
+<div class="dynheader">
+Граф вызовов:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSQLiteDatabase_a194b4ea124fd326589cdf11f3d5ba1ef_cgraph.png" border="0" usemap="#aclassSQLiteDatabase_a194b4ea124fd326589cdf11f3d5ba1ef_cgraph" alt=""/></div>
+<map name="aclassSQLiteDatabase_a194b4ea124fd326589cdf11f3d5ba1ef_cgraph" id="aclassSQLiteDatabase_a194b4ea124fd326589cdf11f3d5ba1ef_cgraph">
+<area shape="rect" title="Удаление всех обьектов из таблицы. Метод отвечает за удаление всех обьектов из таблицы." alt="" coords="5,5,207,45"/>
+<area shape="rect" href="classSQLiteDatabase.html#a6fa5bc48354eada1a4171f8de10fd5bf" title="Простой запрос Метод отвечает за реализацию простых запросов к БД." alt="" coords="255,13,440,38"/>
+<area shape="poly" title=" " alt="" coords="207,23,241,23,241,28,207,28"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="af856c5ac61f0b8255c04bf391c8217a5" name="af856c5ac61f0b8255c04bf391c8217a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af856c5ac61f0b8255c04bf391c8217a5">&#9670;&#160;</a></span>removeObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SQLiteDatabase::removeObject </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>tableName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>condition</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Удаление обьектов по условию Метод отвечает за удаление обьектов соответствующих определенному условию. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tableName</td><td>имя таблицы из которой будут удалены обьекты. </td></tr>
+    <tr><td class="paramname">condition</td><td>условие по которому будет осуществляться удаление обьектов. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Замещает <a class="el" href="classDatabase.html#aab9858b068e5cf7d06788ec8acaaefac">Database</a>.</p>
+<div class="dynheader">
+Граф вызовов:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSQLiteDatabase_af856c5ac61f0b8255c04bf391c8217a5_cgraph.png" border="0" usemap="#aclassSQLiteDatabase_af856c5ac61f0b8255c04bf391c8217a5_cgraph" alt=""/></div>
+<map name="aclassSQLiteDatabase_af856c5ac61f0b8255c04bf391c8217a5_cgraph" id="aclassSQLiteDatabase_af856c5ac61f0b8255c04bf391c8217a5_cgraph">
+<area shape="rect" title="Удаление обьектов по условию Метод отвечает за удаление обьектов соответствующих определенному услови..." alt="" coords="5,5,232,31"/>
+<area shape="rect" href="classSQLiteDatabase.html#a6fa5bc48354eada1a4171f8de10fd5bf" title="Простой запрос Метод отвечает за реализацию простых запросов к БД." alt="" coords="280,5,465,31"/>
+<area shape="poly" title=" " alt="" coords="232,15,266,15,266,21,232,21"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a000c64a480a0552262af9f928dfc96f5" name="a000c64a480a0552262af9f928dfc96f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a000c64a480a0552262af9f928dfc96f5">&#9670;&#160;</a></span>renameTable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SQLiteDatabase::renameTable </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>tableName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>newName</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Переименование таблицы Метод отвечает за переименование таблцы из базе даных. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tableName</td><td>имя таблицы, в виде константной ссылки на строку, которую требуется переименовать. </td></tr>
+    <tr><td class="paramname">newName</td><td>новое имя, в виде константной ссылки на строку, которым будет переименована текущая таблица. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Замещает <a class="el" href="classDatabase.html#ac758aa01b72b21ea3ebafd0ca26189eb">Database</a>.</p>
+<div class="dynheader">
+Граф вызовов:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSQLiteDatabase_a000c64a480a0552262af9f928dfc96f5_cgraph.png" border="0" usemap="#aclassSQLiteDatabase_a000c64a480a0552262af9f928dfc96f5_cgraph" alt=""/></div>
+<map name="aclassSQLiteDatabase_a000c64a480a0552262af9f928dfc96f5_cgraph" id="aclassSQLiteDatabase_a000c64a480a0552262af9f928dfc96f5_cgraph">
+<area shape="rect" title="Переименование таблицы Метод отвечает за переименование таблцы из базе даных." alt="" coords="5,5,224,31"/>
+<area shape="rect" href="classSQLiteDatabase.html#a6fa5bc48354eada1a4171f8de10fd5bf" title="Простой запрос Метод отвечает за реализацию простых запросов к БД." alt="" coords="272,5,457,31"/>
+<area shape="poly" title=" " alt="" coords="224,15,258,15,258,21,224,21"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a9404d5a304d8ac8dddbf1d9a42db425f" name="a9404d5a304d8ac8dddbf1d9a42db425f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9404d5a304d8ac8dddbf1d9a42db425f">&#9670;&#160;</a></span>rollback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SQLiteDatabase::rollback </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Отмена транзакции. Метод отменяет текущие изменения в базе данных. </p>
+
+<p>Замещает <a class="el" href="classDatabase.html#aa263b884aa0cafeced3e54486402cabd">Database</a>.</p>
+<div class="dynheader">
+Граф вызовов:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSQLiteDatabase_a9404d5a304d8ac8dddbf1d9a42db425f_cgraph.png" border="0" usemap="#aclassSQLiteDatabase_a9404d5a304d8ac8dddbf1d9a42db425f_cgraph" alt=""/></div>
+<map name="aclassSQLiteDatabase_a9404d5a304d8ac8dddbf1d9a42db425f_cgraph" id="aclassSQLiteDatabase_a9404d5a304d8ac8dddbf1d9a42db425f_cgraph">
+<area shape="rect" title="Отмена транзакции. Метод отменяет текущие изменения в базе данных." alt="" coords="5,5,192,31"/>
+<area shape="rect" href="classSQLiteDatabase.html#a6fa5bc48354eada1a4171f8de10fd5bf" title="Простой запрос Метод отвечает за реализацию простых запросов к БД." alt="" coords="240,5,425,31"/>
+<area shape="poly" title=" " alt="" coords="192,15,227,15,227,21,192,21"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aee06baccdb72d104e5319a596c69d0e9" name="aee06baccdb72d104e5319a596c69d0e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee06baccdb72d104e5319a596c69d0e9">&#9670;&#160;</a></span>select()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="structUser.html">User</a> &gt; SQLiteDatabase::select </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>query</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Выбор элементов из таблицы по запросу. Метод отвечает возврат элементов из таблицы в соответствии с определенным запросом. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">query</td><td>запрос для БД. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>std::vector&lt;User&gt; вектор данных из таблицы. </dd></dl>
+
+<p>Замещает <a class="el" href="classDatabase.html#ab16f25da6d2d480c9790f9221e3a2be5">Database</a>.</p>
+
+</div>
+</div>
+<a id="a2a4bf15ff8dc3101552fa455ee2bee1d" name="a2a4bf15ff8dc3101552fa455ee2bee1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a4bf15ff8dc3101552fa455ee2bee1d">&#9670;&#160;</a></span>swapObjects()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SQLiteDatabase::swapObjects </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>tableName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>id_obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>id_other_obj</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Обмен запсей в таблице между собой. Метод отвечает за обмен записей в таблице. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tableName</td><td>имя таблицы. </td></tr>
+    <tr><td class="paramname">id_obj</td><td>id первого обьекта, который будет заменен вторым обьектом. </td></tr>
+    <tr><td class="paramname">id_other_obj</td><td>id второго обьекта, который будет заменен первым обьектом. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Замещает <a class="el" href="classDatabase.html#a59444488cbba7d4f94eb1b4a72567cea">Database</a>.</p>
+<div class="dynheader">
+Граф вызовов:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSQLiteDatabase_a2a4bf15ff8dc3101552fa455ee2bee1d_cgraph.png" border="0" usemap="#aclassSQLiteDatabase_a2a4bf15ff8dc3101552fa455ee2bee1d_cgraph" alt=""/></div>
+<map name="aclassSQLiteDatabase_a2a4bf15ff8dc3101552fa455ee2bee1d_cgraph" id="aclassSQLiteDatabase_a2a4bf15ff8dc3101552fa455ee2bee1d_cgraph">
+<area shape="rect" title="Обмен запсей в таблице между собой. Метод отвечает за обмен записей в таблице." alt="" coords="5,31,223,56"/>
+<area shape="rect" href="classSQLiteDatabase.html#adbec45e8648ac0b174ccd3c9792ab9ea" title="Вовзрат обьектов из таблицы в соответствии с определенным условием. Метод отвечает за возврат обьекто..." alt="" coords="271,5,475,31"/>
+<area shape="poly" title=" " alt="" coords="223,30,257,27,257,32,223,35"/>
+<area shape="rect" href="classSQLiteDatabase.html#a97ed81e786e22f1f1ebf870248f53335" title="Изменение обьекта по условию Метод отвечает за изменение обьекта, который соответсвует определенному ..." alt="" coords="283,55,462,80"/>
+<area shape="poly" title=" " alt="" coords="223,51,270,55,270,60,223,56"/>
+<area shape="rect" href="classSQLiteDatabase.html#a6fa5bc48354eada1a4171f8de10fd5bf" title="Простой запрос Метод отвечает за реализацию простых запросов к БД." alt="" coords="523,55,708,80"/>
+<area shape="poly" title=" " alt="" coords="462,65,509,65,509,70,462,70"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a820b9e3dd8c2e6d60bfe8ccc516d0b7e" name="a820b9e3dd8c2e6d60bfe8ccc516d0b7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a820b9e3dd8c2e6d60bfe8ccc516d0b7e">&#9670;&#160;</a></span>tableExists()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SQLiteDatabase::tableExists </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>tableName</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Проверка наличия таблицы в БД. Метод отвечает за проверку наличия таблицы в базе данных. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tableName</td><td>имя таблицы в виде константной ссылки на строку. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>при наличии таблицы в базе данных возврщает true, в противном случае false. </dd></dl>
+
+<p>Замещает <a class="el" href="classDatabase.html#a1bbc6c45cf547ef9c9b5264d94cdbca8">Database</a>.</p>
+<div class="dynheader">
+Граф вызова функции:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSQLiteDatabase_a820b9e3dd8c2e6d60bfe8ccc516d0b7e_icgraph.png" border="0" usemap="#aclassSQLiteDatabase_a820b9e3dd8c2e6d60bfe8ccc516d0b7e_icgraph" alt=""/></div>
+<map name="aclassSQLiteDatabase_a820b9e3dd8c2e6d60bfe8ccc516d0b7e_icgraph" id="aclassSQLiteDatabase_a820b9e3dd8c2e6d60bfe8ccc516d0b7e_icgraph">
+<area shape="rect" title="Проверка наличия таблицы в БД. Метод отвечает за проверку наличия таблицы в базе данных." alt="" coords="284,45,491,70"/>
+<area shape="rect" href="classSQLiteDatabase.html#a0c7da0cc2ca027b3c7653db18b0d094a" title="Копирование всех обьектоов из таблицы. Метод отвечает за копирование всех обьектов из одной базы данн..." alt="" coords="5,5,236,45"/>
+<area shape="poly" title=" " alt="" coords="270,46,236,42,236,37,271,41"/>
+<area shape="rect" href="classSQLiteDatabase.html#a460d99a69cc930c5e41532e8a1f1c4ad" title="Копирование обьектов из таблицы соответствующих условию. Метод отвечает за копирование обьектов соотв..." alt="" coords="13,69,228,109"/>
+<area shape="poly" title=" " alt="" coords="271,74,228,79,228,74,270,69"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a97ed81e786e22f1f1ebf870248f53335" name="a97ed81e786e22f1f1ebf870248f53335"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97ed81e786e22f1f1ebf870248f53335">&#9670;&#160;</a></span>update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SQLiteDatabase::update </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>tableName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structUser.html">User</a> &amp;&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>condition</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Изменение обьекта по условию Метод отвечает за изменение обьекта, который соответсвует определенному условию. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tableName</td><td>имя таблицы из которой будут удалены обьекты. </td></tr>
+    <tr><td class="paramname">ogj</td><td>обьект которым будет заменен обьект из таблицы. </td></tr>
+    <tr><td class="paramname">condition</td><td>условие, соответсвующему который обьект, будет изменен. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Замещает <a class="el" href="classDatabase.html#a7250ed7ba5d5915503e24e5a5bf22a58">Database</a>.</p>
+<div class="dynheader">
+Граф вызовов:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSQLiteDatabase_a97ed81e786e22f1f1ebf870248f53335_cgraph.png" border="0" usemap="#aclassSQLiteDatabase_a97ed81e786e22f1f1ebf870248f53335_cgraph" alt=""/></div>
+<map name="aclassSQLiteDatabase_a97ed81e786e22f1f1ebf870248f53335_cgraph" id="aclassSQLiteDatabase_a97ed81e786e22f1f1ebf870248f53335_cgraph">
+<area shape="rect" title="Изменение обьекта по условию Метод отвечает за изменение обьекта, который соответсвует определенному ..." alt="" coords="5,5,184,31"/>
+<area shape="rect" href="classSQLiteDatabase.html#a6fa5bc48354eada1a4171f8de10fd5bf" title="Простой запрос Метод отвечает за реализацию простых запросов к БД." alt="" coords="232,5,417,31"/>
+<area shape="poly" title=" " alt="" coords="185,15,218,15,218,21,185,21"/>
+</map>
+</div>
+<div class="dynheader">
+Граф вызова функции:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSQLiteDatabase_a97ed81e786e22f1f1ebf870248f53335_icgraph.png" border="0" usemap="#aclassSQLiteDatabase_a97ed81e786e22f1f1ebf870248f53335_icgraph" alt=""/></div>
+<map name="aclassSQLiteDatabase_a97ed81e786e22f1f1ebf870248f53335_icgraph" id="aclassSQLiteDatabase_a97ed81e786e22f1f1ebf870248f53335_icgraph">
+<area shape="rect" title="Изменение обьекта по условию Метод отвечает за изменение обьекта, который соответсвует определенному ..." alt="" coords="271,5,449,31"/>
+<area shape="rect" href="classSQLiteDatabase.html#a2a4bf15ff8dc3101552fa455ee2bee1d" title="Обмен запсей в таблице между собой. Метод отвечает за обмен записей в таблице." alt="" coords="5,5,223,31"/>
+<area shape="poly" title=" " alt="" coords="257,21,223,21,223,15,257,15"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a302bb12321649b0e2e5cbd48dc2dc003" name="a302bb12321649b0e2e5cbd48dc2dc003"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a302bb12321649b0e2e5cbd48dc2dc003">&#9670;&#160;</a></span>useDatabase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SQLiteDatabase::useDatabase </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>db_file</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Выбор БД. Метод отвечает за выбор базы данных. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">db_file</td><td>имя базы данных, с которой требуется взаимодействовать. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Замещает <a class="el" href="classDatabase.html#ac4ebdf2d21bd0b4110966f3bf463f49d">Database</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Данные класса</h2>
+<a id="ab4b8d1c6b88f459e25db1042c11b6e26" name="ab4b8d1c6b88f459e25db1042c11b6e26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4b8d1c6b88f459e25db1042c11b6e26">&#9670;&#160;</a></span>connection</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SQLiteDatabase::connection = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Флаг соединения. При отсутствии соединения равен false, при наличии true. </p>
+
+</div>
+</div>
+<a id="a6dbaa2f892d6fb5b9a9f51254e1a7f11" name="a6dbaa2f892d6fb5b9a9f51254e1a7f11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6dbaa2f892d6fb5b9a9f51254e1a7f11">&#9670;&#160;</a></span>db</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sqlite3* SQLiteDatabase::db = nullptr</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Указатель на объект sqlite3. </p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>include/<a class="el" href="SQLiteDatabase_8h_source.html">SQLiteDatabase.h</a></li>
+<li>src/<a class="el" href="SQLiteDatabase_8cpp.html">SQLiteDatabase.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

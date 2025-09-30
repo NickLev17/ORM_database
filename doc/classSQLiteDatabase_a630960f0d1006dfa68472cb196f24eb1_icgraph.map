@@ -1,0 +1,5 @@
+<map id="SQLiteDatabase::isConnected" name="SQLiteDatabase::isConnected">
+<area shape="rect" id="Node000001" title="Состояние соединения. Метод отвечает за возврат состояния текущего соединения." alt="" coords="303,5,517,31"/>
+<area shape="rect" id="Node000002" href="$classSQLiteDatabase.html#a74d672abce489b8db3f6627c8cfc5c99" title="Деструктор класса. Деструктор класса, отвечает за корректное уничтожение обьекта." alt="" coords="5,5,255,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="289,21,255,21,255,15,289,15"/>
+</map>

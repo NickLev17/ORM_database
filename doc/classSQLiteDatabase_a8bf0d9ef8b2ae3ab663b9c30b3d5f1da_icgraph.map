@@ -1,0 +1,5 @@
+<map id="SQLiteDatabase::getAllObjects" name="SQLiteDatabase::getAllObjects">
+<area shape="rect" id="Node000001" title="Вовзрат всех обьектов из таблицы. Метод отвечает за возврат всех обьектов из таблицы." alt="" coords="257,13,479,38"/>
+<area shape="rect" id="Node000002" href="$classSQLiteDatabase.html#a5d72ae16be3adf71857bbc13c7200fb7" title="Получение количества обьектов в таблице. Метод отвечает за возврат количеств обьектов в таблице." alt="" coords="5,5,209,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="244,28,210,28,210,23,244,23"/>
+</map>

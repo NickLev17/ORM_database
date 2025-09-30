@@ -1,0 +1,11 @@
+<map id="MySQLDatabase::close" name="MySQLDatabase::close">
+<area shape="rect" id="Node000001" title="Закрытие базы данных Метод отвечает за корректное отключение от базы данных и последующее её закрытие..." alt="" coords="855,31,1025,56"/>
+<area shape="rect" id="Node000002" href="$classMySQLDatabase.html#ab61a8bc961760c91ada919b7ddf23af0" title="Отключение от БД. Метод отвечает за корректное завершение соединения с БД." alt="" coords="600,31,807,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="841,46,807,46,807,41,841,41"/>
+<area shape="rect" id="Node000003" href="$classMySQLDatabase.html#a12b1e249d889299c577486a62eba34e9" title="Установление соединения с БД. Метод отвечает за покдлючение к БД." alt="" coords="331,5,519,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="586,35,519,29,519,24,586,30"/>
+<area shape="rect" id="Node000005" href="$classMySQLDatabase.html#abd76957780b6b0288038a77bd3e6d219" title="Деструктор класса. Деструктор класса, отвечает за корректное уничтожение обьекта." alt="" coords="297,55,552,80"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="586,56,552,59,552,54,586,51"/>
+<area shape="rect" id="Node000004" href="$classMySQLDatabase.html#a8e8f5b13849d9204f647964a14b6e81b" title="Конструктор класса. Конструктор класса отвечает за корректное создание обьекта." alt="" coords="5,5,249,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="317,21,250,21,250,15,317,15"/>
+</map>

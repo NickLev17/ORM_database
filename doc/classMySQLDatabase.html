@@ -1,0 +1,1822 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Реализация ORM клиента с поддержкой баз данных SQLite и MySQL: Класс MySQLDatabase</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Реализация ORM клиента с поддержкой баз данных SQLite и MySQL<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+   <div id="projectbrief">Упрощаем взаимодействие между объектно-ориентированным программным кодом и реляционными базами данных.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="classMySQLDatabase-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс MySQLDatabase</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>class <a class="el" href="classMySQLDatabase.html" title="class MySQLDatabase Представляет реализацию интерфейса Database для реализации ORM подхода при взаимо...">MySQLDatabase</a> Представляет реализацию интерфейса <a class="el" href="classDatabase.html" title="class Database Представляет собой интерфейс для работы с базой данных.">Database</a> для реализации ORM подхода при взаимодействии с базой данных MySQL.  
+ <a href="classMySQLDatabase.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="MySQLDatabase_8h_source.html">MySQLDatabase.h</a>&gt;</code></p>
+<div class="dynheader">
+Граф наследования:MySQLDatabase:</div>
+<div class="dyncontent">
+<div class="center"><img src="classMySQLDatabase__inherit__graph.png" border="0" usemap="#aMySQLDatabase_inherit__map" alt="Inheritance graph"/></div>
+<map name="aMySQLDatabase_inherit__map" id="aMySQLDatabase_inherit__map">
+<area shape="rect" title="class MySQLDatabase Представляет реализацию интерфейса Database для реализации ORM подхода при взаимо..." alt="" coords="5,319,163,584"/>
+<area shape="rect" href="classDatabase.html" title="class Database Представляет собой интерфейс для работы с базой данных." alt="" coords="17,5,151,271"/>
+<area shape="poly" title=" " alt="" coords="87,285,87,319,81,319,81,285"/>
+</map>
+</div>
+<div class="dynheader">
+Граф связей класса MySQLDatabase:</div>
+<div class="dyncontent">
+<div class="center"><img src="classMySQLDatabase__coll__graph.png" border="0" usemap="#aMySQLDatabase_coll__map" alt="Collaboration graph"/></div>
+<map name="aMySQLDatabase_coll__map" id="aMySQLDatabase_coll__map">
+<area shape="rect" title="class MySQLDatabase Представляет реализацию интерфейса Database для реализации ORM подхода при взаимо..." alt="" coords="5,319,163,584"/>
+<area shape="rect" href="classDatabase.html" title="class Database Представляет собой интерфейс для работы с базой данных." alt="" coords="17,5,151,271"/>
+<area shape="poly" title=" " alt="" coords="87,285,87,319,81,319,81,285"/>
+</map>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a8e8f5b13849d9204f647964a14b6e81b" id="r_a8e8f5b13849d9204f647964a14b6e81b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLDatabase.html#a8e8f5b13849d9204f647964a14b6e81b">MySQLDatabase</a> (const string &amp;_username, const string &amp;_password)</td></tr>
+<tr class="memdesc:a8e8f5b13849d9204f647964a14b6e81b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор класса. Конструктор класса отвечает за корректное создание обьекта.  <br /></td></tr>
+<tr class="separator:a8e8f5b13849d9204f647964a14b6e81b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd76957780b6b0288038a77bd3e6d219" id="r_abd76957780b6b0288038a77bd3e6d219"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLDatabase.html#abd76957780b6b0288038a77bd3e6d219">~MySQLDatabase</a> ()</td></tr>
+<tr class="memdesc:abd76957780b6b0288038a77bd3e6d219"><td class="mdescLeft">&#160;</td><td class="mdescRight">Деструктор класса. Деструктор класса, отвечает за корректное уничтожение обьекта.  <br /></td></tr>
+<tr class="separator:abd76957780b6b0288038a77bd3e6d219"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12b1e249d889299c577486a62eba34e9" id="r_a12b1e249d889299c577486a62eba34e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLDatabase.html#a12b1e249d889299c577486a62eba34e9">connect</a> (const string &amp;name, const string &amp;password) override</td></tr>
+<tr class="memdesc:a12b1e249d889299c577486a62eba34e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установление соединения с БД. Метод отвечает за покдлючение к БД.  <br /></td></tr>
+<tr class="separator:a12b1e249d889299c577486a62eba34e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3ca7ced034c6aba068e23a82821fd08" id="r_ac3ca7ced034c6aba068e23a82821fd08"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLDatabase.html#ac3ca7ced034c6aba068e23a82821fd08">isConnected</a> () const override</td></tr>
+<tr class="memdesc:ac3ca7ced034c6aba068e23a82821fd08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Состояние соединения. Метод отвечает за возврат состояния текущего соединения.  <br /></td></tr>
+<tr class="separator:ac3ca7ced034c6aba068e23a82821fd08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab61a8bc961760c91ada919b7ddf23af0" id="r_ab61a8bc961760c91ada919b7ddf23af0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLDatabase.html#ab61a8bc961760c91ada919b7ddf23af0">disconnect</a> () override</td></tr>
+<tr class="memdesc:ab61a8bc961760c91ada919b7ddf23af0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Отключение от БД. Метод отвечает за корректное завершение соединения с БД.  <br /></td></tr>
+<tr class="separator:ab61a8bc961760c91ada919b7ddf23af0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23ac7fecf94e2bb9f9349922cef78453" id="r_a23ac7fecf94e2bb9f9349922cef78453"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLDatabase.html#a23ac7fecf94e2bb9f9349922cef78453">useDatabase</a> (const string &amp;db_file) override</td></tr>
+<tr class="memdesc:a23ac7fecf94e2bb9f9349922cef78453"><td class="mdescLeft">&#160;</td><td class="mdescRight">Выбор БД. Метод отвечает за выбор базы данных.  <br /></td></tr>
+<tr class="separator:a23ac7fecf94e2bb9f9349922cef78453"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f8efede3b5da355674214831eb27cc8" id="r_a1f8efede3b5da355674214831eb27cc8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLDatabase.html#a1f8efede3b5da355674214831eb27cc8">openDatabase</a> (const string &amp;db_file) override</td></tr>
+<tr class="memdesc:a1f8efede3b5da355674214831eb27cc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Открытие БД. Метод отвечает за открытие выбранной базы данных.  <br /></td></tr>
+<tr class="separator:a1f8efede3b5da355674214831eb27cc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d13fb0b076a925314cac4535898a609" id="r_a8d13fb0b076a925314cac4535898a609"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLDatabase.html#a8d13fb0b076a925314cac4535898a609">createDatabase</a> (const string &amp;db_file) override</td></tr>
+<tr class="memdesc:a8d13fb0b076a925314cac4535898a609"><td class="mdescLeft">&#160;</td><td class="mdescRight">Создание БД. Метод отвечает за создание базы данных.  <br /></td></tr>
+<tr class="separator:a8d13fb0b076a925314cac4535898a609"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a619c53bc5ccdae1727ba1443c9b7a199" id="r_a619c53bc5ccdae1727ba1443c9b7a199"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLDatabase.html#a619c53bc5ccdae1727ba1443c9b7a199">dropDatabase</a> (const string &amp;db_file) override</td></tr>
+<tr class="memdesc:a619c53bc5ccdae1727ba1443c9b7a199"><td class="mdescLeft">&#160;</td><td class="mdescRight">Удаление БД. Метод отвечает за удаление базы данных.  <br /></td></tr>
+<tr class="separator:a619c53bc5ccdae1727ba1443c9b7a199"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a9ef95cb4e634a894ccf365c2997aae" id="r_a9a9ef95cb4e634a894ccf365c2997aae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLDatabase.html#a9a9ef95cb4e634a894ccf365c2997aae">createTable</a> (const string &amp;tableName) override</td></tr>
+<tr class="memdesc:a9a9ef95cb4e634a894ccf365c2997aae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Создание таблицы Метод отвечает за создание таблцы в базе даных.  <br /></td></tr>
+<tr class="separator:a9a9ef95cb4e634a894ccf365c2997aae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aceaf7fb124c582723464f4ca689b90d4" id="r_aceaf7fb124c582723464f4ca689b90d4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLDatabase.html#aceaf7fb124c582723464f4ca689b90d4">dropTable</a> (const string &amp;tableName) override</td></tr>
+<tr class="memdesc:aceaf7fb124c582723464f4ca689b90d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Удаление таблицы Метод отвечает за удаление таблцы из базе даных.  <br /></td></tr>
+<tr class="separator:aceaf7fb124c582723464f4ca689b90d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6a763a142b01bb2858d054454eab07b" id="r_af6a763a142b01bb2858d054454eab07b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLDatabase.html#af6a763a142b01bb2858d054454eab07b">tableExists</a> (const string &amp;tableName) const override</td></tr>
+<tr class="memdesc:af6a763a142b01bb2858d054454eab07b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверка наличия таблицы в БД. Метод отвечает за проверку наличия таблицы в базе данных.  <br /></td></tr>
+<tr class="separator:af6a763a142b01bb2858d054454eab07b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42c75cd8ff58c9d9393f7ff346e97686" id="r_a42c75cd8ff58c9d9393f7ff346e97686"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLDatabase.html#a42c75cd8ff58c9d9393f7ff346e97686">renameTable</a> (const string &amp;tableName, const string &amp;newName) override</td></tr>
+<tr class="memdesc:a42c75cd8ff58c9d9393f7ff346e97686"><td class="mdescLeft">&#160;</td><td class="mdescRight">Переименование таблицы Метод отвечает за переименование таблцы из базе даных.  <br /></td></tr>
+<tr class="separator:a42c75cd8ff58c9d9393f7ff346e97686"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a291824e28dc01620b89a107a6e7070" id="r_a4a291824e28dc01620b89a107a6e7070"><td class="memItemLeft" align="right" valign="top">vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLDatabase.html#a4a291824e28dc01620b89a107a6e7070">getTables</a> () const override</td></tr>
+<tr class="memdesc:a4a291824e28dc01620b89a107a6e7070"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получаение вектора имен таблиц. Метод возвращает вектор с названиями таблиц из текущей базы данных.  <br /></td></tr>
+<tr class="separator:a4a291824e28dc01620b89a107a6e7070"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4db0d0184fb12d520aec9697a4568020" id="r_a4db0d0184fb12d520aec9697a4568020"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLDatabase.html#a4db0d0184fb12d520aec9697a4568020">insert</a> (const std::string &amp;tableName, const <a class="el" href="structUser.html">User</a> &amp;obj) override</td></tr>
+<tr class="memdesc:a4db0d0184fb12d520aec9697a4568020"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вставка обьектов в таблицу. Метод отвечает вставку обьектов в таблицу базы данных.  <br /></td></tr>
+<tr class="separator:a4db0d0184fb12d520aec9697a4568020"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68f07bdec53bd91a9bde7b739b2147af" id="r_a68f07bdec53bd91a9bde7b739b2147af"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structUser.html">User</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLDatabase.html#a68f07bdec53bd91a9bde7b739b2147af">select</a> (const std::string &amp;query) override</td></tr>
+<tr class="memdesc:a68f07bdec53bd91a9bde7b739b2147af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Выбор элементов из таблицы по запросу. Метод отвечает возврат элементов из таблицы в соответствии с определенным запросом.  <br /></td></tr>
+<tr class="separator:a68f07bdec53bd91a9bde7b739b2147af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92870efa64ff4b71133a352fbb5c7b3d" id="r_a92870efa64ff4b71133a352fbb5c7b3d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLDatabase.html#a92870efa64ff4b71133a352fbb5c7b3d">update</a> (const std::string &amp;tableName, const <a class="el" href="structUser.html">User</a> &amp;obj, const std::string &amp;condition) override</td></tr>
+<tr class="memdesc:a92870efa64ff4b71133a352fbb5c7b3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Изменение обьекта по условию Метод отвечает за изменение обьекта, который соответсвует определенному условию.  <br /></td></tr>
+<tr class="separator:a92870efa64ff4b71133a352fbb5c7b3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a957eabb45f609dd63b2be13dd82af1e7" id="r_a957eabb45f609dd63b2be13dd82af1e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLDatabase.html#a957eabb45f609dd63b2be13dd82af1e7">removeObject</a> (const std::string &amp;tableName, const std::string &amp;condition) override</td></tr>
+<tr class="memdesc:a957eabb45f609dd63b2be13dd82af1e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Удаление обьектов по условию Метод отвечает за удаление обьектов соответствующих определенному условию.  <br /></td></tr>
+<tr class="separator:a957eabb45f609dd63b2be13dd82af1e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41c2554fa59b95c09f6162ccbba2bca8" id="r_a41c2554fa59b95c09f6162ccbba2bca8"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structUser.html">User</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLDatabase.html#a41c2554fa59b95c09f6162ccbba2bca8">getAllObjects</a> (const std::string &amp;tableName) const override</td></tr>
+<tr class="memdesc:a41c2554fa59b95c09f6162ccbba2bca8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вовзрат всех обьектов из таблицы. Метод отвечает за возврат всех обьектов из таблицы.  <br /></td></tr>
+<tr class="separator:a41c2554fa59b95c09f6162ccbba2bca8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc4711994119b4ba0d785a8eadcb1343" id="r_afc4711994119b4ba0d785a8eadcb1343"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structUser.html">User</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLDatabase.html#afc4711994119b4ba0d785a8eadcb1343">getObjects</a> (const std::string &amp;tableName, const string &amp;condition) const override</td></tr>
+<tr class="memdesc:afc4711994119b4ba0d785a8eadcb1343"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вовзрат обьектов из таблицы в соответствии с определенным условием. Метод отвечает за возврат обьектов, которые соответсвуют определенному условию.  <br /></td></tr>
+<tr class="separator:afc4711994119b4ba0d785a8eadcb1343"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12f2f2f7c56f940ece1817834db20db1" id="r_a12f2f2f7c56f940ece1817834db20db1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLDatabase.html#a12f2f2f7c56f940ece1817834db20db1">removeAllObjects</a> (const std::string &amp;tableName) override</td></tr>
+<tr class="memdesc:a12f2f2f7c56f940ece1817834db20db1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Удаление всех обьектов из таблицы. Метод отвечает за удаление всех обьектов из таблицы.  <br /></td></tr>
+<tr class="separator:a12f2f2f7c56f940ece1817834db20db1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac93f8cdcfd60ce30ae616c11b44130a" id="r_aac93f8cdcfd60ce30ae616c11b44130a"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structUser.html">User</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLDatabase.html#aac93f8cdcfd60ce30ae616c11b44130a">getObjectsOrderBy</a> (const std::string &amp;tableName, const string &amp;field) const override</td></tr>
+<tr class="memdesc:aac93f8cdcfd60ce30ae616c11b44130a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получение сортированных по одному полю обьектов из таблицы Метод отвечает за сортировку данных по одному выбранному полю.  <br /></td></tr>
+<tr class="separator:aac93f8cdcfd60ce30ae616c11b44130a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5ed11a5b879bdc4646f2d5a003fabb5" id="r_ab5ed11a5b879bdc4646f2d5a003fabb5"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structUser.html">User</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLDatabase.html#ab5ed11a5b879bdc4646f2d5a003fabb5">getObjectsOrderBy</a> (const std::string &amp;tableName, const string &amp;field1, const string &amp;field2) const override</td></tr>
+<tr class="memdesc:ab5ed11a5b879bdc4646f2d5a003fabb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получение сортированных по двум полям обьектов из таблицы Метод отвечает за сортировку данных по двум выбранному полю.  <br /></td></tr>
+<tr class="separator:ab5ed11a5b879bdc4646f2d5a003fabb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65eb0cf705b8aafa67cb139e0329c9ce" id="r_a65eb0cf705b8aafa67cb139e0329c9ce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLDatabase.html#a65eb0cf705b8aafa67cb139e0329c9ce">copyAllObjectsInOtherTable</a> (const std::string &amp;tableNameFrom, const std::string &amp;tableNameTo) override</td></tr>
+<tr class="memdesc:a65eb0cf705b8aafa67cb139e0329c9ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Копирование всех обьектоов из таблицы. Метод отвечает за копирование всех обьектов из одной базы данных в другю.  <br /></td></tr>
+<tr class="separator:a65eb0cf705b8aafa67cb139e0329c9ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad17b2fdd119bdeba9dbfaa565e2baba3" id="r_ad17b2fdd119bdeba9dbfaa565e2baba3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLDatabase.html#ad17b2fdd119bdeba9dbfaa565e2baba3">copyObjectsInOtherTable</a> (const std::string &amp;tableNameFrom, const std::string &amp;tableNameTo, const std::string &amp;condition) override</td></tr>
+<tr class="memdesc:ad17b2fdd119bdeba9dbfaa565e2baba3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Копирование обьектов из таблицы соответствующих условию. Метод отвечает за копирование обьектов соответствующих определенному условию, из одной таблицы в другую.  <br /></td></tr>
+<tr class="separator:ad17b2fdd119bdeba9dbfaa565e2baba3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae08b1747d8545514c9c7f7d38821ca41" id="r_ae08b1747d8545514c9c7f7d38821ca41"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLDatabase.html#ae08b1747d8545514c9c7f7d38821ca41">getObjectsCount</a> (const std::string &amp;tableName) const override</td></tr>
+<tr class="memdesc:ae08b1747d8545514c9c7f7d38821ca41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получение количества обьектов в таблице. Метод отвечает за возврат количеств обьектов в таблице.  <br /></td></tr>
+<tr class="separator:ae08b1747d8545514c9c7f7d38821ca41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a6bf70bf157f56c2f78b1ad499bd4df" id="r_a6a6bf70bf157f56c2f78b1ad499bd4df"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLDatabase.html#a6a6bf70bf157f56c2f78b1ad499bd4df">swapObjects</a> (const std::string &amp;tableName, const std::string &amp;id_obj, const std::string &amp;id_other_obj) override</td></tr>
+<tr class="memdesc:a6a6bf70bf157f56c2f78b1ad499bd4df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Обмен запсей в таблице между собой. Метод отвечает за обмен записей в таблице.  <br /></td></tr>
+<tr class="separator:a6a6bf70bf157f56c2f78b1ad499bd4df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98aaf2c5ca6fe37cbfcbdd3f4d39d332" id="r_a98aaf2c5ca6fe37cbfcbdd3f4d39d332"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLDatabase.html#a98aaf2c5ca6fe37cbfcbdd3f4d39d332">beginTransaction</a> () override</td></tr>
+<tr class="memdesc:a98aaf2c5ca6fe37cbfcbdd3f4d39d332"><td class="mdescLeft">&#160;</td><td class="mdescRight">Начало транзакции. Метод устанавливает начало транзакции.  <br /></td></tr>
+<tr class="separator:a98aaf2c5ca6fe37cbfcbdd3f4d39d332"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac63f7600c9876dde99a6d7d7084c9033" id="r_ac63f7600c9876dde99a6d7d7084c9033"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLDatabase.html#ac63f7600c9876dde99a6d7d7084c9033">commit</a> () override</td></tr>
+<tr class="memdesc:ac63f7600c9876dde99a6d7d7084c9033"><td class="mdescLeft">&#160;</td><td class="mdescRight">Коммит. Метод применяет текущие изменения в базе данных.  <br /></td></tr>
+<tr class="separator:ac63f7600c9876dde99a6d7d7084c9033"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69c8063ed579269793a1e5f671bcb9fd" id="r_a69c8063ed579269793a1e5f671bcb9fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLDatabase.html#a69c8063ed579269793a1e5f671bcb9fd">rollback</a> () override</td></tr>
+<tr class="memdesc:a69c8063ed579269793a1e5f671bcb9fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Отмена транзакции. Метод отменяет текущие изменения в базе данных.  <br /></td></tr>
+<tr class="separator:a69c8063ed579269793a1e5f671bcb9fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac438c7dccd0dcf554f7671863be8df03" id="r_ac438c7dccd0dcf554f7671863be8df03"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLDatabase.html#ac438c7dccd0dcf554f7671863be8df03">close</a> ()</td></tr>
+<tr class="memdesc:ac438c7dccd0dcf554f7671863be8df03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Закрытие базы данных Метод отвечает за корректное отключение от базы данных и последующее её закрытие.  <br /></td></tr>
+<tr class="separator:ac438c7dccd0dcf554f7671863be8df03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3b99b7c8e54e8cba1b6ff98d5cc4ddb" id="r_ac3b99b7c8e54e8cba1b6ff98d5cc4ddb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLDatabase.html#ac3b99b7c8e54e8cba1b6ff98d5cc4ddb">execute</a> (const string &amp;sql) override</td></tr>
+<tr class="memdesc:ac3b99b7c8e54e8cba1b6ff98d5cc4ddb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Простой запрос Метод отвечает за реализацию простых запросов к БД.  <br /></td></tr>
+<tr class="separator:ac3b99b7c8e54e8cba1b6ff98d5cc4ddb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classDatabase"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classDatabase')"><img src="closed.png" alt="-"/>&#160;Открытые члены унаследованные от <a class="el" href="classDatabase.html">Database</a></td></tr>
+<tr class="memitem:a4703c80e6969d33565ea340f768fdadf inherit pub_methods_classDatabase" id="r_a4703c80e6969d33565ea340f768fdadf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDatabase.html#a4703c80e6969d33565ea340f768fdadf">Database</a> ()</td></tr>
+<tr class="memdesc:a4703c80e6969d33565ea340f768fdadf inherit pub_methods_classDatabase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор класса. Виртуальный конструктор класса, отвечает за создание обьекта.  <br /></td></tr>
+<tr class="separator:a4703c80e6969d33565ea340f768fdadf inherit pub_methods_classDatabase"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96171c4efaa839446eaf223c8b98e4d2 inherit pub_methods_classDatabase" id="r_a96171c4efaa839446eaf223c8b98e4d2"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDatabase.html#a96171c4efaa839446eaf223c8b98e4d2">~Database</a> ()=default</td></tr>
+<tr class="memdesc:a96171c4efaa839446eaf223c8b98e4d2 inherit pub_methods_classDatabase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Деструктор класса. Виртуальный деструктор класса, отвечает за корректное уничтожение обьекта.  <br /></td></tr>
+<tr class="separator:a96171c4efaa839446eaf223c8b98e4d2 inherit pub_methods_classDatabase"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83f8b6d2941a4aee50f225e08e97291c inherit pub_methods_classDatabase" id="r_a83f8b6d2941a4aee50f225e08e97291c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDatabase.html#a83f8b6d2941a4aee50f225e08e97291c">Database</a> (const <a class="el" href="classDatabase.html">Database</a> &amp;)=delete</td></tr>
+<tr class="memdesc:a83f8b6d2941a4aee50f225e08e97291c inherit pub_methods_classDatabase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор копирования класса. Конструктор копирования класса -отсутствует.  <br /></td></tr>
+<tr class="separator:a83f8b6d2941a4aee50f225e08e97291c inherit pub_methods_classDatabase"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46b93a4878076c7cfddd5b4058297f14 inherit pub_methods_classDatabase" id="r_a46b93a4878076c7cfddd5b4058297f14"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDatabase.html">Database</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDatabase.html#a46b93a4878076c7cfddd5b4058297f14">operator=</a> (const <a class="el" href="classDatabase.html">Database</a> &amp;)=delete</td></tr>
+<tr class="memdesc:a46b93a4878076c7cfddd5b4058297f14 inherit pub_methods_classDatabase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Оператор присваивания. Оператор присваивния класса -отсутствует.  <br /></td></tr>
+<tr class="separator:a46b93a4878076c7cfddd5b4058297f14 inherit pub_methods_classDatabase"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>class <a class="el" href="classMySQLDatabase.html" title="class MySQLDatabase Представляет реализацию интерфейса Database для реализации ORM подхода при взаимо...">MySQLDatabase</a> Представляет реализацию интерфейса <a class="el" href="classDatabase.html" title="class Database Представляет собой интерфейс для работы с базой данных.">Database</a> для реализации ORM подхода при взаимодействии с базой данных MySQL. </p>
+</div><h2 class="groupheader">Конструктор(ы)</h2>
+<a id="a8e8f5b13849d9204f647964a14b6e81b" name="a8e8f5b13849d9204f647964a14b6e81b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e8f5b13849d9204f647964a14b6e81b">&#9670;&#160;</a></span>MySQLDatabase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MySQLDatabase::MySQLDatabase </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>_username</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>_password</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Конструктор класса. Конструктор класса отвечает за корректное создание обьекта. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_username</td><td>имя пользователя для подключения к базед данных. </td></tr>
+    <tr><td class="paramname">_password</td><td>пароль для подключения к базе данных. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Граф вызовов:</div>
+<div class="dyncontent">
+<div class="center"><img src="classMySQLDatabase_a8e8f5b13849d9204f647964a14b6e81b_cgraph.png" border="0" usemap="#aclassMySQLDatabase_a8e8f5b13849d9204f647964a14b6e81b_cgraph" alt=""/></div>
+<map name="aclassMySQLDatabase_a8e8f5b13849d9204f647964a14b6e81b_cgraph" id="aclassMySQLDatabase_a8e8f5b13849d9204f647964a14b6e81b_cgraph">
+<area shape="rect" title="Конструктор класса. Конструктор класса отвечает за корректное создание обьекта." alt="" coords="5,31,249,56"/>
+<area shape="rect" href="classMySQLDatabase.html#a12b1e249d889299c577486a62eba34e9" title="Установление соединения с БД. Метод отвечает за покдлючение к БД." alt="" coords="297,31,485,56"/>
+<area shape="poly" title=" " alt="" coords="249,41,284,41,284,46,249,46"/>
+<area shape="rect" href="classMySQLDatabase.html#ab61a8bc961760c91ada919b7ddf23af0" title="Отключение от БД. Метод отвечает за корректное завершение соединения с БД." alt="" coords="539,5,745,31"/>
+<area shape="poly" title=" " alt="" coords="485,31,525,27,525,32,486,37"/>
+<area shape="rect" href="classMySQLDatabase.html#ac3ca7ced034c6aba068e23a82821fd08" title="Состояние соединения. Метод отвечает за возврат состояния текущего соединения." alt="" coords="533,55,751,80"/>
+<area shape="poly" title=" " alt="" coords="486,50,520,53,519,58,485,55"/>
+<area shape="rect" href="classMySQLDatabase.html#ac438c7dccd0dcf554f7671863be8df03" title="Закрытие базы данных Метод отвечает за корректное отключение от базы данных и последующее её закрытие..." alt="" coords="799,5,969,31"/>
+<area shape="poly" title=" " alt="" coords="746,15,785,15,785,21,746,21"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="abd76957780b6b0288038a77bd3e6d219" name="abd76957780b6b0288038a77bd3e6d219"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd76957780b6b0288038a77bd3e6d219">&#9670;&#160;</a></span>~MySQLDatabase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MySQLDatabase::~MySQLDatabase </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Деструктор класса. Деструктор класса, отвечает за корректное уничтожение обьекта. </p>
+<div class="dynheader">
+Граф вызовов:</div>
+<div class="dyncontent">
+<div class="center"><img src="classMySQLDatabase_abd76957780b6b0288038a77bd3e6d219_cgraph.png" border="0" usemap="#aclassMySQLDatabase_abd76957780b6b0288038a77bd3e6d219_cgraph" alt=""/></div>
+<map name="aclassMySQLDatabase_abd76957780b6b0288038a77bd3e6d219_cgraph" id="aclassMySQLDatabase_abd76957780b6b0288038a77bd3e6d219_cgraph">
+<area shape="rect" title="Деструктор класса. Деструктор класса, отвечает за корректное уничтожение обьекта." alt="" coords="5,31,260,56"/>
+<area shape="rect" href="classMySQLDatabase.html#ab61a8bc961760c91ada919b7ddf23af0" title="Отключение от БД. Метод отвечает за корректное завершение соединения с БД." alt="" coords="313,5,520,31"/>
+<area shape="poly" title=" " alt="" coords="260,29,299,26,300,31,261,35"/>
+<area shape="rect" href="classMySQLDatabase.html#ac3ca7ced034c6aba068e23a82821fd08" title="Состояние соединения. Метод отвечает за возврат состояния текущего соединения." alt="" coords="308,55,525,80"/>
+<area shape="poly" title=" " alt="" coords="260,51,295,54,294,60,260,57"/>
+<area shape="rect" href="classMySQLDatabase.html#ac438c7dccd0dcf554f7671863be8df03" title="Закрытие базы данных Метод отвечает за корректное отключение от базы данных и последующее её закрытие..." alt="" coords="573,5,744,31"/>
+<area shape="poly" title=" " alt="" coords="520,15,560,15,560,21,520,21"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a id="a98aaf2c5ca6fe37cbfcbdd3f4d39d332" name="a98aaf2c5ca6fe37cbfcbdd3f4d39d332"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98aaf2c5ca6fe37cbfcbdd3f4d39d332">&#9670;&#160;</a></span>beginTransaction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MySQLDatabase::beginTransaction </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Начало транзакции. Метод устанавливает начало транзакции. </p>
+
+<p>Замещает <a class="el" href="classDatabase.html#aff3b501fd49267d686a5385a5310dd52">Database</a>.</p>
+<div class="dynheader">
+Граф вызовов:</div>
+<div class="dyncontent">
+<div class="center"><img src="classMySQLDatabase_a98aaf2c5ca6fe37cbfcbdd3f4d39d332_cgraph.png" border="0" usemap="#aclassMySQLDatabase_a98aaf2c5ca6fe37cbfcbdd3f4d39d332_cgraph" alt=""/></div>
+<map name="aclassMySQLDatabase_a98aaf2c5ca6fe37cbfcbdd3f4d39d332_cgraph" id="aclassMySQLDatabase_a98aaf2c5ca6fe37cbfcbdd3f4d39d332_cgraph">
+<area shape="rect" title="Начало транзакции. Метод устанавливает начало транзакции." alt="" coords="5,5,252,31"/>
+<area shape="rect" href="classMySQLDatabase.html#ac3b99b7c8e54e8cba1b6ff98d5cc4ddb" title="Простой запрос Метод отвечает за реализацию простых запросов к БД." alt="" coords="300,5,488,31"/>
+<area shape="poly" title=" " alt="" coords="252,15,286,15,286,21,252,21"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ac438c7dccd0dcf554f7671863be8df03" name="ac438c7dccd0dcf554f7671863be8df03"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac438c7dccd0dcf554f7671863be8df03">&#9670;&#160;</a></span>close()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MySQLDatabase::close </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Закрытие базы данных Метод отвечает за корректное отключение от базы данных и последующее её закрытие. </p>
+<div class="dynheader">
+Граф вызова функции:</div>
+<div class="dyncontent">
+<div class="center"><img src="classMySQLDatabase_ac438c7dccd0dcf554f7671863be8df03_icgraph.png" border="0" usemap="#aclassMySQLDatabase_ac438c7dccd0dcf554f7671863be8df03_icgraph" alt=""/></div>
+<map name="aclassMySQLDatabase_ac438c7dccd0dcf554f7671863be8df03_icgraph" id="aclassMySQLDatabase_ac438c7dccd0dcf554f7671863be8df03_icgraph">
+<area shape="rect" title="Закрытие базы данных Метод отвечает за корректное отключение от базы данных и последующее её закрытие..." alt="" coords="855,31,1025,56"/>
+<area shape="rect" href="classMySQLDatabase.html#ab61a8bc961760c91ada919b7ddf23af0" title="Отключение от БД. Метод отвечает за корректное завершение соединения с БД." alt="" coords="600,31,807,56"/>
+<area shape="poly" title=" " alt="" coords="841,46,807,46,807,41,841,41"/>
+<area shape="rect" href="classMySQLDatabase.html#a12b1e249d889299c577486a62eba34e9" title="Установление соединения с БД. Метод отвечает за покдлючение к БД." alt="" coords="331,5,519,31"/>
+<area shape="poly" title=" " alt="" coords="586,35,519,29,519,24,586,30"/>
+<area shape="rect" href="classMySQLDatabase.html#abd76957780b6b0288038a77bd3e6d219" title="Деструктор класса. Деструктор класса, отвечает за корректное уничтожение обьекта." alt="" coords="297,55,552,80"/>
+<area shape="poly" title=" " alt="" coords="586,56,552,59,552,54,586,51"/>
+<area shape="rect" href="classMySQLDatabase.html#a8e8f5b13849d9204f647964a14b6e81b" title="Конструктор класса. Конструктор класса отвечает за корректное создание обьекта." alt="" coords="5,5,249,31"/>
+<area shape="poly" title=" " alt="" coords="317,21,250,21,250,15,317,15"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ac63f7600c9876dde99a6d7d7084c9033" name="ac63f7600c9876dde99a6d7d7084c9033"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac63f7600c9876dde99a6d7d7084c9033">&#9670;&#160;</a></span>commit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MySQLDatabase::commit </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Коммит. Метод применяет текущие изменения в базе данных. </p>
+
+<p>Замещает <a class="el" href="classDatabase.html#aa66411639fc8aaa0b5499e044dfb244f">Database</a>.</p>
+<div class="dynheader">
+Граф вызовов:</div>
+<div class="dyncontent">
+<div class="center"><img src="classMySQLDatabase_ac63f7600c9876dde99a6d7d7084c9033_cgraph.png" border="0" usemap="#aclassMySQLDatabase_ac63f7600c9876dde99a6d7d7084c9033_cgraph" alt=""/></div>
+<map name="aclassMySQLDatabase_ac63f7600c9876dde99a6d7d7084c9033_cgraph" id="aclassMySQLDatabase_ac63f7600c9876dde99a6d7d7084c9033_cgraph">
+<area shape="rect" title="Коммит. Метод применяет текущие изменения в базе данных." alt="" coords="5,5,192,31"/>
+<area shape="rect" href="classMySQLDatabase.html#ac3b99b7c8e54e8cba1b6ff98d5cc4ddb" title="Простой запрос Метод отвечает за реализацию простых запросов к БД." alt="" coords="240,5,428,31"/>
+<area shape="poly" title=" " alt="" coords="192,15,226,15,226,21,192,21"/>
+</map>
+</div>
+<div class="dynheader">
+Граф вызова функции:</div>
+<div class="dyncontent">
+<div class="center"><img src="classMySQLDatabase_ac63f7600c9876dde99a6d7d7084c9033_icgraph.png" border="0" usemap="#aclassMySQLDatabase_ac63f7600c9876dde99a6d7d7084c9033_icgraph" alt=""/></div>
+<map name="aclassMySQLDatabase_ac63f7600c9876dde99a6d7d7084c9033_icgraph" id="aclassMySQLDatabase_ac63f7600c9876dde99a6d7d7084c9033_icgraph">
+<area shape="rect" title="Коммит. Метод применяет текущие изменения в базе данных." alt="" coords="288,45,475,70"/>
+<area shape="rect" href="classMySQLDatabase.html#a65eb0cf705b8aafa67cb139e0329c9ce" title="Копирование всех обьектоов из таблицы. Метод отвечает за копирование всех обьектов из одной базы данн..." alt="" coords="5,5,240,45"/>
+<area shape="poly" title=" " alt="" coords="274,47,240,43,241,37,275,41"/>
+<area shape="rect" href="classMySQLDatabase.html#ad17b2fdd119bdeba9dbfaa565e2baba3" title="Копирование обьектов из таблицы соответствующих условию. Метод отвечает за копирование обьектов соотв..." alt="" coords="14,69,231,109"/>
+<area shape="poly" title=" " alt="" coords="275,73,232,79,231,73,274,68"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a12b1e249d889299c577486a62eba34e9" name="a12b1e249d889299c577486a62eba34e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12b1e249d889299c577486a62eba34e9">&#9670;&#160;</a></span>connect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MySQLDatabase::connect </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>password</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Установление соединения с БД. Метод отвечает за покдлючение к БД. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>имя пользователя в виде константной строки. </td></tr>
+    <tr><td class="paramname">password</td><td>пароль в виде константной ссылки на строку. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Замещает <a class="el" href="classDatabase.html#ab353adbb2908716ad548be94ccda8d65">Database</a>.</p>
+<div class="dynheader">
+Граф вызовов:</div>
+<div class="dyncontent">
+<div class="center"><img src="classMySQLDatabase_a12b1e249d889299c577486a62eba34e9_cgraph.png" border="0" usemap="#aclassMySQLDatabase_a12b1e249d889299c577486a62eba34e9_cgraph" alt=""/></div>
+<map name="aclassMySQLDatabase_a12b1e249d889299c577486a62eba34e9_cgraph" id="aclassMySQLDatabase_a12b1e249d889299c577486a62eba34e9_cgraph">
+<area shape="rect" title="Установление соединения с БД. Метод отвечает за покдлючение к БД." alt="" coords="5,31,193,56"/>
+<area shape="rect" href="classMySQLDatabase.html#ab61a8bc961760c91ada919b7ddf23af0" title="Отключение от БД. Метод отвечает за корректное завершение соединения с БД." alt="" coords="247,5,453,31"/>
+<area shape="poly" title=" " alt="" coords="193,31,233,27,233,32,194,37"/>
+<area shape="rect" href="classMySQLDatabase.html#ac3ca7ced034c6aba068e23a82821fd08" title="Состояние соединения. Метод отвечает за возврат состояния текущего соединения." alt="" coords="241,55,459,80"/>
+<area shape="poly" title=" " alt="" coords="194,50,228,53,227,58,193,55"/>
+<area shape="rect" href="classMySQLDatabase.html#ac438c7dccd0dcf554f7671863be8df03" title="Закрытие базы данных Метод отвечает за корректное отключение от базы данных и последующее её закрытие..." alt="" coords="507,5,677,31"/>
+<area shape="poly" title=" " alt="" coords="454,15,493,15,493,21,454,21"/>
+</map>
+</div>
+<div class="dynheader">
+Граф вызова функции:</div>
+<div class="dyncontent">
+<div class="center"><img src="classMySQLDatabase_a12b1e249d889299c577486a62eba34e9_icgraph.png" border="0" usemap="#aclassMySQLDatabase_a12b1e249d889299c577486a62eba34e9_icgraph" alt=""/></div>
+<map name="aclassMySQLDatabase_a12b1e249d889299c577486a62eba34e9_icgraph" id="aclassMySQLDatabase_a12b1e249d889299c577486a62eba34e9_icgraph">
+<area shape="rect" title="Установление соединения с БД. Метод отвечает за покдлючение к БД." alt="" coords="297,5,485,31"/>
+<area shape="rect" href="classMySQLDatabase.html#a8e8f5b13849d9204f647964a14b6e81b" title="Конструктор класса. Конструктор класса отвечает за корректное создание обьекта." alt="" coords="5,5,249,31"/>
+<area shape="poly" title=" " alt="" coords="284,21,250,21,250,15,284,15"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a65eb0cf705b8aafa67cb139e0329c9ce" name="a65eb0cf705b8aafa67cb139e0329c9ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65eb0cf705b8aafa67cb139e0329c9ce">&#9670;&#160;</a></span>copyAllObjectsInOtherTable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MySQLDatabase::copyAllObjectsInOtherTable </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>tableNameFrom</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>tableNameTo</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Копирование всех обьектоов из таблицы. Метод отвечает за копирование всех обьектов из одной базы данных в другю. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tableNameFrom</td><td>имя таблицы обьекты которой будут скопировны. </td></tr>
+    <tr><td class="paramname">tableNameTo</td><td>имя таблицы куда будут скопированы обьекты. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Замещает <a class="el" href="classDatabase.html#abea0ddfaf34bddf45a984e3fa19cad42">Database</a>.</p>
+<div class="dynheader">
+Граф вызовов:</div>
+<div class="dyncontent">
+<div class="center"><img src="classMySQLDatabase_a65eb0cf705b8aafa67cb139e0329c9ce_cgraph.png" border="0" usemap="#aclassMySQLDatabase_a65eb0cf705b8aafa67cb139e0329c9ce_cgraph" alt=""/></div>
+<map name="aclassMySQLDatabase_a65eb0cf705b8aafa67cb139e0329c9ce_cgraph" id="aclassMySQLDatabase_a65eb0cf705b8aafa67cb139e0329c9ce_cgraph">
+<area shape="rect" title="Копирование всех обьектоов из таблицы. Метод отвечает за копирование всех обьектов из одной базы данн..." alt="" coords="5,49,240,89"/>
+<area shape="rect" href="classMySQLDatabase.html#ac63f7600c9876dde99a6d7d7084c9033" title="Коммит. Метод применяет текущие изменения в базе данных." alt="" coords="299,5,486,31"/>
+<area shape="poly" title=" " alt="" coords="229,46,311,31,312,36,230,51"/>
+<area shape="rect" href="classMySQLDatabase.html#ac3b99b7c8e54e8cba1b6ff98d5cc4ddb" title="Простой запрос Метод отвечает за реализацию простых запросов к БД." alt="" coords="545,31,733,56"/>
+<area shape="poly" title=" " alt="" coords="241,60,532,46,532,51,241,66"/>
+<area shape="rect" href="classMySQLDatabase.html#af6a763a142b01bb2858d054454eab07b" title="Проверка наличия таблицы в БД. Метод отвечает за проверку наличия таблицы в базе данных." alt="" coords="288,107,497,132"/>
+<area shape="poly" title=" " alt="" coords="230,86,312,102,311,107,229,91"/>
+<area shape="poly" title=" " alt="" coords="487,25,532,30,532,35,486,30"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ad17b2fdd119bdeba9dbfaa565e2baba3" name="ad17b2fdd119bdeba9dbfaa565e2baba3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad17b2fdd119bdeba9dbfaa565e2baba3">&#9670;&#160;</a></span>copyObjectsInOtherTable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MySQLDatabase::copyObjectsInOtherTable </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>tableNameFrom</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>tableNameTo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>condition</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Копирование обьектов из таблицы соответствующих условию. Метод отвечает за копирование обьектов соответствующих определенному условию, из одной таблицы в другую. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tableNameFrom</td><td>имя таблицы обьекты которой будут скопировны. </td></tr>
+    <tr><td class="paramname">tableNameTo</td><td>имя таблицы куда будут скопированы обьекты. </td></tr>
+    <tr><td class="paramname">condition</td><td>условие по которому будет осуществляться копирование обьектов. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Замещает <a class="el" href="classDatabase.html#a8168c0e90b95592e5ee6f68f0c2e9b47">Database</a>.</p>
+<div class="dynheader">
+Граф вызовов:</div>
+<div class="dyncontent">
+<div class="center"><img src="classMySQLDatabase_ad17b2fdd119bdeba9dbfaa565e2baba3_cgraph.png" border="0" usemap="#aclassMySQLDatabase_ad17b2fdd119bdeba9dbfaa565e2baba3_cgraph" alt=""/></div>
+<map name="aclassMySQLDatabase_ad17b2fdd119bdeba9dbfaa565e2baba3_cgraph" id="aclassMySQLDatabase_ad17b2fdd119bdeba9dbfaa565e2baba3_cgraph">
+<area shape="rect" title="Копирование обьектов из таблицы соответствующих условию. Метод отвечает за копирование обьектов соотв..." alt="" coords="5,49,223,89"/>
+<area shape="rect" href="classMySQLDatabase.html#ac63f7600c9876dde99a6d7d7084c9033" title="Коммит. Метод применяет текущие изменения в базе данных." alt="" coords="282,5,469,31"/>
+<area shape="poly" title=" " alt="" coords="217,46,295,31,296,36,218,51"/>
+<area shape="rect" href="classMySQLDatabase.html#ac3b99b7c8e54e8cba1b6ff98d5cc4ddb" title="Простой запрос Метод отвечает за реализацию простых запросов к БД." alt="" coords="528,31,716,56"/>
+<area shape="poly" title=" " alt="" coords="223,61,514,46,515,51,223,66"/>
+<area shape="rect" href="classMySQLDatabase.html#af6a763a142b01bb2858d054454eab07b" title="Проверка наличия таблицы в БД. Метод отвечает за проверку наличия таблицы в базе данных." alt="" coords="271,107,480,132"/>
+<area shape="poly" title=" " alt="" coords="218,86,296,101,295,107,217,91"/>
+<area shape="poly" title=" " alt="" coords="469,25,515,30,514,35,469,30"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a8d13fb0b076a925314cac4535898a609" name="a8d13fb0b076a925314cac4535898a609"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d13fb0b076a925314cac4535898a609">&#9670;&#160;</a></span>createDatabase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MySQLDatabase::createDatabase </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>db_file</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Создание БД. Метод отвечает за создание базы данных. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">db_file</td><td>имя базы данных, которая будет создана. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Замещает <a class="el" href="classDatabase.html#a953dd43e9a5fabfe7d3649d9154df660">Database</a>.</p>
+<div class="dynheader">
+Граф вызова функции:</div>
+<div class="dyncontent">
+<div class="center"><img src="classMySQLDatabase_a8d13fb0b076a925314cac4535898a609_icgraph.png" border="0" usemap="#aclassMySQLDatabase_a8d13fb0b076a925314cac4535898a609_icgraph" alt=""/></div>
+<map name="aclassMySQLDatabase_a8d13fb0b076a925314cac4535898a609_icgraph" id="aclassMySQLDatabase_a8d13fb0b076a925314cac4535898a609_icgraph">
+<area shape="rect" title="Создание БД. Метод отвечает за создание базы данных." alt="" coords="284,5,524,31"/>
+<area shape="rect" href="classMySQLDatabase.html#a1f8efede3b5da355674214831eb27cc8" title="Открытие БД. Метод отвечает за открытие выбранной базы данных." alt="" coords="5,5,236,31"/>
+<area shape="poly" title=" " alt="" coords="270,21,236,21,236,15,270,15"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a9a9ef95cb4e634a894ccf365c2997aae" name="a9a9ef95cb4e634a894ccf365c2997aae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a9ef95cb4e634a894ccf365c2997aae">&#9670;&#160;</a></span>createTable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MySQLDatabase::createTable </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>tableName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Создание таблицы Метод отвечает за создание таблцы в базе даных. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tableName</td><td>имя будущей таблицы в виде константной ссылки на строку. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Замещает <a class="el" href="classDatabase.html#a3db21949951dd9a7276d56d7c0a37435">Database</a>.</p>
+
+</div>
+</div>
+<a id="ab61a8bc961760c91ada919b7ddf23af0" name="ab61a8bc961760c91ada919b7ddf23af0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab61a8bc961760c91ada919b7ddf23af0">&#9670;&#160;</a></span>disconnect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MySQLDatabase::disconnect </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Отключение от БД. Метод отвечает за корректное завершение соединения с БД. </p>
+
+<p>Замещает <a class="el" href="classDatabase.html#a6b2d32e31756499acceaf89ccb49b882">Database</a>.</p>
+<div class="dynheader">
+Граф вызовов:</div>
+<div class="dyncontent">
+<div class="center"><img src="classMySQLDatabase_ab61a8bc961760c91ada919b7ddf23af0_cgraph.png" border="0" usemap="#aclassMySQLDatabase_ab61a8bc961760c91ada919b7ddf23af0_cgraph" alt=""/></div>
+<map name="aclassMySQLDatabase_ab61a8bc961760c91ada919b7ddf23af0_cgraph" id="aclassMySQLDatabase_ab61a8bc961760c91ada919b7ddf23af0_cgraph">
+<area shape="rect" title="Отключение от БД. Метод отвечает за корректное завершение соединения с БД." alt="" coords="5,5,212,31"/>
+<area shape="rect" href="classMySQLDatabase.html#ac438c7dccd0dcf554f7671863be8df03" title="Закрытие базы данных Метод отвечает за корректное отключение от базы данных и последующее её закрытие..." alt="" coords="260,5,431,31"/>
+<area shape="poly" title=" " alt="" coords="212,15,246,15,246,21,212,21"/>
+</map>
+</div>
+<div class="dynheader">
+Граф вызова функции:</div>
+<div class="dyncontent">
+<div class="center"><img src="classMySQLDatabase_ab61a8bc961760c91ada919b7ddf23af0_icgraph.png" border="0" usemap="#aclassMySQLDatabase_ab61a8bc961760c91ada919b7ddf23af0_icgraph" alt=""/></div>
+<map name="aclassMySQLDatabase_ab61a8bc961760c91ada919b7ddf23af0_icgraph" id="aclassMySQLDatabase_ab61a8bc961760c91ada919b7ddf23af0_icgraph">
+<area shape="rect" title="Отключение от БД. Метод отвечает за корректное завершение соединения с БД." alt="" coords="600,31,807,56"/>
+<area shape="rect" href="classMySQLDatabase.html#a12b1e249d889299c577486a62eba34e9" title="Установление соединения с БД. Метод отвечает за покдлючение к БД." alt="" coords="331,5,519,31"/>
+<area shape="poly" title=" " alt="" coords="586,35,519,29,519,24,586,30"/>
+<area shape="rect" href="classMySQLDatabase.html#abd76957780b6b0288038a77bd3e6d219" title="Деструктор класса. Деструктор класса, отвечает за корректное уничтожение обьекта." alt="" coords="297,55,552,80"/>
+<area shape="poly" title=" " alt="" coords="586,56,552,59,552,54,586,51"/>
+<area shape="rect" href="classMySQLDatabase.html#a8e8f5b13849d9204f647964a14b6e81b" title="Конструктор класса. Конструктор класса отвечает за корректное создание обьекта." alt="" coords="5,5,249,31"/>
+<area shape="poly" title=" " alt="" coords="317,21,250,21,250,15,317,15"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a619c53bc5ccdae1727ba1443c9b7a199" name="a619c53bc5ccdae1727ba1443c9b7a199"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a619c53bc5ccdae1727ba1443c9b7a199">&#9670;&#160;</a></span>dropDatabase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MySQLDatabase::dropDatabase </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>db_file</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Удаление БД. Метод отвечает за удаление базы данных. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">принимаети</td><td>имя базы данных, в виде константной ссылки на строку, которую требуется удалить. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Замещает <a class="el" href="classDatabase.html#a2f9485ebd74b0cc843ddca04c6abea72">Database</a>.</p>
+
+</div>
+</div>
+<a id="aceaf7fb124c582723464f4ca689b90d4" name="aceaf7fb124c582723464f4ca689b90d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aceaf7fb124c582723464f4ca689b90d4">&#9670;&#160;</a></span>dropTable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MySQLDatabase::dropTable </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>tableName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Удаление таблицы Метод отвечает за удаление таблцы из базе даных. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tableName</td><td>имя таблицы, в виде константной ссылки на строку, которую требуется удалить из базы данных. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Замещает <a class="el" href="classDatabase.html#a26ce7ae6e13f47231c12fb0469bfcd84">Database</a>.</p>
+<div class="dynheader">
+Граф вызовов:</div>
+<div class="dyncontent">
+<div class="center"><img src="classMySQLDatabase_aceaf7fb124c582723464f4ca689b90d4_cgraph.png" border="0" usemap="#aclassMySQLDatabase_aceaf7fb124c582723464f4ca689b90d4_cgraph" alt=""/></div>
+<map name="aclassMySQLDatabase_aceaf7fb124c582723464f4ca689b90d4_cgraph" id="aclassMySQLDatabase_aceaf7fb124c582723464f4ca689b90d4_cgraph">
+<area shape="rect" title="Удаление таблицы Метод отвечает за удаление таблцы из базе даных." alt="" coords="5,5,205,31"/>
+<area shape="rect" href="classMySQLDatabase.html#ac3b99b7c8e54e8cba1b6ff98d5cc4ddb" title="Простой запрос Метод отвечает за реализацию простых запросов к БД." alt="" coords="253,5,441,31"/>
+<area shape="poly" title=" " alt="" coords="205,15,240,15,240,21,205,21"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ac3b99b7c8e54e8cba1b6ff98d5cc4ddb" name="ac3b99b7c8e54e8cba1b6ff98d5cc4ddb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3b99b7c8e54e8cba1b6ff98d5cc4ddb">&#9670;&#160;</a></span>execute()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MySQLDatabase::execute </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>sql</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Простой запрос Метод отвечает за реализацию простых запросов к БД. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sql</td><td>запрос в виде константной ссылки на строку. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>при успешном проведении запроса возврщает true, в противном случае false. </dd></dl>
+
+<p>Замещает <a class="el" href="classDatabase.html#a1235bd05c9a211b897a6a7d1d3ae838e">Database</a>.</p>
+<div class="dynheader">
+Граф вызова функции:</div>
+<div class="dyncontent">
+<div class="center"><img src="classMySQLDatabase_ac3b99b7c8e54e8cba1b6ff98d5cc4ddb_icgraph.png" border="0" usemap="#aclassMySQLDatabase_ac3b99b7c8e54e8cba1b6ff98d5cc4ddb_icgraph" alt=""/></div>
+<map name="aclassMySQLDatabase_ac3b99b7c8e54e8cba1b6ff98d5cc4ddb_icgraph" id="aclassMySQLDatabase_ac3b99b7c8e54e8cba1b6ff98d5cc4ddb_icgraph">
+<area shape="rect" title="Простой запрос Метод отвечает за реализацию простых запросов к БД." alt="" coords="583,257,771,283"/>
+<area shape="rect" href="classMySQLDatabase.html#a98aaf2c5ca6fe37cbfcbdd3f4d39d332" title="Начало транзакции. Метод устанавливает начало транзакции." alt="" coords="288,5,535,31"/>
+<area shape="poly" title=" " alt="" coords="664,246,646,203,618,151,580,97,558,73,533,52,495,33,497,28,536,48,562,69,584,94,622,148,651,201,669,244"/>
+<area shape="rect" href="classMySQLDatabase.html#ac63f7600c9876dde99a6d7d7084c9033" title="Коммит. Метод применяет текущие изменения в базе данных." alt="" coords="318,107,505,132"/>
+<area shape="poly" title=" " alt="" coords="653,249,601,201,569,175,533,154,482,135,484,130,536,149,572,171,605,196,656,245"/>
+<area shape="rect" href="classMySQLDatabase.html#a65eb0cf705b8aafa67cb139e0329c9ce" title="Копирование всех обьектоов из таблицы. Метод отвечает за копирование всех обьектов из одной базы данн..." alt="" coords="5,58,240,98"/>
+<area shape="poly" title=" " alt="" coords="662,246,642,210,614,168,578,128,557,110,533,96,498,81,461,70,384,58,308,56,238,61,238,55,308,50,384,52,462,65,500,76,536,92,560,106,581,124,618,165,647,208,666,244"/>
+<area shape="rect" href="classMySQLDatabase.html#ad17b2fdd119bdeba9dbfaa565e2baba3" title="Копирование обьектов из таблицы соответствующих условию. Метод отвечает за копирование обьектов соотв..." alt="" coords="14,131,231,171"/>
+<area shape="poly" title=" " alt="" coords="643,252,593,224,534,199,456,180,377,167,231,155,232,150,378,162,458,175,535,194,596,219,646,247"/>
+<area shape="rect" href="classMySQLDatabase.html#aceaf7fb124c582723464f4ca689b90d4" title="Удаление таблицы Метод отвечает за удаление таблцы из базе даных." alt="" coords="311,208,511,233"/>
+<area shape="poly" title=" " alt="" coords="594,257,480,236,481,231,595,252"/>
+<area shape="rect" href="classMySQLDatabase.html#a4db0d0184fb12d520aec9697a4568020" title="Вставка обьектов в таблицу. Метод отвечает вставку обьектов в таблицу базы данных." alt="" coords="324,257,499,283"/>
+<area shape="poly" title=" " alt="" coords="569,273,499,273,499,267,569,267"/>
+<area shape="rect" href="classMySQLDatabase.html#a12f2f2f7c56f940ece1817834db20db1" title="Удаление всех обьектов из таблицы. Метод отвечает за удаление всех обьектов из таблицы." alt="" coords="309,307,513,347"/>
+<area shape="poly" title=" " alt="" coords="604,288,505,310,504,305,603,283"/>
+<area shape="rect" href="classMySQLDatabase.html#a957eabb45f609dd63b2be13dd82af1e7" title="Удаление обьектов по условию Метод отвечает за удаление обьектов соответствующих определенному услови..." alt="" coords="297,372,526,397"/>
+<area shape="poly" title=" " alt="" coords="650,293,599,329,536,362,495,374,494,369,534,357,596,324,647,289"/>
+<area shape="rect" href="classMySQLDatabase.html#a42c75cd8ff58c9d9393f7ff346e97686" title="Переименование таблицы Метод отвечает за переименование таблцы из базе даных." alt="" coords="301,421,522,447"/>
+<area shape="poly" title=" " alt="" coords="661,296,610,355,575,386,536,412,508,424,506,419,533,408,572,382,606,351,657,292"/>
+<area shape="rect" href="classMySQLDatabase.html#a69c8063ed579269793a1e5f671bcb9fd" title="Отмена транзакции. Метод отменяет текущие изменения в базе данных." alt="" coords="317,471,506,496"/>
+<area shape="poly" title=" " alt="" coords="667,296,647,334,619,379,581,424,536,462,507,475,505,470,533,457,578,420,614,376,642,331,662,294"/>
+<area shape="rect" href="classMySQLDatabase.html#a23ac7fecf94e2bb9f9349922cef78453" title="Выбор БД. Метод отвечает за выбор базы данных." alt="" coords="300,520,523,545"/>
+<area shape="poly" title=" " alt="" coords="670,297,654,344,626,402,588,461,563,488,536,511,515,522,513,518,533,506,560,484,583,458,622,399,649,342,665,295"/>
+<area shape="poly" title=" " alt="" coords="308,107,240,97,240,92,309,102"/>
+<area shape="poly" title=" " alt="" coords="304,134,232,142,231,137,304,129"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a41c2554fa59b95c09f6162ccbba2bca8" name="a41c2554fa59b95c09f6162ccbba2bca8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41c2554fa59b95c09f6162ccbba2bca8">&#9670;&#160;</a></span>getAllObjects()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="structUser.html">User</a> &gt; MySQLDatabase::getAllObjects </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>tableName</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Вовзрат всех обьектов из таблицы. Метод отвечает за возврат всех обьектов из таблицы. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tableName</td><td>имя таблицы из которой будут возвращены обьекты. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>std::vector&lt;User&gt; вектор обьектов из таблицы. </dd></dl>
+
+<p>Замещает <a class="el" href="classDatabase.html#aa61f4c192d66f51928e7b9cc3cde2b76">Database</a>.</p>
+<div class="dynheader">
+Граф вызова функции:</div>
+<div class="dyncontent">
+<div class="center"><img src="classMySQLDatabase_a41c2554fa59b95c09f6162ccbba2bca8_icgraph.png" border="0" usemap="#aclassMySQLDatabase_a41c2554fa59b95c09f6162ccbba2bca8_icgraph" alt=""/></div>
+<map name="aclassMySQLDatabase_a41c2554fa59b95c09f6162ccbba2bca8_icgraph" id="aclassMySQLDatabase_a41c2554fa59b95c09f6162ccbba2bca8_icgraph">
+<area shape="rect" title="Вовзрат всех обьектов из таблицы. Метод отвечает за возврат всех обьектов из таблицы." alt="" coords="260,13,484,38"/>
+<area shape="rect" href="classMySQLDatabase.html#ae08b1747d8545514c9c7f7d38821ca41" title="Получение количества обьектов в таблице. Метод отвечает за возврат количеств обьектов в таблице." alt="" coords="5,5,212,45"/>
+<area shape="poly" title=" " alt="" coords="246,28,212,28,212,23,246,23"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="afc4711994119b4ba0d785a8eadcb1343" name="afc4711994119b4ba0d785a8eadcb1343"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc4711994119b4ba0d785a8eadcb1343">&#9670;&#160;</a></span>getObjects()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="structUser.html">User</a> &gt; MySQLDatabase::getObjects </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>tableName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>condition</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Вовзрат обьектов из таблицы в соответствии с определенным условием. Метод отвечает за возврат обьектов, которые соответсвуют определенному условию. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tableName</td><td>имя таблицы из которой будут возвращены обьекты. </td></tr>
+    <tr><td class="paramname">condition</td><td>условие, в соответсвии с которым будет сформирован вектор возврщаемых обьектов. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>std::vector&lt;User&gt; вектор обьектов сформированных по определенному условию. </dd></dl>
+
+<p>Замещает <a class="el" href="classDatabase.html#ad53fb6cb66ac000d8bd890eefd2a7eb0">Database</a>.</p>
+<div class="dynheader">
+Граф вызова функции:</div>
+<div class="dyncontent">
+<div class="center"><img src="classMySQLDatabase_afc4711994119b4ba0d785a8eadcb1343_icgraph.png" border="0" usemap="#aclassMySQLDatabase_afc4711994119b4ba0d785a8eadcb1343_icgraph" alt=""/></div>
+<map name="aclassMySQLDatabase_afc4711994119b4ba0d785a8eadcb1343_icgraph" id="aclassMySQLDatabase_afc4711994119b4ba0d785a8eadcb1343_icgraph">
+<area shape="rect" title="Вовзрат обьектов из таблицы в соответствии с определенным условием. Метод отвечает за возврат обьекто..." alt="" coords="273,5,480,31"/>
+<area shape="rect" href="classMySQLDatabase.html#a6a6bf70bf157f56c2f78b1ad499bd4df" title="Обмен запсей в таблице между собой. Метод отвечает за обмен записей в таблице." alt="" coords="5,5,225,31"/>
+<area shape="poly" title=" " alt="" coords="260,21,225,21,225,15,260,15"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ae08b1747d8545514c9c7f7d38821ca41" name="ae08b1747d8545514c9c7f7d38821ca41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae08b1747d8545514c9c7f7d38821ca41">&#9670;&#160;</a></span>getObjectsCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int MySQLDatabase::getObjectsCount </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>tableName</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Получение количества обьектов в таблице. Метод отвечает за возврат количеств обьектов в таблице. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tableName</td><td>имя таблицы. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>количеств пользователей в таблице. </dd></dl>
+
+<p>Замещает <a class="el" href="classDatabase.html#acb6aa856dcc300069c47ee0027134ed5">Database</a>.</p>
+<div class="dynheader">
+Граф вызовов:</div>
+<div class="dyncontent">
+<div class="center"><img src="classMySQLDatabase_ae08b1747d8545514c9c7f7d38821ca41_cgraph.png" border="0" usemap="#aclassMySQLDatabase_ae08b1747d8545514c9c7f7d38821ca41_cgraph" alt=""/></div>
+<map name="aclassMySQLDatabase_ae08b1747d8545514c9c7f7d38821ca41_cgraph" id="aclassMySQLDatabase_ae08b1747d8545514c9c7f7d38821ca41_cgraph">
+<area shape="rect" title="Получение количества обьектов в таблице. Метод отвечает за возврат количеств обьектов в таблице." alt="" coords="5,5,212,45"/>
+<area shape="rect" href="classMySQLDatabase.html#a41c2554fa59b95c09f6162ccbba2bca8" title="Вовзрат всех обьектов из таблицы. Метод отвечает за возврат всех обьектов из таблицы." alt="" coords="260,13,484,38"/>
+<area shape="poly" title=" " alt="" coords="212,23,246,23,246,28,212,28"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aac93f8cdcfd60ce30ae616c11b44130a" name="aac93f8cdcfd60ce30ae616c11b44130a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac93f8cdcfd60ce30ae616c11b44130a">&#9670;&#160;</a></span>getObjectsOrderBy() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="structUser.html">User</a> &gt; MySQLDatabase::getObjectsOrderBy </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>tableName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>field</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Получение сортированных по одному полю обьектов из таблицы Метод отвечает за сортировку данных по одному выбранному полю. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tableName</td><td>имя таблицы. </td></tr>
+    <tr><td class="paramname">field</td><td>имя поля обьекта, по которому будет производится сортировка. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Замещает <a class="el" href="classDatabase.html#a6ef4e05931e97c6c34be80fe71e021b0">Database</a>.</p>
+
+</div>
+</div>
+<a id="ab5ed11a5b879bdc4646f2d5a003fabb5" name="ab5ed11a5b879bdc4646f2d5a003fabb5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5ed11a5b879bdc4646f2d5a003fabb5">&#9670;&#160;</a></span>getObjectsOrderBy() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="structUser.html">User</a> &gt; MySQLDatabase::getObjectsOrderBy </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>tableName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>field1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>field2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Получение сортированных по двум полям обьектов из таблицы Метод отвечает за сортировку данных по двум выбранному полю. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tableName</td><td>имя таблицы. </td></tr>
+    <tr><td class="paramname">field1</td><td>имя поля обьекта, по которому первым будет производится сортировка. </td></tr>
+    <tr><td class="paramname">field2</td><td>имя поля обьекта, по которому во вторую очередь будет производится сортировка. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Замещает <a class="el" href="classDatabase.html#a9e2f5d1baf324f135415638e4eed3697">Database</a>.</p>
+
+</div>
+</div>
+<a id="a4a291824e28dc01620b89a107a6e7070" name="a4a291824e28dc01620b89a107a6e7070"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a291824e28dc01620b89a107a6e7070">&#9670;&#160;</a></span>getTables()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::string &gt; MySQLDatabase::getTables </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Получаение вектора имен таблиц. Метод возвращает вектор с названиями таблиц из текущей базы данных. </p>
+<dl class="section return"><dt>Возвращает</dt><dd>возвращает вектор vector&lt;std::string&gt; с именами таблицы. </dd></dl>
+
+<p>Замещает <a class="el" href="classDatabase.html#af3403843abe22e1dc2c9fa5ec0d9e475">Database</a>.</p>
+
+</div>
+</div>
+<a id="a4db0d0184fb12d520aec9697a4568020" name="a4db0d0184fb12d520aec9697a4568020"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4db0d0184fb12d520aec9697a4568020">&#9670;&#160;</a></span>insert()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MySQLDatabase::insert </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>tableName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structUser.html">User</a> &amp;&#160;</td>
+          <td class="paramname"><em>obj</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Вставка обьектов в таблицу. Метод отвечает вставку обьектов в таблицу базы данных. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tableName</td><td>имя таблицы. </td></tr>
+    <tr><td class="paramname">obj</td><td>обьект ожидающий вставки в таблицу. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Замещает <a class="el" href="classDatabase.html#a4e7a6dbfc8898d839237e416b47f2e58">Database</a>.</p>
+<div class="dynheader">
+Граф вызовов:</div>
+<div class="dyncontent">
+<div class="center"><img src="classMySQLDatabase_a4db0d0184fb12d520aec9697a4568020_cgraph.png" border="0" usemap="#aclassMySQLDatabase_a4db0d0184fb12d520aec9697a4568020_cgraph" alt=""/></div>
+<map name="aclassMySQLDatabase_a4db0d0184fb12d520aec9697a4568020_cgraph" id="aclassMySQLDatabase_a4db0d0184fb12d520aec9697a4568020_cgraph">
+<area shape="rect" title="Вставка обьектов в таблицу. Метод отвечает вставку обьектов в таблицу базы данных." alt="" coords="5,5,180,31"/>
+<area shape="rect" href="classMySQLDatabase.html#ac3b99b7c8e54e8cba1b6ff98d5cc4ddb" title="Простой запрос Метод отвечает за реализацию простых запросов к БД." alt="" coords="228,5,416,31"/>
+<area shape="poly" title=" " alt="" coords="180,15,214,15,214,21,180,21"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ac3ca7ced034c6aba068e23a82821fd08" name="ac3ca7ced034c6aba068e23a82821fd08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3ca7ced034c6aba068e23a82821fd08">&#9670;&#160;</a></span>isConnected()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MySQLDatabase::isConnected </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Состояние соединения. Метод отвечает за возврат состояния текущего соединения. </p>
+<dl class="section return"><dt>Возвращает</dt><dd>при наличии текущего соединения с БД возврщает true, в противном случае false. </dd></dl>
+
+<p>Замещает <a class="el" href="classDatabase.html#ac5f3098c79d55b47a0cce44bcf5e349e">Database</a>.</p>
+<div class="dynheader">
+Граф вызова функции:</div>
+<div class="dyncontent">
+<div class="center"><img src="classMySQLDatabase_ac3ca7ced034c6aba068e23a82821fd08_icgraph.png" border="0" usemap="#aclassMySQLDatabase_ac3ca7ced034c6aba068e23a82821fd08_icgraph" alt=""/></div>
+<map name="aclassMySQLDatabase_ac3ca7ced034c6aba068e23a82821fd08_icgraph" id="aclassMySQLDatabase_ac3ca7ced034c6aba068e23a82821fd08_icgraph">
+<area shape="rect" title="Состояние соединения. Метод отвечает за возврат состояния текущего соединения." alt="" coords="600,31,817,56"/>
+<area shape="rect" href="classMySQLDatabase.html#a12b1e249d889299c577486a62eba34e9" title="Установление соединения с БД. Метод отвечает за покдлючение к БД." alt="" coords="331,5,519,31"/>
+<area shape="poly" title=" " alt="" coords="586,35,519,29,519,24,586,30"/>
+<area shape="rect" href="classMySQLDatabase.html#abd76957780b6b0288038a77bd3e6d219" title="Деструктор класса. Деструктор класса, отвечает за корректное уничтожение обьекта." alt="" coords="297,55,552,80"/>
+<area shape="poly" title=" " alt="" coords="586,56,553,59,552,54,586,51"/>
+<area shape="rect" href="classMySQLDatabase.html#a8e8f5b13849d9204f647964a14b6e81b" title="Конструктор класса. Конструктор класса отвечает за корректное создание обьекта." alt="" coords="5,5,249,31"/>
+<area shape="poly" title=" " alt="" coords="317,21,250,21,250,15,317,15"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a1f8efede3b5da355674214831eb27cc8" name="a1f8efede3b5da355674214831eb27cc8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f8efede3b5da355674214831eb27cc8">&#9670;&#160;</a></span>openDatabase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MySQLDatabase::openDatabase </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>db_file</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Открытие БД. Метод отвечает за открытие выбранной базы данных. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">db_file</td><td>имя базы данных, виде константной ссылки на строку, с которой требуется взаимодействовать. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Замещает <a class="el" href="classDatabase.html#ae3c921b64b41d49fae60c4ee439e0b92">Database</a>.</p>
+<div class="dynheader">
+Граф вызовов:</div>
+<div class="dyncontent">
+<div class="center"><img src="classMySQLDatabase_a1f8efede3b5da355674214831eb27cc8_cgraph.png" border="0" usemap="#aclassMySQLDatabase_a1f8efede3b5da355674214831eb27cc8_cgraph" alt=""/></div>
+<map name="aclassMySQLDatabase_a1f8efede3b5da355674214831eb27cc8_cgraph" id="aclassMySQLDatabase_a1f8efede3b5da355674214831eb27cc8_cgraph">
+<area shape="rect" title="Открытие БД. Метод отвечает за открытие выбранной базы данных." alt="" coords="5,5,236,31"/>
+<area shape="rect" href="classMySQLDatabase.html#a8d13fb0b076a925314cac4535898a609" title="Создание БД. Метод отвечает за создание базы данных." alt="" coords="284,5,524,31"/>
+<area shape="poly" title=" " alt="" coords="236,15,270,15,270,21,236,21"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a12f2f2f7c56f940ece1817834db20db1" name="a12f2f2f7c56f940ece1817834db20db1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12f2f2f7c56f940ece1817834db20db1">&#9670;&#160;</a></span>removeAllObjects()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MySQLDatabase::removeAllObjects </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>tableName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Удаление всех обьектов из таблицы. Метод отвечает за удаление всех обьектов из таблицы. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tableName</td><td>имя таблицы из которой будут удалены все обьекты. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Замещает <a class="el" href="classDatabase.html#a4730e02bbf1fc65c8788fec89d788946">Database</a>.</p>
+<div class="dynheader">
+Граф вызовов:</div>
+<div class="dyncontent">
+<div class="center"><img src="classMySQLDatabase_a12f2f2f7c56f940ece1817834db20db1_cgraph.png" border="0" usemap="#aclassMySQLDatabase_a12f2f2f7c56f940ece1817834db20db1_cgraph" alt=""/></div>
+<map name="aclassMySQLDatabase_a12f2f2f7c56f940ece1817834db20db1_cgraph" id="aclassMySQLDatabase_a12f2f2f7c56f940ece1817834db20db1_cgraph">
+<area shape="rect" title="Удаление всех обьектов из таблицы. Метод отвечает за удаление всех обьектов из таблицы." alt="" coords="5,5,209,45"/>
+<area shape="rect" href="classMySQLDatabase.html#ac3b99b7c8e54e8cba1b6ff98d5cc4ddb" title="Простой запрос Метод отвечает за реализацию простых запросов к БД." alt="" coords="257,13,445,38"/>
+<area shape="poly" title=" " alt="" coords="210,23,244,23,244,28,210,28"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a957eabb45f609dd63b2be13dd82af1e7" name="a957eabb45f609dd63b2be13dd82af1e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a957eabb45f609dd63b2be13dd82af1e7">&#9670;&#160;</a></span>removeObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MySQLDatabase::removeObject </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>tableName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>condition</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Удаление обьектов по условию Метод отвечает за удаление обьектов соответствующих определенному условию. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tableName</td><td>имя таблицы из которой будут удалены обьекты. </td></tr>
+    <tr><td class="paramname">condition</td><td>условие по которому будет осуществляться удаление обьектов. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Замещает <a class="el" href="classDatabase.html#aab9858b068e5cf7d06788ec8acaaefac">Database</a>.</p>
+<div class="dynheader">
+Граф вызовов:</div>
+<div class="dyncontent">
+<div class="center"><img src="classMySQLDatabase_a957eabb45f609dd63b2be13dd82af1e7_cgraph.png" border="0" usemap="#aclassMySQLDatabase_a957eabb45f609dd63b2be13dd82af1e7_cgraph" alt=""/></div>
+<map name="aclassMySQLDatabase_a957eabb45f609dd63b2be13dd82af1e7_cgraph" id="aclassMySQLDatabase_a957eabb45f609dd63b2be13dd82af1e7_cgraph">
+<area shape="rect" title="Удаление обьектов по условию Метод отвечает за удаление обьектов соответствующих определенному услови..." alt="" coords="5,5,235,31"/>
+<area shape="rect" href="classMySQLDatabase.html#ac3b99b7c8e54e8cba1b6ff98d5cc4ddb" title="Простой запрос Метод отвечает за реализацию простых запросов к БД." alt="" coords="283,5,471,31"/>
+<area shape="poly" title=" " alt="" coords="235,15,269,15,269,21,235,21"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a42c75cd8ff58c9d9393f7ff346e97686" name="a42c75cd8ff58c9d9393f7ff346e97686"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42c75cd8ff58c9d9393f7ff346e97686">&#9670;&#160;</a></span>renameTable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MySQLDatabase::renameTable </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>tableName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>newName</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Переименование таблицы Метод отвечает за переименование таблцы из базе даных. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tableName</td><td>имя таблицы, в виде константной ссылки на строку, которую требуется переименовать. </td></tr>
+    <tr><td class="paramname">newName</td><td>новое имя, в виде константной ссылки на строку, которым будет переименована текущая таблица. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Замещает <a class="el" href="classDatabase.html#ac758aa01b72b21ea3ebafd0ca26189eb">Database</a>.</p>
+<div class="dynheader">
+Граф вызовов:</div>
+<div class="dyncontent">
+<div class="center"><img src="classMySQLDatabase_a42c75cd8ff58c9d9393f7ff346e97686_cgraph.png" border="0" usemap="#aclassMySQLDatabase_a42c75cd8ff58c9d9393f7ff346e97686_cgraph" alt=""/></div>
+<map name="aclassMySQLDatabase_a42c75cd8ff58c9d9393f7ff346e97686_cgraph" id="aclassMySQLDatabase_a42c75cd8ff58c9d9393f7ff346e97686_cgraph">
+<area shape="rect" title="Переименование таблицы Метод отвечает за переименование таблцы из базе даных." alt="" coords="5,5,227,31"/>
+<area shape="rect" href="classMySQLDatabase.html#ac3b99b7c8e54e8cba1b6ff98d5cc4ddb" title="Простой запрос Метод отвечает за реализацию простых запросов к БД." alt="" coords="275,5,463,31"/>
+<area shape="poly" title=" " alt="" coords="227,15,261,15,261,21,227,21"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a69c8063ed579269793a1e5f671bcb9fd" name="a69c8063ed579269793a1e5f671bcb9fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69c8063ed579269793a1e5f671bcb9fd">&#9670;&#160;</a></span>rollback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MySQLDatabase::rollback </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Отмена транзакции. Метод отменяет текущие изменения в базе данных. </p>
+
+<p>Замещает <a class="el" href="classDatabase.html#aa263b884aa0cafeced3e54486402cabd">Database</a>.</p>
+<div class="dynheader">
+Граф вызовов:</div>
+<div class="dyncontent">
+<div class="center"><img src="classMySQLDatabase_a69c8063ed579269793a1e5f671bcb9fd_cgraph.png" border="0" usemap="#aclassMySQLDatabase_a69c8063ed579269793a1e5f671bcb9fd_cgraph" alt=""/></div>
+<map name="aclassMySQLDatabase_a69c8063ed579269793a1e5f671bcb9fd_cgraph" id="aclassMySQLDatabase_a69c8063ed579269793a1e5f671bcb9fd_cgraph">
+<area shape="rect" title="Отмена транзакции. Метод отменяет текущие изменения в базе данных." alt="" coords="5,5,195,31"/>
+<area shape="rect" href="classMySQLDatabase.html#ac3b99b7c8e54e8cba1b6ff98d5cc4ddb" title="Простой запрос Метод отвечает за реализацию простых запросов к БД." alt="" coords="243,5,431,31"/>
+<area shape="poly" title=" " alt="" coords="195,15,229,15,229,21,195,21"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a68f07bdec53bd91a9bde7b739b2147af" name="a68f07bdec53bd91a9bde7b739b2147af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68f07bdec53bd91a9bde7b739b2147af">&#9670;&#160;</a></span>select()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="structUser.html">User</a> &gt; MySQLDatabase::select </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>query</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Выбор элементов из таблицы по запросу. Метод отвечает возврат элементов из таблицы в соответствии с определенным запросом. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">query</td><td>запрос для БД. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>std::vector&lt;User&gt; вектор данных из таблицы. </dd></dl>
+
+<p>Замещает <a class="el" href="classDatabase.html#ab16f25da6d2d480c9790f9221e3a2be5">Database</a>.</p>
+
+</div>
+</div>
+<a id="a6a6bf70bf157f56c2f78b1ad499bd4df" name="a6a6bf70bf157f56c2f78b1ad499bd4df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a6bf70bf157f56c2f78b1ad499bd4df">&#9670;&#160;</a></span>swapObjects()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MySQLDatabase::swapObjects </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>tableName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>id_obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>id_other_obj</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Обмен запсей в таблице между собой. Метод отвечает за обмен записей в таблице. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tableName</td><td>имя таблицы. </td></tr>
+    <tr><td class="paramname">id_obj</td><td>id первого обьекта, который будет заменен вторым обьектом. </td></tr>
+    <tr><td class="paramname">id_other_obj</td><td>id второго обьекта, который будет заменен первым обьектом. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Замещает <a class="el" href="classDatabase.html#a59444488cbba7d4f94eb1b4a72567cea">Database</a>.</p>
+<div class="dynheader">
+Граф вызовов:</div>
+<div class="dyncontent">
+<div class="center"><img src="classMySQLDatabase_a6a6bf70bf157f56c2f78b1ad499bd4df_cgraph.png" border="0" usemap="#aclassMySQLDatabase_a6a6bf70bf157f56c2f78b1ad499bd4df_cgraph" alt=""/></div>
+<map name="aclassMySQLDatabase_a6a6bf70bf157f56c2f78b1ad499bd4df_cgraph" id="aclassMySQLDatabase_a6a6bf70bf157f56c2f78b1ad499bd4df_cgraph">
+<area shape="rect" title="Обмен запсей в таблице между собой. Метод отвечает за обмен записей в таблице." alt="" coords="5,31,225,56"/>
+<area shape="rect" href="classMySQLDatabase.html#afc4711994119b4ba0d785a8eadcb1343" title="Вовзрат обьектов из таблицы в соответствии с определенным условием. Метод отвечает за возврат обьекто..." alt="" coords="273,5,480,31"/>
+<area shape="poly" title=" " alt="" coords="225,30,260,27,260,32,226,35"/>
+<area shape="rect" href="classMySQLDatabase.html#a92870efa64ff4b71133a352fbb5c7b3d" title="Изменение обьекта по условию Метод отвечает за изменение обьекта, который соответсвует определенному ..." alt="" coords="285,55,468,80"/>
+<area shape="poly" title=" " alt="" coords="226,51,272,55,271,60,225,56"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="af6a763a142b01bb2858d054454eab07b" name="af6a763a142b01bb2858d054454eab07b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6a763a142b01bb2858d054454eab07b">&#9670;&#160;</a></span>tableExists()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MySQLDatabase::tableExists </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>tableName</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Проверка наличия таблицы в БД. Метод отвечает за проверку наличия таблицы в базе данных. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tableName</td><td>имя таблицы в виде константной ссылки на строку. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>при наличии таблицы в базе данных возврщает true, в противном случае false. </dd></dl>
+
+<p>Замещает <a class="el" href="classDatabase.html#a1bbc6c45cf547ef9c9b5264d94cdbca8">Database</a>.</p>
+<div class="dynheader">
+Граф вызова функции:</div>
+<div class="dyncontent">
+<div class="center"><img src="classMySQLDatabase_af6a763a142b01bb2858d054454eab07b_icgraph.png" border="0" usemap="#aclassMySQLDatabase_af6a763a142b01bb2858d054454eab07b_icgraph" alt=""/></div>
+<map name="aclassMySQLDatabase_af6a763a142b01bb2858d054454eab07b_icgraph" id="aclassMySQLDatabase_af6a763a142b01bb2858d054454eab07b_icgraph">
+<area shape="rect" title="Проверка наличия таблицы в БД. Метод отвечает за проверку наличия таблицы в базе данных." alt="" coords="288,45,497,70"/>
+<area shape="rect" href="classMySQLDatabase.html#a65eb0cf705b8aafa67cb139e0329c9ce" title="Копирование всех обьектоов из таблицы. Метод отвечает за копирование всех обьектов из одной базы данн..." alt="" coords="5,5,240,45"/>
+<area shape="poly" title=" " alt="" coords="274,46,240,42,241,37,275,41"/>
+<area shape="rect" href="classMySQLDatabase.html#ad17b2fdd119bdeba9dbfaa565e2baba3" title="Копирование обьектов из таблицы соответствующих условию. Метод отвечает за копирование обьектов соотв..." alt="" coords="14,69,231,109"/>
+<area shape="poly" title=" " alt="" coords="275,74,232,79,231,74,274,69"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a92870efa64ff4b71133a352fbb5c7b3d" name="a92870efa64ff4b71133a352fbb5c7b3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92870efa64ff4b71133a352fbb5c7b3d">&#9670;&#160;</a></span>update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MySQLDatabase::update </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>tableName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structUser.html">User</a> &amp;&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>condition</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Изменение обьекта по условию Метод отвечает за изменение обьекта, который соответсвует определенному условию. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tableName</td><td>имя таблицы из которой будут удалены обьекты. </td></tr>
+    <tr><td class="paramname">ogj</td><td>обьект которым будет заменен обьект из таблицы. </td></tr>
+    <tr><td class="paramname">condition</td><td>условие, соответсвующему который обьект, будет изменен. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Замещает <a class="el" href="classDatabase.html#a7250ed7ba5d5915503e24e5a5bf22a58">Database</a>.</p>
+<div class="dynheader">
+Граф вызова функции:</div>
+<div class="dyncontent">
+<div class="center"><img src="classMySQLDatabase_a92870efa64ff4b71133a352fbb5c7b3d_icgraph.png" border="0" usemap="#aclassMySQLDatabase_a92870efa64ff4b71133a352fbb5c7b3d_icgraph" alt=""/></div>
+<map name="aclassMySQLDatabase_a92870efa64ff4b71133a352fbb5c7b3d_icgraph" id="aclassMySQLDatabase_a92870efa64ff4b71133a352fbb5c7b3d_icgraph">
+<area shape="rect" title="Изменение обьекта по условию Метод отвечает за изменение обьекта, который соответсвует определенному ..." alt="" coords="273,5,456,31"/>
+<area shape="rect" href="classMySQLDatabase.html#a6a6bf70bf157f56c2f78b1ad499bd4df" title="Обмен запсей в таблице между собой. Метод отвечает за обмен записей в таблице." alt="" coords="5,5,225,31"/>
+<area shape="poly" title=" " alt="" coords="260,21,225,21,225,15,260,15"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a23ac7fecf94e2bb9f9349922cef78453" name="a23ac7fecf94e2bb9f9349922cef78453"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23ac7fecf94e2bb9f9349922cef78453">&#9670;&#160;</a></span>useDatabase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MySQLDatabase::useDatabase </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>db_file</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Выбор БД. Метод отвечает за выбор базы данных. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">db_file</td><td>имя базы данных, с которой требуется взаимодействовать. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Замещает <a class="el" href="classDatabase.html#ac4ebdf2d21bd0b4110966f3bf463f49d">Database</a>.</p>
+<div class="dynheader">
+Граф вызовов:</div>
+<div class="dyncontent">
+<div class="center"><img src="classMySQLDatabase_a23ac7fecf94e2bb9f9349922cef78453_cgraph.png" border="0" usemap="#aclassMySQLDatabase_a23ac7fecf94e2bb9f9349922cef78453_cgraph" alt=""/></div>
+<map name="aclassMySQLDatabase_a23ac7fecf94e2bb9f9349922cef78453_cgraph" id="aclassMySQLDatabase_a23ac7fecf94e2bb9f9349922cef78453_cgraph">
+<area shape="rect" title="Выбор БД. Метод отвечает за выбор базы данных." alt="" coords="5,5,228,31"/>
+<area shape="rect" href="classMySQLDatabase.html#ac3b99b7c8e54e8cba1b6ff98d5cc4ddb" title="Простой запрос Метод отвечает за реализацию простых запросов к БД." alt="" coords="276,5,464,31"/>
+<area shape="poly" title=" " alt="" coords="228,15,262,15,262,21,228,21"/>
+</map>
+</div>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>include/<a class="el" href="MySQLDatabase_8h_source.html">MySQLDatabase.h</a></li>
+<li>src/<a class="el" href="MySQLDatabase_8cpp.html">MySQLDatabase.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

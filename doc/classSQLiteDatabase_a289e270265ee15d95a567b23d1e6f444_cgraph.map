@@ -1,0 +1,5 @@
+<map id="SQLiteDatabase::disconnect" name="SQLiteDatabase::disconnect">
+<area shape="rect" id="Node000001" title="Отключение от БД. Метод отвечает за корректное завершение соединения с БД." alt="" coords="5,5,209,31"/>
+<area shape="rect" id="Node000002" href="$classSQLiteDatabase.html#adfe144ad3772e25f6a73c8a38b64d3e7" title="Закрытие базы данных Метод отвечает за корректное отключение от базы данных и последующее её закрытие..." alt="" coords="257,5,425,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="209,15,244,15,244,21,209,21"/>
+</map>

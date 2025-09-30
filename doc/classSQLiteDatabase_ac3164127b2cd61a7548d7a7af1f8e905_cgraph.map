@@ -1,0 +1,5 @@
+<map id="SQLiteDatabase::dropTable" name="SQLiteDatabase::dropTable">
+<area shape="rect" id="Node000001" title="Удаление таблицы Метод отвечает за удаление таблцы из базе даных." alt="" coords="5,5,203,31"/>
+<area shape="rect" id="Node000002" href="$classSQLiteDatabase.html#a6fa5bc48354eada1a4171f8de10fd5bf" title="Простой запрос Метод отвечает за реализацию простых запросов к БД." alt="" coords="251,5,436,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="203,15,237,15,237,21,203,21"/>
+</map>

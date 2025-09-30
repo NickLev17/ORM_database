@@ -1,0 +1,5 @@
+<map id="MySQLDatabase::commit" name="MySQLDatabase::commit">
+<area shape="rect" id="Node000001" title="Коммит. Метод применяет текущие изменения в базе данных." alt="" coords="5,5,192,31"/>
+<area shape="rect" id="Node000002" href="$classMySQLDatabase.html#ac3b99b7c8e54e8cba1b6ff98d5cc4ddb" title="Простой запрос Метод отвечает за реализацию простых запросов к БД." alt="" coords="240,5,428,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="192,15,226,15,226,21,192,21"/>
+</map>

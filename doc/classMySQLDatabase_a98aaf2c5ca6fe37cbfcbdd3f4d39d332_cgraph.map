@@ -1,0 +1,5 @@
+<map id="MySQLDatabase::beginTransaction" name="MySQLDatabase::beginTransaction">
+<area shape="rect" id="Node000001" title="Начало транзакции. Метод устанавливает начало транзакции." alt="" coords="5,5,252,31"/>
+<area shape="rect" id="Node000002" href="$classMySQLDatabase.html#ac3b99b7c8e54e8cba1b6ff98d5cc4ddb" title="Простой запрос Метод отвечает за реализацию простых запросов к БД." alt="" coords="300,5,488,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="252,15,286,15,286,21,252,21"/>
+</map>

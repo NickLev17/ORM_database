@@ -1,0 +1,5 @@
+<map id="MySQLDatabase::renameTable" name="MySQLDatabase::renameTable">
+<area shape="rect" id="Node000001" title="Переименование таблицы Метод отвечает за переименование таблцы из базе даных." alt="" coords="5,5,227,31"/>
+<area shape="rect" id="Node000002" href="$classMySQLDatabase.html#ac3b99b7c8e54e8cba1b6ff98d5cc4ddb" title="Простой запрос Метод отвечает за реализацию простых запросов к БД." alt="" coords="275,5,463,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="227,15,261,15,261,21,227,21"/>
+</map>

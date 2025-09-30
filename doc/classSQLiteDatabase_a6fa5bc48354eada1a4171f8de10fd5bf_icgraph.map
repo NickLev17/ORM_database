@@ -1,0 +1,31 @@
+<map id="SQLiteDatabase::execute" name="SQLiteDatabase::execute">
+<area shape="rect" id="Node000001" title="Простой запрос Метод отвечает за реализацию простых запросов к БД." alt="" coords="576,283,761,308"/>
+<area shape="rect" id="Node000002" href="$classSQLiteDatabase.html#a1fee113404bbef08d9fd4589fc39d267" title="Начало транзакции. Метод устанавливает начало транзакции." alt="" coords="284,5,528,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="657,270,641,223,614,164,576,103,553,76,526,52,489,33,492,28,530,48,557,72,580,100,619,161,646,221,663,268"/>
+<area shape="rect" id="Node000003" href="$classSQLiteDatabase.html#a5ba6b1c8dc073fee9e702dec2475c3a9" title="Коммит. Метод применяет текущие изменения в базе данных." alt="" coords="314,107,498,132"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="649,273,598,213,564,181,527,154,480,134,482,130,529,149,568,177,602,209,653,270"/>
+<area shape="rect" id="Node000004" href="$classSQLiteDatabase.html#a0c7da0cc2ca027b3c7653db18b0d094a" title="Копирование всех обьектоов из таблицы. Метод отвечает за копирование всех обьектов из одной базы данн..." alt="" coords="5,58,236,98"/>
+<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="656,271,638,230,611,181,574,133,552,113,527,96,491,80,453,68,373,55,295,54,224,61,224,55,295,49,373,50,454,63,493,75,529,92,555,109,578,130,615,178,643,227,661,268"/>
+<area shape="rect" id="Node000005" href="$classSQLiteDatabase.html#a460d99a69cc930c5e41532e8a1f1c4ad" title="Копирование обьектов из таблицы соответствующих условию. Метод отвечает за копирование обьектов соотв..." alt="" coords="13,141,228,181"/>
+<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="643,275,592,234,561,214,527,198,451,176,373,164,297,158,228,157,228,152,297,153,374,158,453,171,529,193,563,209,596,229,646,271"/>
+<area shape="rect" id="Node000006" href="$classSQLiteDatabase.html#a1c923ebf6bc72d3cc15d474794fa76b8" title="Создание таблицы Метод отвечает за создание таблцы в базе даных." alt="" coords="301,208,511,233"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="623,280,527,247,480,236,481,231,529,242,625,275"/>
+<area shape="rect" id="Node000007" href="$classSQLiteDatabase.html#ac3164127b2cd61a7548d7a7af1f8e905" title="Удаление таблицы Метод отвечает за удаление таблцы из базе даных." alt="" coords="307,257,505,283"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="562,288,505,282,505,277,562,282"/>
+<area shape="rect" id="Node000008" href="$classSQLiteDatabase.html#a379f54a85c887cfce8092e4524b2a9e1" title="Вставка обьектов в таблицу. Метод отвечает вставку обьектов в таблицу базы данных." alt="" coords="321,307,491,332"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="562,308,492,314,491,309,562,302"/>
+<area shape="rect" id="Node000009" href="$classSQLiteDatabase.html#a194b4ea124fd326589cdf11f3d5ba1ef" title="Удаление всех обьектов из таблицы. Метод отвечает за удаление всех обьектов из таблицы." alt="" coords="305,357,507,397"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="620,315,529,346,484,359,482,354,527,341,618,310"/>
+<area shape="rect" id="Node000010" href="$classSQLiteDatabase.html#af856c5ac61f0b8255c04bf391c8217a5" title="Удаление обьектов по условию Метод отвечает за удаление обьектов соответствующих определенному услови..." alt="" coords="293,421,519,447"/>
+<area shape="poly" id="edge11_Node000001_Node000010" title=" " alt="" coords="648,320,597,367,564,391,529,411,494,424,492,419,527,406,561,386,594,363,645,316"/>
+<area shape="rect" id="Node000011" href="$classSQLiteDatabase.html#a000c64a480a0552262af9f928dfc96f5" title="Переименование таблицы Метод отвечает за переименование таблцы из базе даных." alt="" coords="297,471,515,496"/>
+<area shape="poly" id="edge12_Node000001_Node000011" title=" " alt="" coords="656,322,635,354,606,392,571,429,529,460,501,473,499,468,527,456,567,425,602,388,630,351,651,319"/>
+<area shape="rect" id="Node000012" href="$classSQLiteDatabase.html#a9404d5a304d8ac8dddbf1d9a42db425f" title="Отмена транзакции. Метод отменяет текущие изменения в базе данных." alt="" coords="313,520,499,545"/>
+<area shape="poly" id="edge13_Node000001_Node000012" title=" " alt="" coords="660,322,642,364,614,415,577,467,554,490,529,510,501,524,498,519,527,505,551,486,573,463,610,412,637,362,656,320"/>
+<area shape="rect" id="Node000013" href="$classSQLiteDatabase.html#a97ed81e786e22f1f1ebf870248f53335" title="Изменение обьекта по условию Метод отвечает за изменение обьекта, который соответсвует определенному ..." alt="" coords="317,569,495,595"/>
+<area shape="poly" id="edge14_Node000001_Node000013" title=" " alt="" coords="664,322,649,373,623,438,583,505,558,535,529,560,497,576,494,572,527,556,555,531,579,501,618,436,644,372,659,321"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="304,107,236,97,237,92,305,102"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="305,137,228,148,228,143,304,131"/>
+<area shape="rect" id="Node000014" href="$classSQLiteDatabase.html#a2a4bf15ff8dc3101552fa455ee2bee1d" title="Обмен запсей в таблице между собой. Метод отвечает за обмен записей в таблице." alt="" coords="12,569,229,595"/>
+<area shape="poly" id="edge15_Node000013_Node000014" title=" " alt="" coords="303,585,229,585,229,579,303,579"/>
+</map>

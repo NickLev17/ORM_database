@@ -1,0 +1,27 @@
+<map id="MySQLDatabase::execute" name="MySQLDatabase::execute">
+<area shape="rect" id="Node000001" title="Простой запрос Метод отвечает за реализацию простых запросов к БД." alt="" coords="583,257,771,283"/>
+<area shape="rect" id="Node000002" href="$classMySQLDatabase.html#a98aaf2c5ca6fe37cbfcbdd3f4d39d332" title="Начало транзакции. Метод устанавливает начало транзакции." alt="" coords="288,5,535,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="664,246,646,203,618,151,580,97,558,73,533,52,495,33,497,28,536,48,562,69,584,94,622,148,651,201,669,244"/>
+<area shape="rect" id="Node000003" href="$classMySQLDatabase.html#ac63f7600c9876dde99a6d7d7084c9033" title="Коммит. Метод применяет текущие изменения в базе данных." alt="" coords="318,107,505,132"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="653,249,601,201,569,175,533,154,482,135,484,130,536,149,572,171,605,196,656,245"/>
+<area shape="rect" id="Node000004" href="$classMySQLDatabase.html#a65eb0cf705b8aafa67cb139e0329c9ce" title="Копирование всех обьектоов из таблицы. Метод отвечает за копирование всех обьектов из одной базы данн..." alt="" coords="5,58,240,98"/>
+<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="662,246,642,210,614,168,578,128,557,110,533,96,498,81,461,70,384,58,308,56,238,61,238,55,308,50,384,52,462,65,500,76,536,92,560,106,581,124,618,165,647,208,666,244"/>
+<area shape="rect" id="Node000005" href="$classMySQLDatabase.html#ad17b2fdd119bdeba9dbfaa565e2baba3" title="Копирование обьектов из таблицы соответствующих условию. Метод отвечает за копирование обьектов соотв..." alt="" coords="14,131,231,171"/>
+<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="643,252,593,224,534,199,456,180,377,167,231,155,232,150,378,162,458,175,535,194,596,219,646,247"/>
+<area shape="rect" id="Node000006" href="$classMySQLDatabase.html#aceaf7fb124c582723464f4ca689b90d4" title="Удаление таблицы Метод отвечает за удаление таблцы из базе даных." alt="" coords="311,208,511,233"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="594,257,480,236,481,231,595,252"/>
+<area shape="rect" id="Node000007" href="$classMySQLDatabase.html#a4db0d0184fb12d520aec9697a4568020" title="Вставка обьектов в таблицу. Метод отвечает вставку обьектов в таблицу базы данных." alt="" coords="324,257,499,283"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="569,273,499,273,499,267,569,267"/>
+<area shape="rect" id="Node000008" href="$classMySQLDatabase.html#a12f2f2f7c56f940ece1817834db20db1" title="Удаление всех обьектов из таблицы. Метод отвечает за удаление всех обьектов из таблицы." alt="" coords="309,307,513,347"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="604,288,505,310,504,305,603,283"/>
+<area shape="rect" id="Node000009" href="$classMySQLDatabase.html#a957eabb45f609dd63b2be13dd82af1e7" title="Удаление обьектов по условию Метод отвечает за удаление обьектов соответствующих определенному услови..." alt="" coords="297,372,526,397"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="650,293,599,329,536,362,495,374,494,369,534,357,596,324,647,289"/>
+<area shape="rect" id="Node000010" href="$classMySQLDatabase.html#a42c75cd8ff58c9d9393f7ff346e97686" title="Переименование таблицы Метод отвечает за переименование таблцы из базе даных." alt="" coords="301,421,522,447"/>
+<area shape="poly" id="edge11_Node000001_Node000010" title=" " alt="" coords="661,296,610,355,575,386,536,412,508,424,506,419,533,408,572,382,606,351,657,292"/>
+<area shape="rect" id="Node000011" href="$classMySQLDatabase.html#a69c8063ed579269793a1e5f671bcb9fd" title="Отмена транзакции. Метод отменяет текущие изменения в базе данных." alt="" coords="317,471,506,496"/>
+<area shape="poly" id="edge12_Node000001_Node000011" title=" " alt="" coords="667,296,647,334,619,379,581,424,536,462,507,475,505,470,533,457,578,420,614,376,642,331,662,294"/>
+<area shape="rect" id="Node000012" href="$classMySQLDatabase.html#a23ac7fecf94e2bb9f9349922cef78453" title="Выбор БД. Метод отвечает за выбор базы данных." alt="" coords="300,520,523,545"/>
+<area shape="poly" id="edge13_Node000001_Node000012" title=" " alt="" coords="670,297,654,344,626,402,588,461,563,488,536,511,515,522,513,518,533,506,560,484,583,458,622,399,649,342,665,295"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="308,107,240,97,240,92,309,102"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="304,134,232,142,231,137,304,129"/>
+</map>

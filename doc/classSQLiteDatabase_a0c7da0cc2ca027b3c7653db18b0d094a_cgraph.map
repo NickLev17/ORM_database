@@ -1,0 +1,10 @@
+<map id="SQLiteDatabase::copyAllObjectsInOtherTable" name="SQLiteDatabase::copyAllObjectsInOtherTable">
+<area shape="rect" id="Node000001" title="Копирование всех обьектоов из таблицы. Метод отвечает за копирование всех обьектов из одной базы данн..." alt="" coords="5,49,236,89"/>
+<area shape="rect" id="Node000002" href="$classSQLiteDatabase.html#a5ba6b1c8dc073fee9e702dec2475c3a9" title="Коммит. Метод применяет текущие изменения в базе данных." alt="" coords="295,5,479,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="226,46,306,31,307,36,227,51"/>
+<area shape="rect" id="Node000003" href="$classSQLiteDatabase.html#a6fa5bc48354eada1a4171f8de10fd5bf" title="Простой запрос Метод отвечает за реализацию простых запросов к БД." alt="" coords="539,31,724,56"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="236,60,525,46,525,51,236,66"/>
+<area shape="rect" id="Node000004" href="$classSQLiteDatabase.html#a820b9e3dd8c2e6d60bfe8ccc516d0b7e" title="Проверка наличия таблицы в БД. Метод отвечает за проверку наличия таблицы в базе данных." alt="" coords="284,107,491,132"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="227,86,307,101,306,107,226,91"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="480,25,525,30,524,35,479,30"/>
+</map>

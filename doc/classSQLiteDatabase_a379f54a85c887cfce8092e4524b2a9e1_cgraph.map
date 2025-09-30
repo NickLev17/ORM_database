@@ -1,0 +1,5 @@
+<map id="SQLiteDatabase::insert" name="SQLiteDatabase::insert">
+<area shape="rect" id="Node000001" title="Вставка обьектов в таблицу. Метод отвечает вставку обьектов в таблицу базы данных." alt="" coords="5,5,176,31"/>
+<area shape="rect" id="Node000002" href="$classSQLiteDatabase.html#a6fa5bc48354eada1a4171f8de10fd5bf" title="Простой запрос Метод отвечает за реализацию простых запросов к БД." alt="" coords="224,5,409,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="176,15,210,15,210,21,176,21"/>
+</map>

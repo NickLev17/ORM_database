@@ -1,0 +1,5 @@
+<map id="SQLiteDatabase::beginTransaction" name="SQLiteDatabase::beginTransaction">
+<area shape="rect" id="Node000001" title="Начало транзакции. Метод устанавливает начало транзакции." alt="" coords="5,5,249,31"/>
+<area shape="rect" id="Node000002" href="$classSQLiteDatabase.html#a6fa5bc48354eada1a4171f8de10fd5bf" title="Простой запрос Метод отвечает за реализацию простых запросов к БД." alt="" coords="297,5,483,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="250,15,284,15,284,21,250,21"/>
+</map>
