@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Реализация ORM клиента с поддержкой баз данных SQLite и MySQL: Исходный файл include/MySQLDatabase.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Реализация ORM клиента с поддержкой баз данных SQLite и MySQL<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+   <div id="projectbrief">Упрощаем взаимодействие между объектно-ориентированным программным кодом и реляционными базами данных.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">MySQLDatabase.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="MySQLDatabase_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef MYSQLDATABASE_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define MYSQLDATABASE_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="Database_8h.html">Database.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;stdexcept&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;mysql_driver.h&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;mysql_connection.h&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;cppconn/prepared_statement.h&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;cppconn/resultset.h&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;cppconn/exception.h&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">using namespace </span>std;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="foldopen" id="foldopen00020" data-start="{" data-end="};">
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="classMySQLDatabase.html">   20</a></span><span class="keyword">class </span><a class="code hl_define" href="Database_8h.html#a606ad1402ff2c8b34a3b9a8fa2553a7e">MYLIB_API</a> <a class="code hl_class" href="classMySQLDatabase.html">MySQLDatabase</a> : <span class="keyword">public</span> <a class="code hl_class" href="classDatabase.html">Database</a></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>{</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    std::unique_ptr&lt;sql::Connection&gt; conn;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <a class="code hl_class" href="classMySQLDatabase.html">MySQLDatabase</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;_username, <span class="keyword">const</span> <span class="keywordtype">string</span> &amp;_password);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_class" href="classMySQLDatabase.html">~MySQLDatabase</a>();</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classDatabase.html#ab353adbb2908716ad548be94ccda8d65">connect</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;name, <span class="keyword">const</span> <span class="keywordtype">string</span> &amp;password) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classDatabase.html#ac5f3098c79d55b47a0cce44bcf5e349e">isConnected</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classDatabase.html#a6b2d32e31756499acceaf89ccb49b882">disconnect</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classDatabase.html#ac4ebdf2d21bd0b4110966f3bf463f49d">useDatabase</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;db_file) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classDatabase.html#ae3c921b64b41d49fae60c4ee439e0b92">openDatabase</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;db_file) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classDatabase.html#a953dd43e9a5fabfe7d3649d9154df660">createDatabase</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;db_file) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classDatabase.html#a2f9485ebd74b0cc843ddca04c6abea72">dropDatabase</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;db_file) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classDatabase.html#a3db21949951dd9a7276d56d7c0a37435">createTable</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;tableName) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classDatabase.html#a26ce7ae6e13f47231c12fb0469bfcd84">dropTable</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;tableName) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classDatabase.html#a1bbc6c45cf547ef9c9b5264d94cdbca8">tableExists</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;tableName) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classDatabase.html#ac758aa01b72b21ea3ebafd0ca26189eb">renameTable</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;tableName, <span class="keyword">const</span> <span class="keywordtype">string</span> &amp;newName) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    vector&lt;std::string&gt; <a class="code hl_function" href="classDatabase.html#af3403843abe22e1dc2c9fa5ec0d9e475">getTables</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classDatabase.html#a4e7a6dbfc8898d839237e416b47f2e58">insert</a>(<span class="keyword">const</span> std::string &amp;tableName, <span class="keyword">const</span> <a class="code hl_struct" href="structUser.html">User</a> &amp;obj) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    std::vector&lt;User&gt; <a class="code hl_function" href="classDatabase.html#ab16f25da6d2d480c9790f9221e3a2be5">select</a>(<span class="keyword">const</span> std::string &amp;query) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classDatabase.html#a7250ed7ba5d5915503e24e5a5bf22a58">update</a>(<span class="keyword">const</span> std::string &amp;tableName, <span class="keyword">const</span> <a class="code hl_struct" href="structUser.html">User</a> &amp;obj, <span class="keyword">const</span> std::string &amp;condition) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classDatabase.html#aab9858b068e5cf7d06788ec8acaaefac">removeObject</a>(<span class="keyword">const</span> std::string &amp;tableName, <span class="keyword">const</span> std::string &amp;condition) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    std::vector&lt;User&gt; <a class="code hl_function" href="classDatabase.html#aa61f4c192d66f51928e7b9cc3cde2b76">getAllObjects</a>(<span class="keyword">const</span> std::string &amp;tableName) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    std::vector&lt;User&gt; <a class="code hl_function" href="classDatabase.html#ad53fb6cb66ac000d8bd890eefd2a7eb0">getObjects</a>(<span class="keyword">const</span> std::string &amp;tableName, <span class="keyword">const</span> <span class="keywordtype">string</span> &amp;condition) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classDatabase.html#a4730e02bbf1fc65c8788fec89d788946">removeAllObjects</a>(<span class="keyword">const</span> std::string &amp;tableName) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    std::vector&lt;User&gt; <a class="code hl_function" href="classDatabase.html#a6ef4e05931e97c6c34be80fe71e021b0">getObjectsOrderBy</a>(<span class="keyword">const</span> std::string &amp;tableName, <span class="keyword">const</span> <span class="keywordtype">string</span> &amp;field) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    std::vector&lt;User&gt; <a class="code hl_function" href="classDatabase.html#a6ef4e05931e97c6c34be80fe71e021b0">getObjectsOrderBy</a>(<span class="keyword">const</span> std::string &amp;tableName, <span class="keyword">const</span> <span class="keywordtype">string</span> &amp;field1, <span class="keyword">const</span> <span class="keywordtype">string</span> &amp;field2) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classDatabase.html#abea0ddfaf34bddf45a984e3fa19cad42">copyAllObjectsInOtherTable</a>(<span class="keyword">const</span> std::string &amp;tableNameFrom, <span class="keyword">const</span> std::string &amp;tableNameTo) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classDatabase.html#a8168c0e90b95592e5ee6f68f0c2e9b47">copyObjectsInOtherTable</a>(<span class="keyword">const</span> std::string &amp;tableNameFrom, <span class="keyword">const</span> std::string &amp;tableNameTo, <span class="keyword">const</span> std::string &amp;condition) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classDatabase.html#acb6aa856dcc300069c47ee0027134ed5">getObjectsCount</a>(<span class="keyword">const</span> std::string &amp;tableName) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classDatabase.html#a59444488cbba7d4f94eb1b4a72567cea">swapObjects</a>(<span class="keyword">const</span> std::string &amp;tableName, <span class="keyword">const</span> std::string &amp;id_obj, <span class="keyword">const</span> std::string &amp;id_other_obj) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span> </div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classDatabase.html#aff3b501fd49267d686a5385a5310dd52">beginTransaction</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classDatabase.html#aa66411639fc8aaa0b5499e044dfb244f">commit</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classDatabase.html#aa263b884aa0cafeced3e54486402cabd">rollback</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    <span class="keywordtype">void</span> close();</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classDatabase.html#a1235bd05c9a211b897a6a7d1d3ae838e">execute</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;sql) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span> </div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>};</div>
+</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span> </div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aDatabase_8h_html"><div class="ttname"><a href="Database_8h.html">Database.h</a></div></div>
+<div class="ttc" id="aDatabase_8h_html_a606ad1402ff2c8b34a3b9a8fa2553a7e"><div class="ttname"><a href="Database_8h.html#a606ad1402ff2c8b34a3b9a8fa2553a7e">MYLIB_API</a></div><div class="ttdeci">#define MYLIB_API</div><div class="ttdef"><b>Definition</b> Database.h:11</div></div>
+<div class="ttc" id="aclassDatabase_html"><div class="ttname"><a href="classDatabase.html">Database</a></div><div class="ttdoc">class Database Представляет собой интерфейс для работы с базой данных.</div><div class="ttdef"><b>Definition</b> Database.h:38</div></div>
+<div class="ttc" id="aclassDatabase_html_a1235bd05c9a211b897a6a7d1d3ae838e"><div class="ttname"><a href="classDatabase.html#a1235bd05c9a211b897a6a7d1d3ae838e">Database::execute</a></div><div class="ttdeci">virtual bool execute(const string &amp;sql)=0</div><div class="ttdoc">Простой запрос Метод отвечает за реализацию простых запросов к БД.</div></div>
+<div class="ttc" id="aclassDatabase_html_a1bbc6c45cf547ef9c9b5264d94cdbca8"><div class="ttname"><a href="classDatabase.html#a1bbc6c45cf547ef9c9b5264d94cdbca8">Database::tableExists</a></div><div class="ttdeci">virtual bool tableExists(const string &amp;tableName) const =0</div><div class="ttdoc">Проверка наличия таблицы в БД. Метод отвечает за проверку наличия таблицы в базе данных.</div></div>
+<div class="ttc" id="aclassDatabase_html_a26ce7ae6e13f47231c12fb0469bfcd84"><div class="ttname"><a href="classDatabase.html#a26ce7ae6e13f47231c12fb0469bfcd84">Database::dropTable</a></div><div class="ttdeci">virtual void dropTable(const string &amp;tableName)=0</div><div class="ttdoc">Удаление таблицы Метод отвечает за удаление таблцы из базе даных.</div></div>
+<div class="ttc" id="aclassDatabase_html_a2f9485ebd74b0cc843ddca04c6abea72"><div class="ttname"><a href="classDatabase.html#a2f9485ebd74b0cc843ddca04c6abea72">Database::dropDatabase</a></div><div class="ttdeci">virtual void dropDatabase(const string &amp;db_file)=0</div><div class="ttdoc">Удаление БД. Метод отвечает за удаление базы данных.</div></div>
+<div class="ttc" id="aclassDatabase_html_a3db21949951dd9a7276d56d7c0a37435"><div class="ttname"><a href="classDatabase.html#a3db21949951dd9a7276d56d7c0a37435">Database::createTable</a></div><div class="ttdeci">virtual void createTable(const string &amp;tableName)=0</div><div class="ttdoc">Создание таблицы Метод отвечает за создание таблцы в базе даных.</div></div>
+<div class="ttc" id="aclassDatabase_html_a4730e02bbf1fc65c8788fec89d788946"><div class="ttname"><a href="classDatabase.html#a4730e02bbf1fc65c8788fec89d788946">Database::removeAllObjects</a></div><div class="ttdeci">virtual void removeAllObjects(const std::string &amp;tableName)=0</div><div class="ttdoc">Удаление всех обьектов из таблицы. Метод отвечает за удаление всех обьектов из таблицы.</div></div>
+<div class="ttc" id="aclassDatabase_html_a4e7a6dbfc8898d839237e416b47f2e58"><div class="ttname"><a href="classDatabase.html#a4e7a6dbfc8898d839237e416b47f2e58">Database::insert</a></div><div class="ttdeci">virtual void insert(const std::string &amp;tableName, const User &amp;obj)=0</div><div class="ttdoc">Вставка обьектов в таблицу. Метод отвечает вставку обьектов в таблицу базы данных.</div></div>
+<div class="ttc" id="aclassDatabase_html_a59444488cbba7d4f94eb1b4a72567cea"><div class="ttname"><a href="classDatabase.html#a59444488cbba7d4f94eb1b4a72567cea">Database::swapObjects</a></div><div class="ttdeci">virtual void swapObjects(const std::string &amp;tableName, const std::string &amp;id_obj, const std::string &amp;id_other_obj)=0</div><div class="ttdoc">Обмен запсей в таблице между собой. Метод отвечает за обмен записей в таблице.</div></div>
+<div class="ttc" id="aclassDatabase_html_a6b2d32e31756499acceaf89ccb49b882"><div class="ttname"><a href="classDatabase.html#a6b2d32e31756499acceaf89ccb49b882">Database::disconnect</a></div><div class="ttdeci">virtual void disconnect()=0</div><div class="ttdoc">Отключение от БД. Метод отвечает за корректное завершение соединения с БД.</div></div>
+<div class="ttc" id="aclassDatabase_html_a6ef4e05931e97c6c34be80fe71e021b0"><div class="ttname"><a href="classDatabase.html#a6ef4e05931e97c6c34be80fe71e021b0">Database::getObjectsOrderBy</a></div><div class="ttdeci">virtual std::vector&lt; User &gt; getObjectsOrderBy(const std::string &amp;tableName, const string &amp;field) const =0</div><div class="ttdoc">Получение сортированных по одному полю обьектов из таблицы Метод отвечает за сортировку данных по одн...</div></div>
+<div class="ttc" id="aclassDatabase_html_a7250ed7ba5d5915503e24e5a5bf22a58"><div class="ttname"><a href="classDatabase.html#a7250ed7ba5d5915503e24e5a5bf22a58">Database::update</a></div><div class="ttdeci">virtual void update(const std::string &amp;tableName, const User &amp;obj, const std::string &amp;condition)=0</div><div class="ttdoc">Изменение обьекта по условию Метод отвечает за изменение обьекта, который соответсвует определенному ...</div></div>
+<div class="ttc" id="aclassDatabase_html_a8168c0e90b95592e5ee6f68f0c2e9b47"><div class="ttname"><a href="classDatabase.html#a8168c0e90b95592e5ee6f68f0c2e9b47">Database::copyObjectsInOtherTable</a></div><div class="ttdeci">virtual void copyObjectsInOtherTable(const std::string &amp;tableNameFrom, const std::string &amp;tableNameTo, const std::string &amp;condition)=0</div><div class="ttdoc">Копирование обьектов из таблицы соответствующих условию. Метод отвечает за копирование обьектов соотв...</div></div>
+<div class="ttc" id="aclassDatabase_html_a953dd43e9a5fabfe7d3649d9154df660"><div class="ttname"><a href="classDatabase.html#a953dd43e9a5fabfe7d3649d9154df660">Database::createDatabase</a></div><div class="ttdeci">virtual void createDatabase(const string &amp;db_file)=0</div><div class="ttdoc">Создание БД. Метод отвечает за создание базы данных.</div></div>
+<div class="ttc" id="aclassDatabase_html_aa263b884aa0cafeced3e54486402cabd"><div class="ttname"><a href="classDatabase.html#aa263b884aa0cafeced3e54486402cabd">Database::rollback</a></div><div class="ttdeci">virtual void rollback()=0</div><div class="ttdoc">Отмена транзакции. Метод отменяет текущие изменения в базе данных.</div></div>
+<div class="ttc" id="aclassDatabase_html_aa61f4c192d66f51928e7b9cc3cde2b76"><div class="ttname"><a href="classDatabase.html#aa61f4c192d66f51928e7b9cc3cde2b76">Database::getAllObjects</a></div><div class="ttdeci">virtual std::vector&lt; User &gt; getAllObjects(const std::string &amp;tableName) const =0</div><div class="ttdoc">Вовзрат всех обьектов из таблицы. Метод отвечает за возврат всех обьектов из таблицы.</div></div>
+<div class="ttc" id="aclassDatabase_html_aa66411639fc8aaa0b5499e044dfb244f"><div class="ttname"><a href="classDatabase.html#aa66411639fc8aaa0b5499e044dfb244f">Database::commit</a></div><div class="ttdeci">virtual void commit()=0</div><div class="ttdoc">Коммит. Метод применяет текущие изменения в базе данных.</div></div>
+<div class="ttc" id="aclassDatabase_html_aab9858b068e5cf7d06788ec8acaaefac"><div class="ttname"><a href="classDatabase.html#aab9858b068e5cf7d06788ec8acaaefac">Database::removeObject</a></div><div class="ttdeci">virtual void removeObject(const std::string &amp;tableName, const std::string &amp;condition)=0</div><div class="ttdoc">Удаление обьектов по условию Метод отвечает за удаление обьектов соответствующих определенному услови...</div></div>
+<div class="ttc" id="aclassDatabase_html_ab16f25da6d2d480c9790f9221e3a2be5"><div class="ttname"><a href="classDatabase.html#ab16f25da6d2d480c9790f9221e3a2be5">Database::select</a></div><div class="ttdeci">virtual std::vector&lt; User &gt; select(const std::string &amp;query)=0</div><div class="ttdoc">Выбор элементов из таблицы по запросу. Метод отвечает возврат элементов из таблицы в соответствии с о...</div></div>
+<div class="ttc" id="aclassDatabase_html_ab353adbb2908716ad548be94ccda8d65"><div class="ttname"><a href="classDatabase.html#ab353adbb2908716ad548be94ccda8d65">Database::connect</a></div><div class="ttdeci">virtual void connect(const string &amp;name, const string &amp;password)=0</div><div class="ttdoc">Установление соединения с БД. Метод отвечает за покдлючение к БД.</div></div>
+<div class="ttc" id="aclassDatabase_html_abea0ddfaf34bddf45a984e3fa19cad42"><div class="ttname"><a href="classDatabase.html#abea0ddfaf34bddf45a984e3fa19cad42">Database::copyAllObjectsInOtherTable</a></div><div class="ttdeci">virtual void copyAllObjectsInOtherTable(const std::string &amp;tableNameFrom, const std::string &amp;tableNameTo)=0</div><div class="ttdoc">Копирование всех обьектоов из таблицы. Метод отвечает за копирование всех обьектов из одной базы данн...</div></div>
+<div class="ttc" id="aclassDatabase_html_ac4ebdf2d21bd0b4110966f3bf463f49d"><div class="ttname"><a href="classDatabase.html#ac4ebdf2d21bd0b4110966f3bf463f49d">Database::useDatabase</a></div><div class="ttdeci">virtual void useDatabase(const string &amp;db_file)=0</div><div class="ttdoc">Выбор БД. Метод отвечает за выбор базы данных.</div></div>
+<div class="ttc" id="aclassDatabase_html_ac5f3098c79d55b47a0cce44bcf5e349e"><div class="ttname"><a href="classDatabase.html#ac5f3098c79d55b47a0cce44bcf5e349e">Database::isConnected</a></div><div class="ttdeci">virtual bool isConnected() const =0</div><div class="ttdoc">Состояние соединения. Метод отвечает за возврат состояния текущего соединения.</div></div>
+<div class="ttc" id="aclassDatabase_html_ac758aa01b72b21ea3ebafd0ca26189eb"><div class="ttname"><a href="classDatabase.html#ac758aa01b72b21ea3ebafd0ca26189eb">Database::renameTable</a></div><div class="ttdeci">virtual void renameTable(const string &amp;tableName, const string &amp;newName)=0</div><div class="ttdoc">Переименование таблицы Метод отвечает за переименование таблцы из базе даных.</div></div>
+<div class="ttc" id="aclassDatabase_html_acb6aa856dcc300069c47ee0027134ed5"><div class="ttname"><a href="classDatabase.html#acb6aa856dcc300069c47ee0027134ed5">Database::getObjectsCount</a></div><div class="ttdeci">virtual int getObjectsCount(const std::string &amp;tableName) const =0</div><div class="ttdoc">Получение количества обьектов в таблице. Метод отвечает за возврат количеств обьектов в таблице.</div></div>
+<div class="ttc" id="aclassDatabase_html_ad53fb6cb66ac000d8bd890eefd2a7eb0"><div class="ttname"><a href="classDatabase.html#ad53fb6cb66ac000d8bd890eefd2a7eb0">Database::getObjects</a></div><div class="ttdeci">virtual std::vector&lt; User &gt; getObjects(const std::string &amp;tableName, const string &amp;condition) const =0</div><div class="ttdoc">Вовзрат обьектов из таблицы в соответствии с определенным условием. Метод отвечает за возврат обьекто...</div></div>
+<div class="ttc" id="aclassDatabase_html_ae3c921b64b41d49fae60c4ee439e0b92"><div class="ttname"><a href="classDatabase.html#ae3c921b64b41d49fae60c4ee439e0b92">Database::openDatabase</a></div><div class="ttdeci">virtual void openDatabase(const string &amp;db_file)=0</div><div class="ttdoc">Открытие БД. Метод отвечает за открытие выбранной базы данных.</div></div>
+<div class="ttc" id="aclassDatabase_html_af3403843abe22e1dc2c9fa5ec0d9e475"><div class="ttname"><a href="classDatabase.html#af3403843abe22e1dc2c9fa5ec0d9e475">Database::getTables</a></div><div class="ttdeci">virtual vector&lt; std::string &gt; getTables() const =0</div><div class="ttdoc">Получаение вектора имен таблиц. Метод возвращает вектор с названиями таблиц из текущей базы данных.</div></div>
+<div class="ttc" id="aclassDatabase_html_aff3b501fd49267d686a5385a5310dd52"><div class="ttname"><a href="classDatabase.html#aff3b501fd49267d686a5385a5310dd52">Database::beginTransaction</a></div><div class="ttdeci">virtual void beginTransaction()=0</div><div class="ttdoc">Начало транзакции. Метод устанавливает начало транзакции.</div></div>
+<div class="ttc" id="aclassMySQLDatabase_html"><div class="ttname"><a href="classMySQLDatabase.html">MySQLDatabase</a></div><div class="ttdoc">class MySQLDatabase Представляет реализацию интерфейса Database для реализации ORM подхода при взаимо...</div><div class="ttdef"><b>Definition</b> MySQLDatabase.h:21</div></div>
+<div class="ttc" id="astructUser_html"><div class="ttname"><a href="structUser.html">User</a></div><div class="ttdoc">Структура User.</div><div class="ttdef"><b>Definition</b> Database.h:26</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Реализация ORM клиента с поддержкой баз данных SQLite и MySQL: Файл src/MySQLDatabase.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Реализация ORM клиента с поддержкой баз данных SQLite и MySQL<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+   <div id="projectbrief">Упрощаем взаимодействие между объектно-ориентированным программным кодом и реляционными базами данных.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">Файл MySQLDatabase.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="MySQLDatabase_8h_source.html">../include/MySQLDatabase.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Граф включаемых заголовочных файлов для MySQLDatabase.cpp:</div>
+<div class="dyncontent">
+<div class="center"><img src="MySQLDatabase_8cpp__incl.png" border="0" usemap="#asrc_2MySQLDatabase_8cpp" alt=""/></div>
+<map name="asrc_2MySQLDatabase_8cpp" id="asrc_2MySQLDatabase_8cpp">
+<area shape="rect" title=" " alt="" coords="339,5,517,31"/>
+<area shape="rect" href="MySQLDatabase_8h.html" title=" " alt="" coords="326,79,530,104"/>
+<area shape="poly" title=" " alt="" coords="431,31,431,65,425,65,425,31"/>
+<area shape="rect" title=" " alt="" coords="5,225,85,251"/>
+<area shape="poly" title=" " alt="" coords="326,96,239,100,150,110,73,127,45,139,26,154,20,167,20,181,32,212,27,214,15,182,15,166,22,150,42,135,71,122,149,104,239,95,326,90"/>
+<area shape="rect" title=" " alt="" coords="36,152,113,177"/>
+<area shape="poly" title=" " alt="" coords="368,107,127,154,126,149,367,101"/>
+<area shape="rect" href="Database_8h.html" title=" " alt="" coords="137,152,233,177"/>
+<area shape="poly" title=" " alt="" coords="390,107,238,151,237,146,388,101"/>
+<area shape="rect" title=" " alt="" coords="258,152,345,177"/>
+<area shape="poly" title=" " alt="" coords="409,106,335,147,333,143,406,102"/>
+<area shape="rect" title=" " alt="" coords="369,152,487,177"/>
+<area shape="poly" title=" " alt="" coords="431,104,431,138,425,138,425,104"/>
+<area shape="rect" title=" " alt="" coords="512,152,664,177"/>
+<area shape="poly" title=" " alt="" coords="455,102,550,144,548,149,453,106"/>
+<area shape="rect" title=" " alt="" coords="688,152,912,177"/>
+<area shape="poly" title=" " alt="" coords="488,101,727,147,726,152,487,107"/>
+<area shape="rect" title=" " alt="" coords="936,152,1085,177"/>
+<area shape="poly" title=" " alt="" coords="526,101,923,149,922,155,525,107"/>
+<area shape="rect" title=" " alt="" coords="1110,152,1266,177"/>
+<area shape="poly" title=" " alt="" coords="530,98,783,119,1096,149,1096,155,783,124,530,103"/>
+<area shape="poly" title=" " alt="" coords="164,180,81,221,79,217,162,175"/>
+<area shape="rect" title=" " alt="" coords="113,225,172,251"/>
+<area shape="poly" title=" " alt="" coords="181,179,159,215,154,212,176,176"/>
+<area shape="rect" title=" " alt="" coords="197,225,259,251"/>
+<area shape="poly" title=" " alt="" coords="195,176,216,212,212,215,190,179"/>
+</map>
+</div>
+</div></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>
