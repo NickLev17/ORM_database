@@ -1,0 +1,67 @@
+name: 'C++ CI'
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libgtest-dev doxygen graphviz libmysqlcppconn-dev cmake build-essential
+
+      - name: Build Google Test libraries
+        run: |
+          cd /usr/src/googletest/googletest
+          sudo mkdir build && cd build
+          sudo cmake ..
+          sudo make
+          sudo cp lib/libgtest* /usr/lib/
+
+      - name: Configure project with CMake (in build folder)
+        run: |
+          mkdir -p build
+          cd build
+          cmake .. -DPATCH_VERSION=${{ github.run_number }} -DWITH_BOOST_TEST=ON
+
+      - name: Build project (build all targets)
+        run: cmake --build build
+
+      - name: Run SQLite-only Google Tests
+        run: ctest -R sqlite --output-on-failure --test-dir build
+
+      - name: Find generated .deb files
+        run: find build -name '*.deb' -ls
+
+      - name: Build package
+        run: cmake --build build --target package
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.run_number }}
+          release_name: Release ${{ github.run_number }}
+          draft: false
+          prerelease: false
+
+      - name: Upload Release Asset
+        id: upload_release_asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: build/orm_database-0.0.${{ github.run_number }}-Linux.deb
+          asset_name: orm_database-0.0.${{ github.run_number }}-Linux.deb
+          asset_content_type: application/vnd.debian.binary-package
