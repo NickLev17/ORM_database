@@ -1,3 +1,4 @@
+// #include "SQLiteDatabase.h"
 #include "../include/SQLiteDatabase.h"
 SQLiteDatabase::SQLiteDatabase()
 {
@@ -168,7 +169,7 @@ void SQLiteDatabase::insert(const std::string &tableName, const User &obj)
     bool result = execute(sql);
     if (result)
     {
-        cout << "Data wos inserted successfully\n";
+        cout << "id: " << id << " " << name << " " << age << "\n";
     }
     else
     {
