@@ -95,6 +95,7 @@ void MySQLDatabase::createDatabase(const string &db_file)
     std::unique_ptr<sql::Statement> stmt(conn->createStatement());
     stmt->execute("CREATE DATABASE IF NOT EXISTS " + db_file);
     conn->setSchema(db_file);
+    cout << "Created database " << db_file << " successfully\n";
 }
 void MySQLDatabase::dropDatabase(const string &db_file)
 {
@@ -104,6 +105,7 @@ void MySQLDatabase::dropDatabase(const string &db_file)
     {
 
         stmt.get()->execute("DROP DATABASE IF EXISTS `" + db_file + "`");
+        cout << "Dropped database " << db_file << " successfully\n";
     }
     else
     {
@@ -130,6 +132,7 @@ void MySQLDatabase::createTable(const string &tableName)
                                                                    "name VARCHAR(255) NOT NULL,"
                                                                    "age INT NOT NULL);";
     stmt.get()->execute(sql);
+    cout << "Created table " << tableName << " successfully\n";
 }
 
 void MySQLDatabase::renameTable(const string &tableName, const string &newName)
@@ -157,7 +160,7 @@ void MySQLDatabase::insert(const std::string &tableName, const User &obj)
     bool res = execute(sql);
     if (res)
     {
-        cout << "Data wos inserted successfully\n";
+        cout << "id: " << id << " " << name << " " << age << "\n";
     }
     else
     {
@@ -391,12 +394,12 @@ void MySQLDatabase::copyAllObjectsInOtherTable(const std::string &tableNameFrom,
 
     if (tableExists(tableNameFrom) && tableExists(tableNameTo))
     {
-
         string sql = "INSERT INTO `" + tableNameTo + "` SELECT * FROM `" + tableNameFrom + "`;";
 
         bool result = execute(sql);
         if (result)
         {
+
             cout << "Copying successfull\n";
             commit();
         }
